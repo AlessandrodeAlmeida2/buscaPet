@@ -1,7 +1,9 @@
 <template>
   <div>
     <input type="file" @change="selectFile" />
-    <button @click="uploadFile">Enviar</button>
+    <button @click="uploadFile(file, PI_Bucket)">Enviar</button><br>
+    <img v-if="publicUrl" :src="publicUrl" alt="Uploaded file" />
+    {{ publicUrl }}
   </div>
 </template>
 
@@ -9,26 +11,39 @@
 import { ref } from 'vue'
 import { supabase } from '../supabase'
 
-let file = ref(null)
+let file = ref([])
+let publicUrl = ref('')
 
 const selectFile = (event) => {
   file.value = event.target.files[0]
 }
 
-const uploadFile = async () => {
-  if (file.value) {
-    const filePath = `${file.value.name}`
-    let { error: uploadError } = await supabase.storage.from('PI_Bucket').upload(filePath, file.value)
-    console.log(filePath)
+const PI_Bucket = 'PI_Bucket';
 
-    if (uploadError) {
-      console.error("Error uploading file:", uploadError)
-    } else {
-      console.log("File uploaded successfully")
-    }
-  } else {
-    console.log("No file selected")
+const uploadFile = async (file, storage) => {
+    const fileName = file.name
+    const { error } = supabase
+      .storage
+      .from(PI_Bucket)
+      .upload(fileName, file, {
+        cacheControl: '3600',
+        upsert: false
+      })
+    console.log(file.name)
+    const publicUrl = await getUrlPublic(fileName, storage)
+    if (error) throw error
+    return publicUrl
   }
+
+  const getUrlPublic = async () => {
+    const { data, error } = await supabase
+      .storage
+      .from(PI_Bucket)
+      .getPublicUrl(file.value.name)
+      console.log(file.value.name)
+    if (error) throw error
+    publicUrl.value = data.publicUrl
 }
+  
 </script>
   

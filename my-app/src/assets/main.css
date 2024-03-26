@@ -7,12 +7,20 @@
   font-weight: normal;
 }
 
+nav {
+  display: flex;
+}
+
 a,
 .green {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
   padding: 3px;
+}
+
+img {
+  width: 150px;
 }
 
 @media (hover: hover) {
@@ -25,6 +33,8 @@ a,
   body {
     display: flex;
     place-items: center;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   #app {
