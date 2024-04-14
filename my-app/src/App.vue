@@ -7,6 +7,9 @@
     <div class="wrapper">
       <nav>
         <div>
+          <img src="@/assets/img/OIG2.png" alt="Logo">
+        </div>
+        <div>
           <RouterLink to="home">Home</RouterLink>
           <RouterLink to="login">Login</RouterLink>
           <RouterLink to="read">Visualizar</RouterLink>
@@ -14,10 +17,12 @@
         </div>
       </nav>
     </div>
+  </header>
+  <main>
     <div class="content">
       <RouterView/>
     </div>
-</header>
+  </main>
 </template>
 
 <style>

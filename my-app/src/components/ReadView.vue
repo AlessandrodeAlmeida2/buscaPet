@@ -41,4 +41,11 @@
       getItems()
     })
   </script>
+
+<style>
+ul {
+  display: flex;
+  margin-top: 30px;
+}
+</style>
   

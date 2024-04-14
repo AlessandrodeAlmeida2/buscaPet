@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type ReadView from '@/components/ReadView.vue';
+import ReadView from '@/components/ReadView.vue';
 
 </script>
 
 <template>
-  <div>
-    <img src="@/assets/img/OIG2.png" alt="">
-  </div>
+  <main>
+    <ReadView />
+  </main>
 </template>
 
 <style>

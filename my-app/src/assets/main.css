@@ -29,18 +29,12 @@ img {
 }
 
 @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-  }
 
   #app {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
   }
 
-  nav {
-    margin-left: 500px;
-  }
 }
