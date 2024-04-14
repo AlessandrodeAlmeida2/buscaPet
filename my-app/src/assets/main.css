@@ -1,14 +1,13 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   font-weight: normal;
 }
 
-nav {
+header {
   display: flex;
+  flex-direction: row-reverse;
 }
 
 a,
@@ -38,8 +37,10 @@ img {
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    display: flex;
+  }
+
+  nav {
+    margin-left: 500px;
   }
 }

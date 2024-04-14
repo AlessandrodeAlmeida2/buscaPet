@@ -6,10 +6,12 @@
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="home">Home</RouterLink>
-        <RouterLink to="login">Login</RouterLink>
-        <RouterLink to="read">Visualizar</RouterLink>
-        <RouterLink to="create">Postar</RouterLink>
+        <div>
+          <RouterLink to="home">Home</RouterLink>
+          <RouterLink to="login">Login</RouterLink>
+          <RouterLink to="read">Visualizar</RouterLink>
+          <RouterLink to="create">Postar</RouterLink>
+        </div>
       </nav>
     </div>
     <div class="content">
