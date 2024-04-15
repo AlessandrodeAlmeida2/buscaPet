@@ -1,25 +1,28 @@
 <template>
-    <h1> Form </h1>
-    <div class="inputContainer">
-        <label for="email">Email</label>
-        <input type="email" id="email" v-model="email">
-    </div>
+    
+    <div class="container">
+        <h1> Form </h1>
+        <div class="inputContainer">
+            <label for="email">Email</label>
+            <input type="email" id="email" v-model="email">
+        </div>
 
-    <div class="inputContainer">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="password">
-    </div>
+        <div class="inputContainer">
+            <label for="password">Password</label>
+            <input type="password" id="password" v-model="password">
+        </div>
 
-    <div class="inputContainer">
-        <label for="name">Username</label>
-        <input type="name" id="name" v-model="name">
-    </div>
+        <div class="inputContainer">
+            <label for="name">Username</label>
+            <input type="name" id="name" v-model="name">
+        </div>
 
-    <div class="buttonContainer">
-        <button @click="createAccount">Create</button>
-        <button @click="signIn">Login</button>
-        <button @click="seeCurrentUser">See user</button>
-        <button @click="signOut">Logout</button>
+        <div class="buttonContainer">
+            <button @click="createAccount">Create</button>
+            <button @click="signIn">Login</button>
+            <button @click="seeCurrentUser">See user</button>
+            <button @click="signOut">Logout</button>
+        </div>
     </div>
 </template>
 
@@ -81,3 +84,11 @@ async function signOut() {
 }
 
 </script>
+
+<style>
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+</style>

@@ -42,6 +42,9 @@
 </script>
 
 <style>
+.content {
+  margin-top: 50px;
+}
 .hamburger, .close {
   display: none;
   cursor: pointer;

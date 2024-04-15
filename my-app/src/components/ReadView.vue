@@ -1,8 +1,9 @@
 <template>
     <ul>
       <li v-for="item in items" :key="item.id">
-        {{ item.name }}: {{ item.description }}
         <img :src="item.photo_url" alt="Country Image" />
+        {{ item.name }}: {{ item.description }}
+        
         <button @click="deleteItem(item.id)">Delete</button>
         <button @click="updateItem(item.id)">Update</button>
       </li>
@@ -48,10 +49,22 @@ ul {
   margin-top: 30px;
 }
 
+li {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
 @media (max-width: 768px) {
   ul {
     display: flex;
     flex-direction: column;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <input type="file" @change="selectFile" v-if="!uploaded"/>
     <button @click="uploadFile(file, PI_Bucket)" v-if="!uploaded">Enviar</button><br>
     <img v-if="publicUrl" :src="publicUrl" alt="Uploaded file" />
@@ -75,3 +75,11 @@ onMounted(() => {
   
 })
 </script>
+
+<style>
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+</style>
