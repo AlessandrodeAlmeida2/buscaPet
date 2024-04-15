@@ -27,10 +27,20 @@
     }
   
     async function deleteItem(id) {
-      await supabase.from('tabela1').delete().eq('id', id)
-      getItems() // Atualiza a lista após deletar o item
+      const item = items.value.find(item => item.id === id);
+      if (item) {
+        // Extrai o nome do arquivo da URL
+        const path = item.photo_url.split('/').pop();
+
+        // Remove a imagem do bucket do Supabase
+        await supabase.storage.from('PI_Bucket').remove([path]);
+
+        // Deleta o item da tabela
+        await supabase.from('tabela1').delete().eq('id', id);
+        getItems(); // Atualiza a lista após deletar o item
+      }
     }
-  
+
     function updateItem(id) {
       itemId.value = id
       router.push({ name: 'update', params: { itemId: itemId.value } }) // Passa itemId como um parâmetro de rota

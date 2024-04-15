@@ -24,7 +24,7 @@
     if (error) {
       console.log(error)
     } else {
-      console.log(data)
+      route.push('/read');
     }
   }
 </script>
@@ -40,4 +40,3 @@
     <button @click="updateItem">Atualizar</button>
   </div>
 </template>
-
