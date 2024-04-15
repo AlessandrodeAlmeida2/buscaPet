@@ -83,6 +83,11 @@
   .close {
     font-size: 20px;
     display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: black;
+    font-weight: 600;
   }
 }
 </style>
