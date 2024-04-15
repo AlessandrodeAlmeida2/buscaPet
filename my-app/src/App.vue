@@ -6,10 +6,10 @@
           <img src="@/assets/img/OIG2.png" alt="Logo">
         </div>
         <div v-if="showNav" class="nav-links">
-          <RouterLink to="home">Home</RouterLink>
-          <RouterLink to="login">Login</RouterLink>
-          <RouterLink to="read">Visualizar</RouterLink>
-          <RouterLink to="create">Postar</RouterLink>
+          <RouterLink to="/home">Home</RouterLink>
+          <RouterLink to="/login">Login</RouterLink>
+          <RouterLink to="/read">Visualizar</RouterLink>
+          <RouterLink to="/create">Postar</RouterLink>
           <!-- Botão de fechar -->
           <div class="close" @click="showNav = !showNav">X</div>
         </div>
