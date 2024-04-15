@@ -10,6 +10,8 @@
           <RouterLink to="login">Login</RouterLink>
           <RouterLink to="read">Visualizar</RouterLink>
           <RouterLink to="create">Postar</RouterLink>
+          <!-- Botão de fechar -->
+          <div class="close" @click="showNav = !showNav">X</div>
         </div>
         <div class="hamburger" @click="showNav = !showNav">
           <span></span>
@@ -40,7 +42,7 @@
 </script>
 
 <style>
-.hamburger {
+.hamburger, .close {
   display: none;
   cursor: pointer;
 }
@@ -56,7 +58,6 @@
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    right: 0;
     height: 92vh;
     top: 8vh;
     background-color: #fff;
@@ -73,6 +74,11 @@
   }
 
   .hamburger {
+    display: block;
+  }
+
+  .close {
+    font-size: 20px;
     display: block;
   }
 }
