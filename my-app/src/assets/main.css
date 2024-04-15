@@ -1,13 +1,14 @@
 @import './base.css';
 
 #app {
-  margin: 0 auto;
-  font-weight: normal;
+  margin: 0 auto; 
 }
 
-header {
+nav {
   display: flex;
-  flex-direction: row-reverse;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 10px 30px;
 }
 
 a,
@@ -35,6 +36,11 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
+  }
+
+  nav {
+    display: flex;
+    align-items: baseline;
   }
 
 }

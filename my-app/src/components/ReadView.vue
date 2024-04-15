@@ -47,5 +47,12 @@ ul {
   display: flex;
   margin-top: 30px;
 }
+
+@media (max-width: 768px) {
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>
   

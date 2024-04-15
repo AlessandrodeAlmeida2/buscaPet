@@ -4,9 +4,9 @@ import ReadView from '@/components/ReadView.vue';
 </script>
 
 <template>
-  <main>
+  <div>
     <ReadView />
-  </main>
+  </div>
 </template>
 
 <style>
