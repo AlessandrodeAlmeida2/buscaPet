@@ -5,7 +5,7 @@
 <template>
   <h1 class="tittle">Encontre seu pet perdido</h1>
   <h2 >Utilize ferramentas de busca de pets. Crie seu anúncio gratuito agora mesmo para ter acesso ao<i> Painel de Busca</i>.</h2>
-  <div class="container">
+  <div class="container-home">
     <div class="botao">
       <RouterLink to="/create">
         <div id="search">
@@ -31,7 +31,7 @@
 </template>
 
 <style>
-div.container {
+div.container-home {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -55,7 +55,7 @@ div.botao {
   flex-direction: column;
 }
 
-div.container img.dog {
+div.container-home img.dog {
   width: 400px;
   margin-right: 250px;
   border-radius: 70px;
@@ -108,14 +108,14 @@ div.flex p {
 }
 
 @media (max-width: 768px) {
-  div.container {
+  div.container-home {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   align-items: center;
   }
 
-  div.container img.dog {
+  div.container-home img.dog {
   width: 80%;
   margin: 0 auto;
 }

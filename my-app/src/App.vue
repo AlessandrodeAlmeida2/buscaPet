@@ -1,10 +1,10 @@
 <template>
   <header>
     <div class="wrapper">
-      <nav>
-        <div>
-          <img src="@/assets/img/OIG2.png" alt="Logo">
-        </div>
+      <div class="logo" v-if="route.name === 'home'">
+        <img src="@/assets/img/OIG2.png" alt="Logo">
+      </div>
+      <nav>        
         <div v-if="showNav" class="nav-links">
           <RouterLink to="/home">Home</RouterLink>
           <RouterLink to="/login">Login</RouterLink>
@@ -29,10 +29,15 @@
 </template>
 
 <script setup>
-  import { RouterLink, RouterView } from 'vue-router';
-  import { ref, onMounted } from 'vue';
+  import { RouterLink, RouterView, useRoute } from 'vue-router';
+  import { ref, onMounted, watch } from 'vue';
 
   const showNav = ref(window.innerWidth > 768);
+  let route = useRoute();
+
+  watch(route, (newRoute) => {
+    route = newRoute;
+  });
 
   onMounted(() => {
     window.addEventListener('resize', () => {
@@ -42,6 +47,19 @@
 </script>
 
 <style>
+div.logo {
+  margin: 20px 50px;
+}
+
+div.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  margin: 20px 50px;
+}
+
 .content {
   margin-top: 50px;
 }
@@ -59,6 +77,15 @@
 }
 
 @media (max-width: 768px) {
+  div.logo {
+    margin: 20px 50px;
+  }
+
+  div.wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .nav-links {
     position: absolute;
     height: 92vh;
@@ -68,7 +95,7 @@
     flex-direction: column;
     align-items: center;
     width: 50%;
-    transform: translateX(100%);
+    transform: translateX(-50%);
     transition: transform 0.3s ease-in-out;
   }
 

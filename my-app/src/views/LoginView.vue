@@ -1,6 +1,6 @@
 <template>
     
-    <div class="container">
+    <div class="container-login">
         <h1> Form </h1>
         <div class="inputContainer">
             <label for="email">Email</label>
@@ -86,7 +86,7 @@ async function signOut() {
 </script>
 
 <style>
-.container {
+div.container-login {
     display: flex;
     align-items: center;
     flex-direction: column;

@@ -32,7 +32,7 @@
     const items = ref([])
     const itemId = ref(null)
     const router = useRouter()
-    const categoria = ref('')
+    const categoria = ref('todas')
   
     provide('itemId', itemId)
   
@@ -68,7 +68,6 @@
     function updateItem(id) {
       itemId.value = id
       router.push({ name: 'update', params: { itemId: itemId.value } }) // Passa itemId como um parâmetro de rota
-      console.log(itemId.value)
     }
 
   
@@ -80,25 +79,32 @@
 <style>
 ul {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 30px;
 }
 
 li {
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  margin: 10px;
+  width: 200px;
+  border: 2px solid hsla(160, 100%, 37%, 1);
+}
+
+li img {
+  width: 196px;
 }
 
 @media (max-width: 768px) {
   ul {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 80%;
   }
 }
 </style>
