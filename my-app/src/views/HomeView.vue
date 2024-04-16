@@ -7,7 +7,7 @@
   <h2 >Utilize ferramentas de busca de pets. Crie seu anúncio gratuito agora mesmo para ter acesso ao<i> Painel de Busca</i>.</h2>
   <div class="container">
     <div class="botao">
-      <RouterLink to="/buscar-pet">
+      <RouterLink to="/create">
         <div id="search">
             <img alt="lupa" src="../assets/img/lupa_branca.png" style="color: transparent;">
           <div class="flex">
@@ -16,7 +16,7 @@
           </div>
         </div>
       </RouterLink>
-      <RouterLink to="/buscar-tutor">
+      <RouterLink to="/create">
         <div id="find">
             <img alt="lupa" src="../assets/img/lupa_verde.png" style="color: transparent;">
           <div class="flex">
@@ -26,7 +26,7 @@
         </div>
       </RouterLink>
     </div>
-  <img class="dog" alt="" src="../assets/img/dog.png">
+  <img class="dog" alt="" src="../assets/img/dog.jpg">
   </div> 
 </template>
 
@@ -58,6 +58,9 @@ div.botao {
 div.container img.dog {
   width: 400px;
   margin-right: 250px;
+  border-radius: 70px;
+  border: solid 5px hsla(160, 100%, 37%, 1);
+  margin-bottom: 10px;
 }
 
 #find img, #search img {

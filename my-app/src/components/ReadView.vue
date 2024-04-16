@@ -1,8 +1,22 @@
 <template>
+    <div>
+      <label for="">Categoria: </label>
+      <select v-model="categoria">
+          <option value="todas">Todas</option>
+          <option value="perdido">Animais Perdidos</option>
+          <option value="encontrato">Animais Procurando o tutor</option>
+      </select><br>
+    </div>
     <ul>
       <li v-for="item in items" :key="item.id">
         <img :src="item.photo_url" alt="Country Image" />
-        {{ item.name }}: {{ item.description }}
+        Situação: {{ item.situation }}<br>
+        Nome: {{ item.name }}<br>
+        Gênero: {{ item.genero }}<br>
+        Espécie: {{ item.specie }}<br>
+        Descrição:<br>
+        {{ item.description }}<br>
+        Recompensa: {{ item.recompensa }}
         
         <button @click="deleteItem(item.id)">Delete</button>
         <button @click="updateItem(item.id)">Update</button>
@@ -11,20 +25,30 @@
   </template>
   
   <script setup>
-    import { ref, onMounted, provide } from 'vue'
+    import { ref, onMounted, provide, watch } from 'vue'
     import { supabase } from '../supabase'
     import { useRouter } from 'vue-router'
 
     const items = ref([])
     const itemId = ref(null)
     const router = useRouter()
+    const categoria = ref('')
   
     provide('itemId', itemId)
   
     async function getItems() {
-      const { data } = await supabase.from('tabela1').select()
-      items.value = data
+  let query = supabase.from('tabela1').select();
+  
+      if (categoria.value !== 'todas') {
+        query = query.eq('situation', categoria.value);
+      }
+      
+      const { data } = await query;
+      items.value = data;
     }
+
+
+    watch(categoria, getItems);
   
     async function deleteItem(id) {
       const item = items.value.find(item => item.id === id);
