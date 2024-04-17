@@ -9,6 +9,7 @@ import ReadView from '@/components/ReadView.vue';
 import CreateView from '@/views/CreateView.vue';
 import UpdateView from '@/components/UpdateView.vue';
 import UploadFoto from '@/components/UploadFoto.vue';
+import DescriptionView from '@/components/DescriptionView.vue';
 
 let localUser;
 
@@ -54,6 +55,11 @@ const router = createRouter({
       path: '/upload',
       name: 'upload',
       component: UploadFoto
+    },
+    {
+      path: '/description/:getId',
+      name: 'description',
+      component: DescriptionView
     },
   ]
 })

@@ -9,15 +9,11 @@
     </div>
     <ul>
       <li v-for="item in items" :key="item.id">
-        <img :src="item.photo_url" alt="Country Image" />
-        Situação: {{ item.situation }}<br>
-        Nome: {{ item.name }}<br>
-        Gênero: {{ item.genero }}<br>
-        Espécie: {{ item.specie }}<br>
-        Descrição:<br>
-        {{ item.description }}<br>
-        Recompensa: {{ item.recompensa }}
-        
+          <a @click="getItem(item.id)">
+            <img :src="item.photo_url" alt="Country Image" />
+            Situação: {{ item.situation }}<br>
+          </a>
+
         <button @click="deleteItem(item.id)">Delete</button>
         <button @click="updateItem(item.id)">Update</button>
       </li>
@@ -31,13 +27,15 @@
 
     const items = ref([])
     const itemId = ref(null)
+    const getId = ref(null)
     const router = useRouter()
     const categoria = ref('todas')
   
     provide('itemId', itemId)
+    provide('getId ', getId)
   
     async function getItems() {
-  let query = supabase.from('tabela1').select();
+    let query = supabase.from('tabela1').select();
   
       if (categoria.value !== 'todas') {
         query = query.eq('situation', categoria.value);
@@ -70,7 +68,12 @@
       router.push({ name: 'update', params: { itemId: itemId.value } }) // Passa itemId como um parâmetro de rota
     }
 
-  
+    function getItem(id) {
+      getId.value = id // Defina getId.value em vez de itemId.value
+      router.push({ name: 'description', params: { getId: getId.value } }) // Agora getId.value contém o valor correto
+    }
+
+
     onMounted(() => {
       getItems()
     })

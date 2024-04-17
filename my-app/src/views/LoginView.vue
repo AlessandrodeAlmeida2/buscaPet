@@ -17,6 +17,12 @@
             <input type="name" id="name" v-model="name">
         </div>
 
+        <div class="inputContainer">
+            <label for="cel">Celular</label>
+            <input type="tel" id="cel" v-model="cel">
+        </div>
+
+
         <div class="buttonContainer">
             <button @click="createAccount">Create</button>
             <button @click="signIn">Login</button>
@@ -34,25 +40,35 @@ import { supabase } from '../supabase'
 let email = ref('');
 let password = ref ('');
 let name = ref('');
+let cel = ref('');
 
 //create account
 async function createAccount() {
-    const { data, error } = await supabase.auth.signUp({
+    const { user, error } = await supabase.auth.signUp({
         email: email.value,
         password: password.value,
-        options: {
-            data: {
-                first_name: name.value
-            }
-        }
     })
+    if (error) {
+        console.log(error)
+    } else {
+        console.log(user)
+    }
+}
+
+supabase.auth.onAuthStateChange(async (event, session) => {
+  if (event === 'SIGNED_IN') {
+    const { data, error } = await supabase
+      .from('usuario')
+      .insert([
+          { id: session.user.id, name: name.value, email: email.value, cel: cel.value },
+      ])
     if (error) {
         console.log(error)
     } else {
         console.log(data)
     }
-}
-
+  }
+})
 //login
 async function signIn() {
     const { data, error } = await supabase.auth.signInWithPassword({
