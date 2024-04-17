@@ -102,7 +102,7 @@ async function create() {
   let reward = recompensa.value === "" ? null : recompensa.value;
   const { error } = await supabase.from('tabela1').insert({ name: name.value, description: description.value, photo_url: publicUrl.value, genero: genero.value, recompensa: reward, situation: situation.value, specie: specie.value })
   if (!error) {
-    router.push('/read');
+    router.push('/contato');
   }
 }
 
