@@ -1,18 +1,29 @@
 <script setup>
   import { ref, onMounted } from 'vue'
   import { supabase } from '../supabase'
-  import { useRouter, useRoute } from 'vue-router';
+  import { useRoute } from 'vue-router';
 
-  const router = useRouter()
   const route = useRoute() // use useRoute to access the current route
   const getId = route.params.getId // use getId instead of itemId
 
   const item = ref(null)
+  const userPhone = ref('');
+
+  async function seePhoneUser() {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) {
+      userPhone.value = session.user.phone;
+    } else {
+        console.log('No active session');
+    }
+  }
+
 
   onMounted(async () => {
     const { data } = await supabase.from('tabela1').select().eq('id', getId)
     item.value = data[0]
     console.log(getId)
+    await seePhoneUser()
   })
 </script>
 
@@ -26,7 +37,8 @@
             Espécie: {{ item.specie }}<br>
             Descrição:<br>
             {{ item.description }}<br>
-            Recompensa: {{ item.recompensa }}
+            Recompensa: {{ item.recompensa }}<br>
+            Usuário: {{ userPhone }}
         </div>
     </div>
     <div v-else>
