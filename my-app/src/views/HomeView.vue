@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <h1 class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
-  <h3 class="subtittle">Utilize ferramentas de busca de pets. Crie seu anúncio gratuito agora mesmo para ter acesso ao<i> Painel de Busca</i>.</h3>
+  
   <div class="container-home">
     <div class="botao">
+      <h3 class="subtittle">Utilize ferramentas de busca de pets. Crie seu anúncio gratuito agora mesmo para ter acesso ao<i> Painel de Busca</i>.</h3>
       <RouterLink to="/create">
         <div id="search">
             <img alt="lupa" src="../assets/img/lupa_branca.png" style="color: transparent;">
@@ -28,6 +28,7 @@
     </div>
   <img class="dog" alt="" src="../assets/img/dog2.png">
   </div> 
+  
 </template>
 
 <style>
@@ -39,13 +40,7 @@ div.container-home {
 }
 
 h1.tittle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   color: hsla(160, 100%, 37%, 1);
-}
-
-.alfa-slab-one-regular {
   font-size: 60px;
   font-family: "Alfa Slab One", serif;
   font-weight: 600;
@@ -53,18 +48,18 @@ h1.tittle {
 }
 
 .subtittle {
-  margin: 20px 900px 0px 80px;
+  margin: auto;
 }
 
 div.botao {
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
+  margin: 10px 90px;
 }
 
 div.container-home img.dog {
-  width: 500px;
-  margin-bottom: 10px;
+  width: 50%;
+  margin: 0 30px 15px 30px;
 }
 
 #find img, #search img {
@@ -89,6 +84,7 @@ div#search {
   padding: 5px;
   border-radius: 10px;
   color: #fff;
+  margin-right: 50%;
 }
 
 div#find {
@@ -100,6 +96,7 @@ div#find {
   padding: 5px;
   border-radius: 10px;
   color: hsla(160, 100%, 37%, 1);
+  margin-right: 50%;
 }
 
 #search a {
@@ -120,17 +117,25 @@ div.flex p {
   }
 
   div.container-home img.dog {
-  width: 80%;
+  width: 90%;
   padding-top: 8px;
   margin: 0 auto;
 }
 
-.tittle {
-  font-size: 2em;
+h1.tittle {
+  font-size: 3em;
+  font-family: sans-serif;
 }
 
-.subtittle {
-  margin: 5px 20%;
+div.botao {
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
 }
+
+div#search, div#find {
+  margin-right: 30%;
+}
+
 }
 </style>

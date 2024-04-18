@@ -3,6 +3,7 @@
     <div class="wrapper">
       <div class="logo" v-if="route.name === 'home'">
         <img src="@/assets/img/OIG2.png" alt="Logo">
+        <h1 class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
       </div>
       <nav>        
         <div v-if="showNav" class="nav-links">
@@ -48,6 +49,9 @@
 
 <style>
 div.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 20px 50px;
 }
 
@@ -60,9 +64,6 @@ nav {
   margin: 20px 50px;
 }
 
-.content {
-  margin-top: 50px;
-}
 .hamburger, .close {
   display: none;
   cursor: pointer;
@@ -78,12 +79,18 @@ nav {
 
 @media (max-width: 768px) {
   div.logo {
-    margin: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   div.wrapper {
     display: flex;
     justify-content: flex-end;
+  }
+
+  nav {
+    margin: 20px 30px 0 0;
   }
 
   .nav-links {
