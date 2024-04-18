@@ -92,11 +92,13 @@ li {
   flex-direction: column;
   margin: 10px;
   width: 200px;
-  border: 2px solid hsla(160, 100%, 37%, 1);
+  border: 5px solid hsla(160, 100%, 37%, 1);
+  border-radius: 10px;
 }
 
 li img {
-  width: 196px;
+  border-radius: 5px;
+  width: 99%;
 }
 
 @media (max-width: 768px) {

@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <h1 class="tittle">Encontre seu pet perdido</h1>
-  <h2 >Utilize ferramentas de busca de pets. Crie seu anúncio gratuito agora mesmo para ter acesso ao<i> Painel de Busca</i>.</h2>
+  <h1 class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
+  <h3 class="subtittle">Utilize ferramentas de busca de pets. Crie seu anúncio gratuito agora mesmo para ter acesso ao<i> Painel de Busca</i>.</h3>
   <div class="container-home">
     <div class="botao">
       <RouterLink to="/create">
@@ -26,7 +26,7 @@
         </div>
       </RouterLink>
     </div>
-  <img class="dog" alt="" src="../assets/img/dog.jpg">
+  <img class="dog" alt="" src="../assets/img/dog2.png">
   </div> 
 </template>
 
@@ -34,8 +34,7 @@
 div.container-home {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-left: 30px;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
@@ -46,20 +45,25 @@ h1.tittle {
   color: hsla(160, 100%, 37%, 1);
 }
 
-h2 {
-  margin: 10px;
+.alfa-slab-one-regular {
+  font-size: 60px;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.subtittle {
+  margin: 20px 900px 0px 80px;
 }
 
 div.botao {
   display: flex;
   flex-direction: column;
+  margin-top: 25px;
 }
 
 div.container-home img.dog {
-  width: 400px;
-  margin-right: 250px;
-  border-radius: 70px;
-  border: solid 5px hsla(160, 100%, 37%, 1);
+  width: 500px;
   margin-bottom: 10px;
 }
 
@@ -117,7 +121,16 @@ div.flex p {
 
   div.container-home img.dog {
   width: 80%;
+  padding-top: 8px;
   margin: 0 auto;
+}
+
+.tittle {
+  font-size: 2em;
+}
+
+.subtittle {
+  margin: 5px 20%;
 }
 }
 </style>
