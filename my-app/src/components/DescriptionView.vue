@@ -10,11 +10,15 @@
   const userPhone = ref('');
 
   async function seePhoneUser() {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session) {
-      userPhone.value = session.user.phone;
+    const { data, error } = await supabase
+      .from('usuario')
+      .select('cel')
+      
+    if (!error) {
+      userPhone.value = data[0].cel;
+      console.log(userPhone.value);
     } else {
-        console.log('No active session');
+        console.log( error);
     }
   }
 
@@ -38,7 +42,7 @@
             Descrição:<br>
             {{ item.description }}<br>
             Recompensa: {{ item.recompensa }}<br>
-            Usuário: {{ userPhone }}
+            Telefone para contato: {{ userPhone }}
         </div>
     </div>
     <div v-else>

@@ -1,6 +1,7 @@
 <template>
     <div id="app">
       <h1>Celular para contato</h1>
+      <input v-model="nameUser" placeholder="Insira o seu nome" />
       <input v-model="userPhone" placeholder="Insira um número de celular" />
       <button @click="updateUserPhone">Cadastrar</button>
     </div>
@@ -12,12 +13,15 @@
   import { useRouter } from 'vue-router';
   
   const userPhone = ref('');
+  let nameUser = ref('');
   let router = useRouter();
   
-  const updateUserPhone = async() => {
-    const { data, error } = await supabase.auth.updateUser({
-      phone: userPhone.value
-    })
+  const updateUserPhone = async() => {   
+    const { data, error } = await supabase
+      .from('usuario')
+      .upsert({ nameUser: nameUser.value, cel: userPhone.value })
+      .select()
+
     if (error) {
       console.log('Erro ao atualizar o número de telefone:', error);
     } else {
