@@ -1,9 +1,27 @@
 <template>
   <header>
-    <div class="wrapper">
+    <div class="wrapper">      
       <div class="logo" v-if="route.name === 'home'">
         <img src="@/assets/img/OIG2.png" alt="Logo">
         <h1 class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
+      </div>
+      <div class="header" v-else-if="route.name === 'login'">
+        <img src="@/assets/img/header.jpeg" alt="Logo">
+      </div>
+      <div class="header" v-else-if="route.name === 'read'">
+        <img src="@/assets/img/header5.png" alt="Logo">
+      </div>
+      <div class="header" v-else-if="route.name === 'create'">
+        <img src="@/assets/img/header2.jpeg" alt="Logo">
+      </div>
+      <div class="header" v-else-if="route.name === 'description'">
+        <img src="@/assets/img/header4.jpeg" alt="Logo">
+      </div>
+      <div class="header" v-else-if="route.name === 'update'">
+        <img src="@/assets/img/header3.png" alt="Logo">
+      </div>
+      <div class="header" v-else-if="route.name === 'contato'">
+        <img src="@/assets/img/header6.png" alt="Logo">
       </div>
       <nav>        
         <div v-if="showNav" class="nav-links">
@@ -48,6 +66,11 @@
 </script>
 
 <style>
+.header img {
+    width: 700px;
+    margin-left: 60px;
+}
+
 div.logo {
   display: flex;
   flex-direction: column;
@@ -84,10 +107,10 @@ nav {
     align-items: center;
   }
 
-  div.wrapper {
-    display: flex;
-    justify-content: flex-end;
-  }
+div.header img {
+    width: 90%;
+    margin-left: 0;
+}
 
   nav {
     margin: 20px 30px 0 0;
@@ -95,8 +118,6 @@ nav {
 
   .nav-links {
     position: absolute;
-    height: 92vh;
-    top: 8vh;
     background-color: #fff;
     display: flex;
     flex-direction: column;

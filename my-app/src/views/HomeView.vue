@@ -7,6 +7,7 @@
   <div class="container-home">
     <div class="botao">
       <h3 class="subtittle">Utilize ferramentas de busca de pets. Crie seu anúncio gratuito agora mesmo para ter acesso ao<i> Painel de Busca</i>.</h3>
+      <div class="bottons">
       <RouterLink to="/create">
         <div id="search">
             <img alt="lupa" src="../assets/img/lupa_branca.png" style="color: transparent;">
@@ -25,6 +26,7 @@
           </div>
         </div>
       </RouterLink>
+    </div>
     </div>
   <img class="dog" alt="" src="../assets/img/dog2.png">
   </div> 
@@ -51,6 +53,12 @@ h1.tittle {
   margin: auto;
 }
 
+.bottons {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50%;
+}
+
 div.botao {
   display: flex;
   flex-direction: column;
@@ -68,14 +76,6 @@ div.container-home img.dog {
   margin-top: 5px;
 }
 
-#search:hover {
-  background: hsla(160, 100%, 37%, 0.6);
-}
-
-#find:hover {
-  background: hsla(160, 100%, 37%, 0.1);
-}
-
 div#search {
   display: flex;
   align-items: center;
@@ -84,7 +84,6 @@ div#search {
   padding: 5px;
   border-radius: 10px;
   color: #fff;
-  margin-right: 50%;
 }
 
 div#find {
@@ -96,7 +95,6 @@ div#find {
   padding: 5px;
   border-radius: 10px;
   color: hsla(160, 100%, 37%, 1);
-  margin-right: 50%;
 }
 
 #search a {
@@ -127,14 +125,23 @@ h1.tittle {
   font-family: sans-serif;
 }
 
-div.botao {
+.bottons {
   display: flex;
   flex-direction: column;
+  margin-right: 0;
+}
+
+div.botao {
   margin: 10%;
 }
 
 div#search, div#find {
   margin-right: 30%;
+}
+
+#find img, #search img {
+  width: 40%;
+  margin-top: 5px;
 }
 
 }

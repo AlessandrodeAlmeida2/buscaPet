@@ -1,5 +1,6 @@
 <template>
     <div class="container-login">
+        <div class="input">
         <h1> Form </h1>
         <div class="inputContainer">
             <label for="email">Email</label>
@@ -14,8 +15,8 @@
         <div class="buttonContainer">
             <button @click="createAccount">Create</button>
             <button @click="signIn">Login</button>
-            <button @click="seeCurrentUser">See user</button>
             <button @click="signOut">Logout</button>
+        </div>
         </div>
     </div>
 </template>
@@ -81,8 +82,18 @@ async function signOut() {
 
 <style>
 div.container-login {
+    margin: 50px 60% 0 0;
+}
+
+.input {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+div.container-login {
+    margin: 0 auto;
+}
 }
 </style>

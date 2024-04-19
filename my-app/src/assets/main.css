@@ -4,12 +4,6 @@
   margin: 0 auto; 
 }
 
-nav {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin: 10px 30px;
-}
 
 a,
 .green {
@@ -19,7 +13,7 @@ a,
   padding: 3px;
 }
 
-img {
+.logo img {
   width: 160px;
 }
 
