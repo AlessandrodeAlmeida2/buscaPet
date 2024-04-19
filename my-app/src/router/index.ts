@@ -11,6 +11,7 @@ import UpdateView from '@/components/UpdateView.vue';
 import UploadFoto from '@/components/UploadFoto.vue';
 import DescriptionView from '@/components/DescriptionView.vue';
 import ContatoView from '@/components/ContatoView.vue';
+import FooterView from '@/components/FooterView.vue';
 
 let localUser;
 
@@ -67,6 +68,11 @@ const router = createRouter({
       name: 'contato',
       component: ContatoView
     },
+    {
+      path: '/contato',
+      name: 'contato',
+      component: FooterView
+    }
   ]
 })
 

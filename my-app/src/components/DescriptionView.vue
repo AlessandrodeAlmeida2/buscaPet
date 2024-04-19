@@ -8,6 +8,7 @@
 
   const item = ref(null)
   const userPhone = ref('');
+  const nameUser = ref('');
   const userId = ref(null);
 
   //seeCurrentUser
@@ -29,7 +30,21 @@
       
     if (!error) {
       userPhone.value = data[0].cel;
+      
       console.log(userPhone.value);
+    } else {
+        console.log( error);
+    }
+  }
+
+  async function seeNameUser() {
+    const { data, error } = await supabase
+      .from('usuario')
+      .select('nameUser').eq('id', userId.value)
+      
+    if (!error) {
+      nameUser.value = data[0].nameUser
+      console.log(nameUser.value);
     } else {
         console.log( error);
     }
@@ -42,11 +57,13 @@
     console.log(getId)
     await seeUser()
     await seePhoneUser()
+    await seeNameUser()
   })
 </script>
 
 <template>
     <div class="container-description" v-if="item">
+      <h1>{{ item.situation }}</h1>
         <img :src="item.photo_url" alt="Country Image" />
         <div class="text-description">
             Situação: {{ item.situation }}<br>
@@ -56,9 +73,30 @@
             Descrição:<br>
             {{ item.description }}<br>
             Recompensa: {{ item.recompensa }}<br>
-            Telefone para contato: {{ userPhone }}
+            <div class="text-center">
+            <v-menu transition="fab-transition">
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  color="hsla(160, 100%, 37%, 1)"
+                  dark
+                  v-bind="props"
+                >
+                  contato
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item>
+                  <v-list-item-title>
+                    Nome: {{ nameUser }}
+                  </v-list-item-title>
+                  <v-list-item-title>
+                    celular: {{ userPhone }}
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </div>
         </div>
-        <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="seeUser">Create</v-btn>
     </div>
     <div v-else>
     Carregando...
@@ -70,13 +108,28 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 30px;
+    margin-top: 50px;
 }
 
 .container-description img {
     width: 400px;
+    margin: 20px;
 }
 
 .text-description {
-    width: 400px;
+  width: 400px;
+}
+
+@media (max-width: 768px) {
+div.container-description img {
+  width: 80%;
+  margin: 5% auto;
+}
+
+.text-description {
+  width: 80%;
+  margin: 5% auto;
+}
 }
 </style>

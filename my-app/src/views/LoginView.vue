@@ -1,37 +1,36 @@
 <template>
     <div class="container-login">
         <div class="input">
-        <h1> Form </h1>
-        <v-sheet class="mx-auto" width="300">
-        <v-form v-model="valid">
-            
-            <v-text-field
-                v-model="email"
-                :rules="emailRules"
-                label="E-mail"
-                hide-details
-                required
-                variant="solo-filled"
-            ></v-text-field><br>
+            <h1> Form </h1>
+            <v-sheet class="mx-auto" width="300">
+            <v-form v-model="valid">
+                
+                <v-text-field
+                    v-model="email"
+                    :rules="emailRules"
+                    label="E-mail"
+                    hide-details
+                    required
+                    variant="solo-filled"
+                ></v-text-field><br>
 
-            <v-text-field
-                v-model="password"
-                :counter="10"
-                :rules="nameRules"
-                label="password"
-                hide-details
-                required
-                variant="solo-filled"
-            ></v-text-field><br>
-            
-        </v-form>
-        </v-sheet>
+                <v-text-field
+                    v-model="password"
+                    :counter="10"
+                    label="password"
+                    hide-details
+                    required
+                    variant="solo-filled"
+                ></v-text-field><br>
+                
+            </v-form>
+            </v-sheet>
 
-        <div class="buttonContainer">
-            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="createAccount">user</v-btn>
-            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signIn">Login</v-btn>
-            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signOut">Logout</v-btn>
-        </div>
+            <div class="buttonContainer">
+                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="createAccount">Cadastrar</v-btn>
+                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signIn">Login</v-btn>
+                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signOut">Logout</v-btn>
+            </div>
         </div>
     </div>
 </template>
@@ -108,6 +107,7 @@ div.input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 @media (max-width: 768px) {

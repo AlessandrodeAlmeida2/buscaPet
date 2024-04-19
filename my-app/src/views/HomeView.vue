@@ -121,7 +121,7 @@ div.flex p {
 }
 
 h1.tittle {
-  font-size: 3em;
+  font-size: 2em;
   font-family: sans-serif;
 }
 

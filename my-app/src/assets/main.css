@@ -12,11 +12,6 @@
   margin: 3px;
 }
 
-.v-form {
-  display: flex;
-  flex-direction: column;
-}
-
 a,
 .green {
   text-decoration: none;

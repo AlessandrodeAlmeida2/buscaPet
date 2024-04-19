@@ -15,8 +15,8 @@
             Situação: {{ item.situation }}<br>
           </a>
           <div class="bottons">
-            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="deleteItem">Deletar</v-btn>
-            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="() => updateItem(item.id)">Atualizar</v-btn>
+            <v-btn rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="deleteItem">Deletar</v-btn>
+            <v-btn id="delete" rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="() => updateItem(item.id)">Atualizar</v-btn>
           </div>
       </li>
     </ul>
@@ -46,7 +46,6 @@
       const { data } = await query;
       items.value = data;
     }
-
 
     watch(categoria, getItems);
   
@@ -98,7 +97,7 @@ li {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  width: 200px;
+  width: 250px;
   
   
 }
@@ -118,7 +117,7 @@ li a {
 li .bottons {
   display: flex;
   flex-direction: row;
-  align-items: space-evenly;
+  align-items: space-around;
 }
 
 .v-btn {
