@@ -11,7 +11,8 @@
                 label="E-mail"
                 hide-details
                 required
-            ></v-text-field>
+                variant="solo-filled"
+            ></v-text-field><br>
 
             <v-text-field
                 v-model="password"
@@ -20,13 +21,14 @@
                 label="password"
                 hide-details
                 required
-            ></v-text-field>
+                variant="solo-filled"
+            ></v-text-field><br>
             
         </v-form>
         </v-sheet>
 
         <div class="buttonContainer">
-            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="createAccount">Create</v-btn>
+            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="createAccount">user</v-btn>
             <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signIn">Login</v-btn>
             <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signOut">Logout</v-btn>
         </div>
@@ -37,10 +39,12 @@
 <script setup>
 import { ref } from 'vue';
 import { supabase } from '../supabase'
+import { useRouter } from 'vue-router';
 
 //connect inputs
 let email = ref('');
 let password = ref ('');
+const router = useRouter()
 
 //create account
 async function createAccount() {
@@ -65,6 +69,7 @@ async function signIn() {
         console.log(error);
     } else {
         console.log(data);
+        router.push('/home');
     }
 }
 

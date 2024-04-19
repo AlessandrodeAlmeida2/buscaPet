@@ -117,7 +117,7 @@ div.header img {
   }
 
   .nav-links {
-    position: absolute;
+    position: fixed;
     background-color: #fff;
     display: flex;
     flex-direction: column;

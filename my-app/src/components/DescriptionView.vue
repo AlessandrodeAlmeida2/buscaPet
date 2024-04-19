@@ -8,11 +8,24 @@
 
   const item = ref(null)
   const userPhone = ref('');
+  const userId = ref(null);
+
+  //seeCurrentUser
+  async function seeUser() { 
+    const { data, error } = await supabase.from('tabela1').select('user_id').eq('id', getId)
+
+        if (!error) {
+            userId.value = data[0].user_id
+            console.log(userId.value);
+        } else {
+            console.log('No active session');
+        }
+}
 
   async function seePhoneUser() {
     const { data, error } = await supabase
       .from('usuario')
-      .select('cel')
+      .select('cel').eq('id', userId.value)
       
     if (!error) {
       userPhone.value = data[0].cel;
@@ -27,6 +40,7 @@
     const { data } = await supabase.from('tabela1').select().eq('id', getId)
     item.value = data[0]
     console.log(getId)
+    await seeUser()
     await seePhoneUser()
   })
 </script>
@@ -44,6 +58,7 @@
             Recompensa: {{ item.recompensa }}<br>
             Telefone para contato: {{ userPhone }}
         </div>
+        <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="seeUser">Create</v-btn>
     </div>
     <div v-else>
     Carregando...

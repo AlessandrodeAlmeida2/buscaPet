@@ -5,43 +5,67 @@
     <img v-if="publicUrl" :src="publicUrl" alt="Uploaded file" />
     
     <div v-if="uploaded">
-      <div class="inputContainer">
-        <label for="name">Nome <span>Opcional</span></label>
-        <input type="name" id="name" v-model="name">
-      </div>
-      <div class="inputContainer">
-        <label for="description">Descrição <span>Opcional</span></label>
-        <input type="text_area" id="description" v-model="description">
-      </div>
-      <div class="inputContainer">
-        <label for="recompensa">Recompensa <span>Opcional</span></label>
-        <input type="number" id="recompensa" v-model="recompensa">
-      </div>
-      
-      <div>
-        <label for="">Situação</label>
-        <select v-model="situation">
-            <option value="perdido">Perdido</option>
-            <option value="encontrado">Procurando o tutor</option>
-        </select><br>
-      </div>
-      <div>
-        <label for="">Epécie</label>
-        <select v-model="specie">
-            <option value="cachorro">Cachorro</option>
-            <option value="gato">Gato</option>
-            <option value="gato">Pássaro</option>
-            <option value="gato">Outro</option>
-        </select><br>
-      </div>
-      <div>
-        <label for="">Gênero</label>
-        <select v-model="genero">
-            <option value="macho">Macho</option>
-            <option value="femea">Fêmea</option>
-            <option value="none">Não sei</option>
-        </select><br>
-      </div>
+      <v-sheet class="mx-auto" width="300">
+        <v-form v-model="valid">
+
+            <v-select
+              for="situation"
+              id="situation"
+              label="Situação"
+              v-model="situation"
+              :items="['perdido', 'encontrado']"
+              variant="solo-filled"
+            ></v-select>
+
+            <v-text-field
+                for="name"
+                id="name"
+                label="Nome do animal"
+                v-model="name"
+                :rules="nameRules"
+                hide-details
+                variant="solo-filled"
+            ></v-text-field><br>
+
+            <v-text-field
+                for="description"
+                id="description"
+                label="Descrição"
+                v-model="description"
+                hide-details
+                required
+                variant="solo-filled"
+            ></v-text-field><br>
+
+            <v-select
+              for="genero"
+              id="genero"
+              label="Gênero"
+              v-model="genero"
+              :items="['macho', 'femea']"
+              variant="solo-filled"
+            ></v-select>
+
+            <v-select
+              for="specie"
+              id="specie"
+              label="Espécie"
+              v-model="specie"
+              :items="['cachorro', 'gato', 'outro']"
+              variant="solo-filled"
+            ></v-select>
+
+            <v-text-field
+                for="recompensa"
+                id="recompensa"
+                label="Recompensa"
+                v-model="recompensa"
+                hide-details
+                variant="solo-filled"
+            ></v-text-field>
+            
+        </v-form>
+      </v-sheet>
 
       <div class="buttonContainer">
         <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="create">Enviar</v-btn>
@@ -112,9 +136,13 @@ onMounted(() => {
 </script>
 
 <style>
-  .container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container img {
+  width: 300px;
 }
 </style>

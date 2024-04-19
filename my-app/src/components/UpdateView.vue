@@ -51,8 +51,8 @@
                 v-model="item.name"
                 :rules="nameRules"
                 hide-details
-                required
-            ></v-text-field>
+                variant="solo-filled"
+            ></v-text-field><br>
 
             <v-text-field
                 for="description"
@@ -62,7 +62,8 @@
                 :rules="nameRules"
                 hide-details
                 required
-            ></v-text-field>
+                variant="solo-filled"
+            ></v-text-field><br>
 
             <v-select
               for="genero"
@@ -89,11 +90,12 @@
                 v-model="item.recompensa"
                 :rules="nameRules"
                 hide-details
-                required
+                variant="solo-filled"
             ></v-text-field>
             
         </v-form>
       </v-sheet>
+      
       <div class="btn-update">
         <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="updateItem">Atualizar</v-btn>
       </div>
