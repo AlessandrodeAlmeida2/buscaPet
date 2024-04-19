@@ -2,20 +2,33 @@
     <div class="container-login">
         <div class="input">
         <h1> Form </h1>
-        <div class="inputContainer">
-            <label for="email">Email</label>
-            <input type="email" id="email" v-model="email">
-        </div>
+        <v-sheet class="mx-auto" width="300">
+        <v-form v-model="valid">
+            
+            <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                label="E-mail"
+                hide-details
+                required
+            ></v-text-field>
 
-        <div class="inputContainer">
-            <label for="password">Password</label>
-            <input type="password" id="password" v-model="password">
-        </div>
+            <v-text-field
+                v-model="password"
+                :counter="10"
+                :rules="nameRules"
+                label="password"
+                hide-details
+                required
+            ></v-text-field>
+            
+        </v-form>
+        </v-sheet>
 
         <div class="buttonContainer">
-            <button @click="createAccount">Create</button>
-            <button @click="signIn">Login</button>
-            <button @click="signOut">Logout</button>
+            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="createAccount">Create</v-btn>
+            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signIn">Login</v-btn>
+            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signOut">Logout</v-btn>
         </div>
         </div>
     </div>
@@ -81,8 +94,9 @@ async function signOut() {
 </script>
 
 <style>
-div.container-login {
-    margin: 50px 60% 0 0;
+div.input {
+    display: flex;
+    flex-direction: column;
 }
 
 .input {

@@ -1,11 +1,12 @@
 <template>
-    <div>
-      <label for="">Categoria: </label>
-      <select v-model="categoria">
-          <option value="todas">Todas</option>
-          <option value="perdido">Animais Perdidos</option>
-          <option value="encontrato">Animais Procurando o tutor</option>
-      </select><br>
+    <div class="option">
+      <v-select
+        v-model="categoria"
+        label="Categorias"
+        :items="['todas', 'perdido', 'encontrado']"
+        variant="solo-filled"
+      ></v-select>
+      
     </div>
     <ul>
       <li v-for="item in items" :key="item.id">
@@ -13,9 +14,10 @@
             <img :src="item.photo_url" alt="Country Image" />
             Situação: {{ item.situation }}<br>
           </a>
-
-        <button @click="deleteItem(item.id)">Delete</button>
-        <button @click="updateItem(item.id)">Update</button>
+          <div class="bottons">
+            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="deleteItem">Deletar</v-btn>
+            <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="() => updateItem(item.id)">Atualizar</v-btn>
+          </div>
       </li>
     </ul>
   </template>
@@ -80,6 +82,11 @@
   </script>
 
 <style>
+.option {
+  width: 300px;
+  margin-left: 20%;
+}
+
 ul {
   display: flex;
   flex-wrap: wrap;
@@ -92,8 +99,8 @@ li {
   flex-direction: column;
   margin: 10px;
   width: 200px;
-  border: 5px solid hsla(160, 100%, 37%, 1);
-  border-radius: 10px;
+  
+  
 }
 
 li img {
@@ -101,7 +108,29 @@ li img {
   width: 99%;
 }
 
+li a {
+  background: hsla(160, 100%, 37%, 1);
+  border: 5px solid hsla(160, 100%, 37%, 1);
+  border-radius: 10px;
+  color: #fff;
+}
+
+li .bottons {
+  display: flex;
+  flex-direction: row;
+  align-items: space-evenly;
+}
+
+.v-btn {
+  margin: 2px;
+}
+
 @media (max-width: 768px) {
+.option {
+  width: 200px;
+  margin-left: 30px;
+}
+
   ul {
     display: flex;
     flex-direction: column;

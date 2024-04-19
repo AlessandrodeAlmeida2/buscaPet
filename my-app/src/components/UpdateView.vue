@@ -32,24 +32,80 @@
 <template>
   <div v-if="item">
 
-    <label for="situation">Situação</label>
-    <input id="situation" v-model="item.situation" />
+    <v-sheet class="mx-auto" width="300">
+        <v-form v-model="valid">
 
-    <label for="name">Nome</label>
-    <input id="name" v-model="item.name" />
+            <v-select
+              for="situation"
+              id="situation"
+              label="Situação"
+              v-model="item.situation"
+              :items="['perdido', 'encontrado']"
+              variant="solo-filled"
+            ></v-select>
 
-    <label for="description">Descrição</label>
-    <input id="description" v-model="item.description" />
+            <v-text-field
+                for="name"
+                id="name"
+                label="Nome do animal"
+                v-model="item.name"
+                :rules="nameRules"
+                hide-details
+                required
+            ></v-text-field>
 
-    <label for="genero">Gênero</label>
-    <input id="genero" v-model="item.genero" />
+            <v-text-field
+                for="description"
+                id="description"
+                label="Descrição"
+                v-model="item.description"
+                :rules="nameRules"
+                hide-details
+                required
+            ></v-text-field>
 
-    <label for="specie">Espécie</label>
-    <input id="specie" v-model="item.specie" />
-    
-    <label for="recompensa">recompensa</label>
-    <input id="recompensa" v-model="item.recompensa" />
+            <v-select
+              for="genero"
+              id="genero"
+              label="Gênero"
+              v-model="item.genero"
+              :items="['macho', 'femea']"
+              variant="solo-filled"
+            ></v-select>
 
-    <button @click="updateItem">Atualizar</button>
+            <v-select
+              for="specie"
+              id="specie"
+              label="Espécie"
+              v-model="item.specie"
+              :items="['cachorro', 'gato', 'outro']"
+              variant="solo-filled"
+            ></v-select>
+
+            <v-text-field
+                for="recompensa"
+                id="recompensa"
+                label="Recompensa"
+                v-model="item.recompensa"
+                :rules="nameRules"
+                hide-details
+                required
+            ></v-text-field>
+            
+        </v-form>
+      </v-sheet>
+      <div class="btn-update">
+        <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="updateItem">Atualizar</v-btn>
+      </div>
   </div>
 </template>
+
+<style>
+.btn-update {
+  display: flex;
+  justify-content: center;
+}
+.v-btn {
+  margin: 10px;
+}
+</style>

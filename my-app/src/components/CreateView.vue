@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <input type="file" @change="selectFile" v-if="!uploaded"/>
-    <button @click="uploadFile(file, PI_Bucket)" v-if="!uploaded">Enviar</button><br>
+    <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="uploadFile(file, PI_Bucket)" v-if="!uploaded">Enviar</v-btn><br>
     <img v-if="publicUrl" :src="publicUrl" alt="Uploaded file" />
     
     <div v-if="uploaded">
@@ -22,7 +22,7 @@
         <label for="">Situação</label>
         <select v-model="situation">
             <option value="perdido">Perdido</option>
-            <option value="encontrato">Procurando o tutor</option>
+            <option value="encontrado">Procurando o tutor</option>
         </select><br>
       </div>
       <div>
@@ -44,7 +44,7 @@
       </div>
 
       <div class="buttonContainer">
-        <button @click="create">Enviar</button>
+        <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="create">Enviar</v-btn>
       </div>
     </div>
   </div>

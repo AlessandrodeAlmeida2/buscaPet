@@ -6,7 +6,7 @@ import LoginView from '@/views/LoginView.vue'
 import { supabase } from '../supabase'
 import SecretView from '@/views/SecretView.vue';
 import ReadView from '@/components/ReadView.vue';
-import CreateView from '@/views/CreateView.vue';
+import CreateView from '@/components/CreateView.vue';
 import UpdateView from '@/components/UpdateView.vue';
 import UploadFoto from '@/components/UploadFoto.vue';
 import DescriptionView from '@/components/DescriptionView.vue';
