@@ -6,11 +6,12 @@
         <RouterLink class="custom-row" to="/About">Quem somos?</RouterLink>
         <a class="custom-row" href="https://alessandrodealmeida.dev.br/" target="_blank">Blog</a>
         <RouterLink class="custom-row" to="/contact">Contact us</RouterLink>
-        <v-col class="text-center mt-4 custom-date" cols="12">
+        <v-col class="text-center mt-4" cols="12">
           {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
         </v-col>
-      </v-row>
+      </v-row>     
     </v-footer>
+    
   </v-app>
 </template>
 
@@ -25,7 +26,7 @@ import { RouterLink } from 'vue-router';
 }
 
 .custom-row {
-  margin: 0 5%;
+  margin: 0 2%;
   color: aliceblue;
   width: 120px;
   height: 40px;
@@ -37,6 +38,12 @@ import { RouterLink } from 'vue-router';
 .custom-row:hover {
   background-color: dimgray;
   border-radius: 10px;
+}
+
+.v-footer {
+  display: flex;
+  flex-direction: column;
+  padding: 200px 0 0 0;
 }
 
 </style>

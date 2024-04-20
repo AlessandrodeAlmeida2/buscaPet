@@ -13,6 +13,7 @@ import DescriptionView from '@/components/DescriptionView.vue';
 import ContatoView from '@/components/ContatoView.vue';
 import FooterView from '@/components/FooterView.vue';
 import CarouselView from '@/components/CarouselView.vue';
+import AboutView from '@/components/AboutView.vue';
 
 let localUser;
 
@@ -24,6 +25,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       alias: '/home'
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutView
     },
     {
       path: '/login',

@@ -1,5 +1,5 @@
 <template>
-  <v-carousel v-if="items.length > 0" show-arrows="hover">
+  <v-carousel v-if="items.length > 0" height="300" show-arrows="hover">
     <v-carousel-item
       v-for="(item, index) in items"
       :key="index"
@@ -33,12 +33,18 @@
     onMounted(() => {
       getItems()
     })
+    
   </script>
 
 <style>
 .carousel-image {
   width: 300px;
 }
+
+.v-carousel__controls {
+  background: transparent !important;
+}
+
 </style>
 
   

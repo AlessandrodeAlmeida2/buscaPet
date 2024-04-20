@@ -25,10 +25,10 @@
       </div>
       <nav>        
         <div v-if="showNav" class="nav-links">
-          <RouterLink to="/home">Home</RouterLink>
-          <RouterLink to="/login">Login</RouterLink>
-          <RouterLink to="/read">Visualizar</RouterLink>
-          <RouterLink to="/create">Postar</RouterLink>
+          <RouterLink class="separator" to="/home">Home</RouterLink><span> | </span>
+          <RouterLink class="separator" to="/login">Login</RouterLink><span> | </span>
+          <RouterLink class="separator" to="/read">Visualizar</RouterLink><span> | </span>
+          <RouterLink class="separator" to="/create">Postar</RouterLink>
           <!-- Botão de fechar -->
           <div class="close" @click="showNav = !showNav">X</div>
         </div>
@@ -91,6 +91,14 @@ nav {
   margin: 20px 50px;
 }
 
+.nav-links a {
+  padding: 5px  13px;
+}
+
+.nav-links span {
+    color: hsla(160, 100%, 37%, 1);
+  }
+
 .hamburger, .close {
   display: none;
   cursor: pointer;
@@ -135,6 +143,10 @@ div.header img {
     transform: translateX(0%);
   }
 
+  .nav-links span {
+    display: none;
+  }
+
   .hamburger {
     display: block;
   }
@@ -148,5 +160,6 @@ div.header img {
     color: black;
     font-weight: 600;
   }
+
 }
 </style>
