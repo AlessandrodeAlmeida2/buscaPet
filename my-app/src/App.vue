@@ -44,12 +44,16 @@
     <div class="content">
       <RouterView/>
     </div>
+    <footer>
+      <FooterView/>
+    </footer>  
   </main>
 </template>
 
 <script setup>
   import { RouterLink, RouterView, useRoute } from 'vue-router';
   import { ref, onMounted, watch } from 'vue';
+  import FooterView from '@/components/FooterView.vue';
 
   const showNav = ref(window.innerWidth > 768);
   let route = useRoute();

@@ -12,6 +12,7 @@ import UploadFoto from '@/components/UploadFoto.vue';
 import DescriptionView from '@/components/DescriptionView.vue';
 import ContatoView from '@/components/ContatoView.vue';
 import FooterView from '@/components/FooterView.vue';
+import CarouselView from '@/components/CarouselView.vue';
 
 let localUser;
 
@@ -69,9 +70,14 @@ const router = createRouter({
       component: ContatoView
     },
     {
-      path: '/contato',
-      name: 'contato',
+      path: '/footer',
+      name: 'footer',
       component: FooterView
+    },
+    {
+      path: '/carousel',
+      name: 'carousel',
+      component: CarouselView
     }
   ]
 })

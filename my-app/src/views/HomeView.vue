@@ -29,7 +29,10 @@
     </div>
     </div>
   <img class="dog" alt="" src="../assets/img/dog2.png">
-  </div> 
+  </div>
+  <div>
+    <CarouselView />
+  </div>
   
 </template>
 

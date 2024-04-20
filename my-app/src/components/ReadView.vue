@@ -6,7 +6,6 @@
         :items="['todas', 'perdido', 'encontrado']"
         variant="solo-filled"
       ></v-select>
-      
     </div>
     <ul>
       <li v-for="item in items" :key="item.id">
