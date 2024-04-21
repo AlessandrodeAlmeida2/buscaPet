@@ -23,7 +23,7 @@
       <div class="header" v-else-if="route.name === 'contato'">
         <img src="@/assets/img/header6.png" alt="Logo">
       </div>
-      <nav>        
+      <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
           <RouterLink class="separator1" to="/home">Home</RouterLink><span> | </span>
           <RouterLink class="separator2" to="/login">Login</RouterLink><span> | </span>
@@ -71,8 +71,9 @@
 
 <style>
 .header img {
-    width: 700px;
+    width: 600px;
     margin-left: 60px;
+    animation: slideRight 3s ease forwards;
 }
 
 div.logo {
@@ -101,19 +102,19 @@ nav {
 }
 
 .separator1 {
-  animation: zoomIn 4s ease forwards;
+  animation: zoomIn 2s ease forwards;
 }
 
 .separator2 {
-  animation: zoomIn 5s ease forwards;
+  animation: zoomIn 3s ease forwards;
 }
 
 .separator3 {
-  animation: zoomIn 6s ease forwards;
+  animation: zoomIn 4s ease forwards;
 }
 
 .separator4 {
-  animation: zoomIn 7s ease forwards;
+  animation: zoomIn 5s ease forwards;
 }
 
 .hamburger, .close {
