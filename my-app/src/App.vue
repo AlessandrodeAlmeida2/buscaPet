@@ -25,10 +25,10 @@
       </div>
       <nav>        
         <div v-if="showNav" class="nav-links">
-          <RouterLink class="separator" to="/home">Home</RouterLink><span> | </span>
-          <RouterLink class="separator" to="/login">Login</RouterLink><span> | </span>
-          <RouterLink class="separator" to="/read">Visualizar</RouterLink><span> | </span>
-          <RouterLink class="separator" to="/create">Postar</RouterLink>
+          <RouterLink class="separator1" to="/home">Home</RouterLink><span> | </span>
+          <RouterLink class="separator2" to="/login">Login</RouterLink><span> | </span>
+          <RouterLink class="separator3" to="/read">Visualizar</RouterLink><span> | </span>
+          <RouterLink class="separator4" to="/create">Postar</RouterLink>
           <!-- Botão de fechar -->
           <div class="close" @click="showNav = !showNav">X</div>
         </div>
@@ -80,6 +80,7 @@ div.logo {
   flex-direction: column;
   align-items: flex-start;
   margin: 20px 50px;
+  animation: slideRight 1s ease forwards;
 }
 
 div.wrapper {
@@ -97,7 +98,23 @@ nav {
 
 .nav-links span {
     color: hsla(160, 100%, 37%, 1);
-  }
+}
+
+.separator1 {
+  animation: zoomIn 4s ease forwards;
+}
+
+.separator2 {
+  animation: zoomIn 5s ease forwards;
+}
+
+.separator3 {
+  animation: zoomIn 6s ease forwards;
+}
+
+.separator4 {
+  animation: zoomIn 7s ease forwards;
+}
 
 .hamburger, .close {
   display: none;

@@ -54,6 +54,7 @@ h1.tittle {
 
 .subtittle {
   margin: auto;
+  animation: slideLeft 4s ease forwards;
 }
 
 .bottons {
@@ -71,6 +72,7 @@ div.botao {
 div.container-home img.dog {
   width: 50%;
   margin: 0 30px 15px 30px;
+  animation: zoomIn 3s ease forwards;
 }
 
 #find img, #search img {
@@ -87,9 +89,10 @@ div#search {
   padding: 5px;
   border-radius: 10px;
   color: #fff;
+  animation: slideTop 2s ease forwards;
 }
 
-div#find {
+#find {
   display: flex;
   align-items: center;
   background: #fff;
@@ -98,6 +101,7 @@ div#find {
   padding: 5px;
   border-radius: 10px;
   color: hsla(160, 100%, 37%, 1);
+  animation: slideTop 4s ease forwards;
 }
 
 #search a {
