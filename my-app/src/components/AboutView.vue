@@ -16,7 +16,7 @@ export default {
           <div>
             <h2>Aqui estão nosssos heróis</h2>
             <p>
-              Somos alunos da Univesp, de vários cursos diferentes 
+              Somos alunos da Univesp, de vários cursos diferentes...
             </p>
           </div>
         </div>
@@ -270,8 +270,18 @@ export default {
   display: flex;
   width: 30%;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+  margin-top: 50px;
 }
+
+.flex-text h2 {
+  animation: slideRight 2s;
+}
+
+.flex-text p {
+  animation: slideLeft 2s;
+}
+
 .flex-img {
   display: flex;
   justify-content: space-around;
@@ -285,6 +295,13 @@ export default {
 
 .flex-img a, .flex-img2 a {
   color: black;
+  width: 30px;
+}
+
+.flex-img a:hover, .flex-img2 a:hover {
+  color: white;
+  background-color: black;
+  border-radius: 50%;
 }
 
 .user-1 {

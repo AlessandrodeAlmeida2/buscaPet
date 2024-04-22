@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-create">
     <input type="file" @change="selectFile" v-if="!uploaded"/>
     <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="uploadFile(file, PI_Bucket)" v-if="!uploaded">Enviar</v-btn><br>
     <img v-if="publicUrl" :src="publicUrl" alt="Uploaded file" />
@@ -136,13 +136,11 @@ onMounted(() => {
 </script>
 
 <style>
-.container {
+.container-create {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.container img {
-  width: 300px;
+  margin-top: 100px;
+  animation: zoomIn 3s forwards;
 }
 </style>

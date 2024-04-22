@@ -108,6 +108,7 @@ div.input {
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
+    animation: zoomIn 4s ease forwards;
 }
 
 @media (max-width: 768px) {

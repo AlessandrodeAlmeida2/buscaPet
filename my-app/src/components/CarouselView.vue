@@ -1,10 +1,13 @@
 <template>
-  <v-carousel v-if="items.length > 0" height="300" show-arrows="hover">
+  <div class="tittle-carousel">
+    <h1>Animais desaparecidos</h1>
+  </div>
+  
+  <v-carousel class="carousel" v-if="items.length > 0" height="300" show-arrows="hover">
     <v-carousel-item
       v-for="(item, index) in items"
       :key="index"
       :src="item.photo_url"
-      class=".carousel-image"
     ></v-carousel-item>
   </v-carousel>
 </template>
@@ -37,14 +40,34 @@
   </script>
 
 <style>
-.carousel-image {
-  width: 300px;
+.tittle-carousel h1 {
+  margin: 50px 0;
+  color: hsla(160, 100%, 37%, 1);
+  font-size: 60px;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  animation: slideLeft 4s ease forwards;
+  animation-delay: 2s;
+  visibility: hidden;
+}
+
+.carousel {
+  animation: zoomIn 2s ease forwards;
+  animation-delay: 2s;
+  visibility: hidden;
 }
 
 .v-carousel__controls {
   background: transparent !important;
 }
 
+@media (max-width: 768px) {
+  .tittle-carousel h1 {
+    font-size: 2rem;
+  }
+}
 </style>
 
   

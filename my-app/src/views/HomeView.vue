@@ -122,34 +122,90 @@ div.flex p {
   }
 
   div.container-home img.dog {
-  width: 90%;
+  width: 80%;
   padding-top: 8px;
   margin: 0 auto;
+  }
+
+  h1.tittle {
+    font-size: 2em;
+    font-family: sans-serif;
+  }
+
+  .bottons {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  div.botao {
+    margin: 10%;
+  }
+
+  div#search, div#find {
+    margin-right: 30%;
+  }
+
+  #find img, #search img {
+    width: 40%;
+    margin-top: 5px;
+  }
 }
 
-h1.tittle {
-  font-size: 2em;
-  font-family: sans-serif;
-}
-
-.bottons {
+@media (min-width: 769px) and (max-width: 970px) {
+  div.container-home {
   display: flex;
   flex-direction: column;
-  margin-right: 0;
+  margin: 0 10%;
+  align-items: center;
+  }
+
+  .bottons {
+    display: flex;
+    flex-direction: column;
+  }
+  #find img, #search img {
+    width: 40%;
+    margin-top: 5px;
+  }
 }
 
-div.botao {
-  margin: 10%;
+@media (min-width: 971px) and (max-width: 1200px) {
+  div.container-home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  }
+
+  div.container-home img.dog {
+  width: 50%;
+  margin: 0 auto;
+  }
+
+  h1.tittle {
+    font-size: 3em;
+    font-family: sans-serif;
+  }
+
+  .bottons {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  div.botao {
+    margin: 5%;
+  }
+
+  div#search, div#find {
+    margin-right: 30%;
+  }
+
+  #find img, #search img {
+    width: 40%;
+    margin-top: 5px;
+  }
 }
 
-div#search, div#find {
-  margin-right: 30%;
-}
-
-#find img, #search img {
-  width: 40%;
-  margin-top: 5px;
-}
-
-}
 </style>

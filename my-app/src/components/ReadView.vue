@@ -83,6 +83,7 @@
 .option {
   width: 300px;
   margin-left: 20%;
+  animation: slideLeft 2s ease forwards;
 }
 
 ul {
@@ -97,7 +98,7 @@ li {
   flex-direction: column;
   margin: 10px;
   width: 250px;
-  
+  animation: zoomIn 2s ease forwards;
   
 }
 

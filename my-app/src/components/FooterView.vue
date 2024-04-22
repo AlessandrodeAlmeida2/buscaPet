@@ -41,14 +41,20 @@ import { RouterLink } from 'vue-router';
 
 .fx1 {
   animation: slideBottom 3s ease forwards;
+  animation-delay: 4s;
+  visibility: hidden;
 }
 
 .fx2 {
-  animation: slideBottom 4s ease forwards;
+  animation: slideBottom 5s ease forwards;
+  animation-delay: 4s;
+  visibility: hidden;
 }
 
 .fx3 {
-  animation: slideBottom 5s ease forwards;
+  animation: slideBottom 7s ease forwards;
+  animation-delay: 4s;
+  visibility: hidden;
 }
 
 .v-footer {
