@@ -387,19 +387,19 @@ export default {
   }
 
   .user-5 {
-    animation: zoomIn 2s ease forwards, floatImageX 4s ease-in-out infinite;
+    animation: zoomIn 10s ease forwards, floatImageX 4s ease-in-out infinite;
     animation-delay: 0s, 3s;
     margin: 5px;
   }
 
   .user-6 {
-    animation: zoomIn 4s ease forwards, floatImageX 4s ease-in-out infinite;
+    animation: zoomIn 12s ease forwards, floatImageX 4s ease-in-out infinite;
     animation-delay: 0s, 5s;
     margin: 5px;
   }
 
   .user-7 {
-    animation: zoomIn 6s ease forwards, floatImageX 4s ease-in-out infinite;
+    animation: zoomIn 14s ease forwards, floatImageX 4s ease-in-out infinite;
     animation-delay: 0s, 3s;
     margin: 5px;
   }

@@ -10,7 +10,6 @@ export default {
     const userId = ref('');
     const results = ref('');
     const categoria = ref('');
-    const cel = ref('');
     const router = useRouter();
 
     //connect inputs
@@ -27,7 +26,7 @@ export default {
     }
 
     async function getItems() {
-    let query = supabase.from('tabela1').select();
+    let query = supabase.from('tabela1').select().eq('user_id', userId.value);
   
       if (categoria.value) {
         query = query.eq('situation', categoria.value);
@@ -95,8 +94,9 @@ export default {
 </script>
 
 <template>
+  <div class="container-account">
     <div v-if="item">
-
+      <h2>Dados do usuário</h2>
         <v-sheet class="mx-auto" width="300">
             <v-form>
 
@@ -120,19 +120,91 @@ export default {
         <div class="btn-update">
             <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="updateItem">Atualizar</v-btn>
         </div>
+    </div>
 
+        <div v-if="results">
+          <h2>Dados da postagem</h2>
         <ul>
-            <li v-for="result in results" :key="result.id">
-                <a @click="getItem(item.id)">
+            <li v-for="result in results" :key="result.user_id">
+                
                     <img :src="result.photo_url" alt="Image" />
-                    Situação: {{ result.situation }}<br>
-                </a>
+                
                 <div class="bottons">
                     <v-btn rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="() => deleteItem(result.id)">Deletar</v-btn>
                     <v-btn rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="() => updatePost(result.id)">Atualizar</v-btn>
                 </div>
             </li>
         </ul>
-  
+      </div>
     </div>
 </template>
+
+<style>
+.container-account h2 {
+  color: hsla(160, 100%, 37%, 1);
+  text-align: center;
+  margin: 30px 0 15px 0;
+}
+
+.container-account ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.container-account li {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  animation: zoomIn 2s ease forwards;
+  
+}
+
+.container-account li img {
+  border-radius: 15px;
+  margin: 0 0 15px 0;
+}
+
+.container-account li a {
+  background: hsla(160, 100%, 37%, 1);
+  border: 5px solid hsla(160, 100%, 37%, 1);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.container-account li .bottons {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-account .v-btn {
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+.container-account {
+  margin: 5% auto;
+}
+
+  .container-account ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-account li {
+    width: 80%;
+  }
+
+  .container-account li .bottons {
+  display: flex;
+  flex-direction: column;
+  }
+
+  .container-account .v-btn {
+    margin: 5px 15%;
+  }
+  
+}
+
+</style>

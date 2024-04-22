@@ -3,11 +3,10 @@
         <div class="input">
             <h1> Form </h1>
             <v-sheet class="mx-auto" width="300">
-            <v-form v-model="valid">
+            <v-form>
                 
                 <v-text-field
                     v-model="email"
-                    :rules="emailRules"
                     label="E-mail"
                     hide-details
                     required

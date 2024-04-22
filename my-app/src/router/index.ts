@@ -4,7 +4,6 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
 //@ts-ignore
 import { supabase } from '../supabase'
-import SecretView from '@/views/SecretView.vue';
 import ReadView from '@/components/ReadView.vue';
 import CreateView from '@/components/CreateView.vue';
 import UpdateView from '@/components/UpdateView.vue';
@@ -40,12 +39,6 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: LoginView
     },    
-    {
-        path: '/secret',
-        name: 'secret',
-        component: SecretView,
-        meta: { requiresAuth: true }
-    },
     {
       path: '/read',
       name: 'read',
@@ -89,7 +82,8 @@ const router = createRouter({
     {
       path: '/account',
       name: 'account',
-      component: AccountView
+      component: AccountView,
+      meta: { requiresAuth: true }
     }
   ]
 })

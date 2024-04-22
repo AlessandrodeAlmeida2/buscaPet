@@ -1,4 +1,5 @@
 <template>
+  <div class="container-read">
     <div class="option">
       <v-select
         v-model="categoria"
@@ -15,7 +16,8 @@
           </a>
       </li>
     </ul>
-  </template>
+  </div>
+</template>
   
   <script setup>
     import { ref, onMounted, provide, watch } from 'vue'
@@ -62,14 +64,14 @@
   animation: slideLeft 2s ease forwards;
 }
 
-ul {
+.container-read ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 30px;
 }
 
-li {
+.container-read li {
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -78,25 +80,25 @@ li {
   
 }
 
-li img {
+.container-read li img {
   border-radius: 5px;
   width: 99%;
 }
 
-li a {
+.container-read li a {
   background: hsla(160, 100%, 37%, 1);
   border: 5px solid hsla(160, 100%, 37%, 1);
   border-radius: 10px;
   color: #fff;
 }
 
-li .bottons {
+.container-read li .bottons {
   display: flex;
   flex-direction: row;
   align-items: space-around;
 }
 
-.v-btn {
+.container-read .v-btn {
   margin: 2px;
 }
 
@@ -106,13 +108,13 @@ li .bottons {
   margin-left: 30px;
 }
 
-  ul {
+  .container-read ul {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  li {
+  .container-read li {
     width: 80%;
   }
 }

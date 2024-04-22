@@ -1,9 +1,9 @@
 <template>
   <header>
     <div class="wrapper">      
-      <div class="logo" v-if="route.name === 'home'">
+      <div class="logo" v-if="route.name === 'home' || route.name === 'account'">
         <img src="@/assets/img/OIG2.png" alt="Logo">
-        <h1 class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
+        <h1 v-if="route.name != 'account'" class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
       </div>
       <div class="header" v-else-if="route.name === 'login'">
         <img src="@/assets/img/header.jpeg" alt="Logo">

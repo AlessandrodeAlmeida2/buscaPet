@@ -33,7 +33,7 @@
   <div v-if="item">
 
     <v-sheet class="mx-auto" width="300">
-        <v-form v-model="valid">
+        <v-form>
 
             <v-select
               for="situation"
@@ -49,7 +49,6 @@
                 id="name"
                 label="Nome do animal"
                 v-model="item.name"
-                :rules="nameRules"
                 hide-details
                 variant="solo-filled"
             ></v-text-field><br>
@@ -59,7 +58,6 @@
                 id="description"
                 label="Descrição"
                 v-model="item.description"
-                :rules="nameRules"
                 hide-details
                 required
                 variant="solo-filled"
@@ -88,7 +86,6 @@
                 id="recompensa"
                 label="Recompensa"
                 v-model="item.recompensa"
-                :rules="nameRules"
                 hide-details
                 variant="solo-filled"
             ></v-text-field>
