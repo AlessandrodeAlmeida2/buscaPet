@@ -28,7 +28,7 @@
           <RouterLink class="separator1" to="/home">Home</RouterLink><span> | </span>
           <RouterLink class="separator2" to="/login">Login</RouterLink><span> | </span>
           <RouterLink class="separator3" to="/read">Visualizar</RouterLink><span> | </span>
-          <RouterLink class="separator4" to="/create">Postar</RouterLink>
+          <RouterLink class="separator4" to="/account">Account</RouterLink>
           <!-- Botão de fechar -->
           <div class="close" @click="showNav = !showNav">X</div>
         </div>

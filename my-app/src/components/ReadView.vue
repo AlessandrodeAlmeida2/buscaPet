@@ -13,10 +13,6 @@
             <img :src="item.photo_url" alt="Country Image" />
             Situação: {{ item.situation }}<br>
           </a>
-          <div class="bottons">
-            <v-btn rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="deleteItem">Deletar</v-btn>
-            <v-btn id="delete" rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="() => updateItem(item.id)">Atualizar</v-btn>
-          </div>
       </li>
     </ul>
   </template>
@@ -47,26 +43,6 @@
     }
 
     watch(categoria, getItems);
-  
-    async function deleteItem(id) {
-      const item = items.value.find(item => item.id === id);
-      if (item) {
-        // Extrai o nome do arquivo da URL
-        const path = item.photo_url.split('/').pop();
-
-        // Remove a imagem do bucket do Supabase
-        await supabase.storage.from('PI_Bucket').remove([path]);
-
-        // Deleta o item da tabela
-        await supabase.from('tabela1').delete().eq('id', id);
-        getItems(); // Atualiza a lista após deletar o item
-      }
-    }
-
-    function updateItem(id) {
-      itemId.value = id
-      router.push({ name: 'update', params: { itemId: itemId.value } }) // Passa itemId como um parâmetro de rota
-    }
 
     function getItem(id) {
       getId.value = id // Defina getId.value em vez de itemId.value

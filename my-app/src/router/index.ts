@@ -14,6 +14,7 @@ import ContatoView from '@/components/ContatoView.vue';
 import FooterView from '@/components/FooterView.vue';
 import CarouselView from '@/components/CarouselView.vue';
 import AboutView from '@/components/AboutView.vue';
+import AccountView from '@/components/AccountView.vue'
 
 let localUser;
 
@@ -84,6 +85,11 @@ const router = createRouter({
       path: '/carousel',
       name: 'carousel',
       component: CarouselView
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: AccountView
     }
   ]
 })

@@ -35,26 +35,28 @@ export default {
               <div class="text-center">
                 <h5>Alessandro de Almeida</h5>
                 <p>
-                  Curso Ciência de Dados
+                  Ciência de Dados
                 </p>
                 <!-- Social Media Buttons -->
                 <div class="d-flex justify-space-evenly">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fa fa-envelope"></i>
-                  </button>
+                  <a href="https://codepen.io/AlessandrodeAlmeida2">
+                    <button>
+                      <!-- Icon -->
+                      <i class="fab fa-codepen"></i>
+                    </button>
+                  </a>
                   <a href="https://github.com/AlessandrodeAlmeida2" target="_blank">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-github"></i>
-                  </button>
+                    <button>
+                      <!-- Icon -->
+                      <i class="fab fa-github"></i>
+                    </button>
                   </a>
                   <a href="https://www.linkedin.com/in/valter-alessandro-de-alameida-d-alvia-agostini/" target="_blank">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-linkedin"></i>
-                  </button>
-                </a>
+                    <button>
+                      <!-- Icon -->
+                      <i class="fab fa-linkedin"></i>
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -69,7 +71,7 @@ export default {
                 class=""
                 style="max-width: 120px;"
               />
-              <div>
+              <div class="text-center">
                 <h5>Romina Hadid</h5>
                 <p>
                   Marketing Specialist
@@ -98,7 +100,7 @@ export default {
                 class="shadow-lg rounded-full max-w-full mx-auto"
                 style="max-width: 120px;"
               />
-              <div>
+              <div class="text-center">
                 <h5>Alexa Smith</h5>
                 <p>
                   UI/UX Designer
@@ -131,7 +133,7 @@ export default {
                 class="shadow-lg rounded-full max-w-full mx-auto"
                 style="max-width: 120px;"
               />
-              <div>
+              <div class="text-center">
                 <h5>Jenna Kardi</h5>
                 <p>
                   Founder and CEO
@@ -163,28 +165,28 @@ export default {
               <!-- Image -->
               <img
                 alt="..."
-                src="@/assets/img/DSC03251.jpg"               
+                src=""               
                 class=""
                 style="max-width: 120px;"
               />
               <div class="text-center">
-                <h5>Alessandro de Almeida</h5>
+                <h5>....</h5>
                 <p>
-                  Curso Ciência de Dados
+                  Ciência de Dados
                 </p>
                 <!-- Social Media Buttons -->
                 <div class="d-flex justify-space-evenly">
                   <button>
                     <!-- Icon -->
-                    <i class="fa fa-envelope"></i>
+                    <i class="fab fa-google"></i>
                   </button>
-                  <a href="https://github.com/AlessandrodeAlmeida2" target="_blank">
+                  <a href="" target="_blank">
                   <button>
                     <!-- Icon -->
                     <i class="fab fa-github"></i>
                   </button>
                   </a>
-                  <a href="https://www.linkedin.com/in/valter-alessandro-de-alameida-d-alvia-agostini/" target="_blank">
+                  <a href="" target="_blank">
                   <button>
                     <!-- Icon -->
                     <i class="fab fa-linkedin"></i>
@@ -204,7 +206,7 @@ export default {
                 class=""
                 style="max-width: 120px;"
               />
-              <div>
+              <div class="text-center">
                 <h5>Romina Hadid</h5>
                 <p>
                   Marketing Specialist
@@ -233,7 +235,7 @@ export default {
                 class="shadow-lg rounded-full max-w-full mx-auto"
                 style="max-width: 120px;"
               />
-              <div>
+              <div class="text-center">
                 <h5>Alexa Smith</h5>
                 <p>
                   UI/UX Designer
@@ -275,6 +277,7 @@ export default {
 }
 
 .flex-text h2 {
+  text-align: center;
   animation: slideRight 2s;
 }
 
@@ -300,8 +303,9 @@ export default {
 
 .flex-img a:hover, .flex-img2 a:hover {
   color: white;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.205);
   border-radius: 50%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
 .user-1 {
