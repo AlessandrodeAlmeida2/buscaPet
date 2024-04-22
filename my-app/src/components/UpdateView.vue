@@ -30,8 +30,8 @@
 </script>
 
 <template>
-  <div v-if="item">
-
+  <div class="container-update" v-if="item">
+    <h1>Atualização</h1>
     <v-sheet class="mx-auto" width="300">
         <v-form>
 
@@ -100,6 +100,15 @@
 </template>
 
 <style>
+.container-update {
+  margin-top: 50px;
+}
+
+.container-update h1 {
+  text-align: center;
+  color: hsla(160, 100%, 37%, 1);
+  margin: 15px;
+}
 .btn-update {
   display: flex;
   justify-content: center;

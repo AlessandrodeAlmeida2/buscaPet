@@ -15,6 +15,7 @@
               v-model="situation"
               :items="['perdido', 'encontrado']"
               variant="solo-filled"
+              required
             ></v-select>
 
             <v-text-field
@@ -142,5 +143,11 @@ onMounted(() => {
   flex-direction: column;
   margin-top: 100px;
   animation: zoomIn 3s forwards;
+}
+
+.container-create img {
+  width: 250px;
+  margin: 20px;
+  border-radius: 15px;
 }
 </style>

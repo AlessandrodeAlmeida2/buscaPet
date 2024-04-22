@@ -21,7 +21,7 @@ import { RouterLink } from 'vue-router';
 
 <style scoped>
 .custom-footer {
-  margin-top: 50px;
+  padding-top: 50px;
 }
 
 .custom-row {

@@ -1,6 +1,6 @@
 <template>
-    <div id="app">
-      <h1>Celular para contato</h1>
+    <div id="container-contato">
+      <h3>Celular para contato</h3>
       <v-sheet class="mx-auto" width="300">
         <v-form v-model="valid">
             
@@ -9,21 +9,21 @@
                 :rules="nameRules"
                 label="Digite seu nome"
                 hide-details
+                variant="solo-filled"
                 required
-            ></v-text-field>
+            ></v-text-field><br>
 
             <v-text-field
                 v-model="userPhone"
                 :counter="10"
                 label="Insira um telefone para contato"
+                variant="solo-filled"
                 required
             ></v-text-field>
             
         </v-form>
       </v-sheet>
-      <input v-model="nameUser" placeholder="Insira o seu nome" />
-      <input v-model="userPhone" placeholder="Insira um número de celular" />
-      <v-btn rounded="lg" @click="updateUserPhone">Cadastrar</v-btn>
+      <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="updateUserPhone">Cadastrar</v-btn>
     </div>
   </template>
   
@@ -52,6 +52,16 @@
   </script>
   
   <style>
-  /* Adicione estilos conforme necessário */
+  #container-contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #container-contato h3 {
+    color: hsla(160, 100%, 37%, 1);
+    margin: 15px;
+  }
+
   </style>
   

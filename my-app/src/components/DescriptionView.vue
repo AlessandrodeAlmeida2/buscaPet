@@ -108,8 +108,13 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 30px;
-    margin-top: 50px;
+    background-color: rgba(218, 218, 218, 0.322);
+    padding-bottom: 30px;
+    padding-top: 50px;
+}
+
+.container-description h1 {
+  color: hsla(160, 100%, 37%, 1);
 }
 
 .container-description img {

@@ -57,6 +57,7 @@
   animation: zoomIn 2s ease forwards;
   animation-delay: 2s;
   visibility: hidden;
+  margin-bottom: 80px;
 }
 
 .v-carousel__controls {

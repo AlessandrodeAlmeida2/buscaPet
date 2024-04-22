@@ -12,7 +12,7 @@
       <li v-for="item in items" :key="item.id">
           <a @click="getItem(item.id)">
             <img :src="item.photo_url" alt="Country Image" />
-            Situação: {{ item.situation }}<br>
+            <h3>Situação: {{ item.situation }}</h3><br>
           </a>
       </li>
     </ul>
@@ -58,6 +58,10 @@
   </script>
 
 <style>
+.container-read {
+  background-color: rgba(218, 218, 218, 0.322);
+}
+
 .option {
   width: 300px;
   margin-left: 20%;
@@ -90,6 +94,11 @@
   border: 5px solid hsla(160, 100%, 37%, 1);
   border-radius: 10px;
   color: #fff;
+}
+
+.container-read h3 {
+  text-align: center;
+  margin-top: 10px;
 }
 
 .container-read li .bottons {

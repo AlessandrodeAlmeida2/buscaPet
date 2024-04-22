@@ -1,7 +1,7 @@
 <template>
     <div class="container-login">
         <div class="input">
-            <h1> Form </h1>
+            <h1>Cadastro ou Login</h1>
             <v-sheet class="mx-auto" width="300">
             <v-form>
                 
@@ -97,6 +97,11 @@ async function signOut() {
 </script>
 
 <style>
+.container-login h1 {
+    color: hsla(160, 100%, 37%, 1);
+    margin: 15px;
+}
+
 div.input {
     display: flex;
     flex-direction: column;

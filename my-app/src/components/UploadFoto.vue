@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="file" @change="selectFile" />
-    <button @click="uploadFile(file, PI_Bucket)">Enviar</button><br>
+    <button @click="updateFile(file, PI_Bucket)">Enviar</button><br>
     <img v-if="publicUrl" :src="publicUrl" alt="Uploaded file" />
     {{ publicUrl }}
   </div>
@@ -20,14 +20,14 @@ const selectFile = (event) => {
 
 const PI_Bucket = 'PI_Bucket';
 
-const uploadFile = async (file, storage) => {
+const updateFile = async (file, storage) => {
     const fileName = file.name
     const { error } = supabase
       .storage
       .from(PI_Bucket)
-      .upload(fileName, file, {
+      .update(fileName, file, {
         cacheControl: '3600',
-        upsert: false
+        upsert: true
       })
     console.log(file.name)
     const publicUrl = await getUrlPublic(fileName, storage)

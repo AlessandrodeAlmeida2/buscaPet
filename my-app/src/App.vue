@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="wrapper">      
+    <div :class="{'wrapper': true, 'active-class': route.name === 'read' || route.name === 'description'}" >      
       <div class="logo" v-if="route.name === 'home' || route.name === 'account'">
         <img src="@/assets/img/OIG2.png" alt="Logo">
         <h1 v-if="route.name != 'account'" class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
@@ -15,13 +15,13 @@
         <img src="@/assets/img/header2.jpeg" alt="Logo">
       </div>
       <div class="header" v-else-if="route.name === 'description'">
-        <img src="@/assets/img/header4.jpeg" alt="Logo">
+        <img src="@/assets/img/header6.png" alt="Logo">
       </div>
       <div class="header" v-else-if="route.name === 'update'">
         <img src="@/assets/img/header3.png" alt="Logo">
       </div>
       <div class="header" v-else-if="route.name === 'contato'">
-        <img src="@/assets/img/header6.png" alt="Logo">
+        <img src="@/assets/img/header4.jpeg" alt="Logo">
       </div>
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
@@ -87,6 +87,10 @@ div.logo {
 div.wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+.active-class {
+  background-color: rgba(218, 218, 218, 0.322);
 }
 
 nav {
