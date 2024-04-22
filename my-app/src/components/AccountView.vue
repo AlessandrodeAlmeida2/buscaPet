@@ -8,6 +8,7 @@ export default {
     const item = ref(null);
     const itemId = ref('');
     const userId = ref('');
+    const getId = ref('');
     const results = ref('');
     const categoria = ref('');
     const router = useRouter();
@@ -69,9 +70,13 @@ export default {
 
     function updatePost(id) {
       itemId.value = id
-      router.push({ name: 'update', params: { itemId: itemId.value } }) // Passa itemId como um parâmetro de rota
+      router.push({ name: 'update', params: { itemId: itemId.value } })
     }
 
+    function getItem(id) {
+      getId.value = id // Defina getId.value em vez de itemId.value
+      router.push({ name: 'upload', params: { getId: getId.value } })
+    }
 
     onMounted(async () => {
         await seeCurrentUser();
@@ -87,7 +92,8 @@ export default {
       seeCurrentUser,
       updatePost,
       deleteItem,
-      updateItem
+      updateItem,
+      getItem
     }
   }
 }
@@ -122,19 +128,19 @@ export default {
         </div>
     </div>
 
-        <div v-if="results">
+        <div class="post" v-if="results">
           <h2>Dados da postagem</h2>
-        <ul>
-            <li v-for="result in results" :key="result.user_id">
-                
-                    <img :src="result.photo_url" alt="Image" />
-                
-                <div class="bottons">
+          <ul>
+              <li v-for="result in results" :key="result.user_id">
+                <a @click="getItem(result.id)">
+                  <img :src="result.photo_url" alt="Image" />
+                </a> 
+                  <div class="bottons">
                     <v-btn rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="() => deleteItem(result.id)">Deletar</v-btn>
                     <v-btn rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="() => updatePost(result.id)">Atualizar</v-btn>
-                </div>
-            </li>
-        </ul>
+                  </div>
+              </li>
+          </ul>
       </div>
     </div>
 </template>
@@ -163,6 +169,7 @@ export default {
 .container-account li img {
   border-radius: 15px;
   margin: 0 0 15px 0;
+  width: 235px;
 }
 
 .container-account li a {
@@ -194,6 +201,10 @@ export default {
 
   .container-account li {
     width: 80%;
+  }
+
+  .container-account li img {
+    width: 100%;
   }
 
   .container-account li .bottons {

@@ -55,7 +55,7 @@ const router = createRouter({
       component: UpdateView
     },
     {
-      path: '/upload',
+      path: '/upload/:getId',
       name: 'upload',
       component: UploadFoto
     },

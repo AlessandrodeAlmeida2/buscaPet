@@ -11,7 +11,7 @@
     <ul>
       <li v-for="item in items" :key="item.id">
           <a @click="getItem(item.id)">
-            <img :src="item.photo_url" alt="Country Image" />
+            <img :src="item.photo_url" alt="Image" />
             <h3>Situação: {{ item.situation }}</h3><br>
           </a>
       </li>
@@ -47,8 +47,8 @@
     watch(categoria, getItems);
 
     function getItem(id) {
-      getId.value = id // Defina getId.value em vez de itemId.value
-      router.push({ name: 'description', params: { getId: getId.value } }) // Agora getId.value contém o valor correto
+      getId.value = id
+      router.push({ name: 'description', params: { getId: getId.value } })
     }
 
 

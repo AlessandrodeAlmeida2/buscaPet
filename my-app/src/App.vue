@@ -23,6 +23,9 @@
       <div class="header" v-else-if="route.name === 'contato'">
         <img src="@/assets/img/header4.jpeg" alt="Logo">
       </div>
+      <div class="header" v-else-if="route.name === 'upload'">
+        <img src="@/assets/img/header7.jpeg" alt="Logo">
+      </div>
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
           <RouterLink class="separator1" to="/home">Home</RouterLink><span> | </span>

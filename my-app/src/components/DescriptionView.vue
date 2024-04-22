@@ -64,7 +64,7 @@
 <template>
     <div class="container-description" v-if="item">
       <h1>{{ item.situation }}</h1>
-        <img :src="item.photo_url" alt="Country Image" />
+        <img :src="item.photo_url" alt="Image" />
         <div class="text-description">
             Situação: {{ item.situation }}<br>
             Nome: {{ item.name }}<br>
