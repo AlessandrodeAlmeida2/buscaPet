@@ -76,6 +76,7 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 60px 0;
 }
 .container-upload h2 {
   color: hsla(160, 100%, 37%, 1);

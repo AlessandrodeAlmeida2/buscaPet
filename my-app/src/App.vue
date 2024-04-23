@@ -1,9 +1,9 @@
 <template>
   <header>
     <div :class="{'wrapper': true, 'active-class': route.name === 'read' || route.name === 'description'}" >      
-      <div class="logo" v-if="route.name === 'home' || route.name === 'account'">
+      <div class="logo" v-if="route.name === 'home'">
         <img src="@/assets/img/OIG2.png" alt="Logo">
-        <h1 v-if="route.name != 'account'" class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
+        <h1 class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
       </div>
       <div class="header" v-else-if="route.name === 'login'">
         <img src="@/assets/img/header.jpeg" alt="Logo">
@@ -23,8 +23,11 @@
       <div class="header" v-else-if="route.name === 'contato'">
         <img src="@/assets/img/header4.jpeg" alt="Logo">
       </div>
-      <div class="header" v-else-if="route.name === 'upload'">
+      <div class="header" v-else-if="route.name === 'account'">
         <img src="@/assets/img/header7.jpeg" alt="Logo">
+      </div>
+      <div class="header" v-else-if="route.name === 'upload'">
+        <img src="@/assets/img/header8.jpeg" alt="Logo">
       </div>
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
@@ -84,7 +87,7 @@ div.logo {
   flex-direction: column;
   align-items: flex-start;
   margin: 20px 50px;
-  animation: slideRight 1s ease forwards;
+  animation: slideRight 2s ease forwards;
 }
 
 div.wrapper {

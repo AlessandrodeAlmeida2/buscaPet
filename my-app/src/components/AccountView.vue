@@ -134,6 +134,7 @@ export default {
               <li v-for="result in results" :key="result.user_id">
                 <a @click="getItem(result.id)">
                   <img :src="result.photo_url" alt="Image" />
+                  <h4>ATUALIZAR FOTO</h4>
                 </a> 
                   <div class="bottons">
                     <v-btn rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="() => deleteItem(result.id)">Deletar</v-btn>
@@ -168,20 +169,25 @@ export default {
 
 .container-account li img {
   border-radius: 15px;
-  margin: 0 0 15px 0;
   width: 235px;
 }
 
 .container-account li a {
   background: hsla(160, 100%, 37%, 1);
   border: 5px solid hsla(160, 100%, 37%, 1);
-  border-radius: 10px;
+  border-radius: 20px;
   color: #fff;
+}
+
+.container-account li h4 {
+  text-align: center;
+  margin: 5px;
 }
 
 .container-account li .bottons {
   display: flex;
   flex-direction: row;
+  margin-bottom: 50px;
 }
 
 .container-account .v-btn {

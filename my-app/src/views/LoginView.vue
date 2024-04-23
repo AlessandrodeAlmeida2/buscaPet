@@ -111,7 +111,7 @@ div.input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin: 60px 0;
     animation: zoomIn 4s ease forwards;
 }
 
