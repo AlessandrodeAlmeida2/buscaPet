@@ -102,6 +102,7 @@
 <style>
 .container-update {
   margin-top: 50px;
+  animation: rotateX 3s ease forwards;
 }
 
 .container-update h1 {

@@ -54,7 +54,7 @@
 }
 
 .carousel {
-  animation: zoomIn 2s ease forwards;
+  animation: rotateX 2s ease forwards;
   animation-delay: 2s;
   visibility: hidden;
   margin-bottom: 80px;

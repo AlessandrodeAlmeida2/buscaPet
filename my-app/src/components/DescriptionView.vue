@@ -115,11 +115,15 @@
 
 .container-description h1 {
   color: hsla(160, 100%, 37%, 1);
+  animation: zoomIn 3s;
 }
 
 .container-description img {
     width: 400px;
     margin: 20px;
+    animation: rotateY 3s;
+    border-radius: 15px;
+    border: 10px solid hsla(160, 100%, 37%, 1);
 }
 
 .text-description {

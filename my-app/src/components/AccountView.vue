@@ -104,7 +104,7 @@ export default {
     <div v-if="item">
       <h2>Dados do usuário</h2>
         <v-sheet class="mx-auto" width="300">
-            <v-form>
+            <v-form class="form">
 
                 <v-text-field
                 for="nameUser"
@@ -151,6 +151,13 @@ export default {
   color: hsla(160, 100%, 37%, 1);
   text-align: center;
   margin: 30px 0 15px 0;
+  animation: zoomIn 3s ease forwards;
+  animation-delay: 1s;
+  visibility: hidden;
+}
+
+.container-account .form {
+  animation: rotate 2s ease forwards;
 }
 
 .container-account ul {
@@ -163,7 +170,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 250px;
-  animation: zoomIn 2s ease forwards;
+  animation: zoomIn 3s ease forwards;
   
 }
 
@@ -190,8 +197,8 @@ export default {
   margin-bottom: 50px;
 }
 
-.container-account .v-btn {
-  align-items: center;
+.container-account .btn-update {
+  animation: zoomIn 4s ease forwards;
 }
 
 @media (max-width: 768px) {
