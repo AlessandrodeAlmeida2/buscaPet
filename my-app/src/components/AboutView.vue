@@ -267,7 +267,7 @@ export default {
 .container-about {
   display: flex;
   flex-direction: column;
-  margin: 60px 0;
+  margin: 0 0 60px 0;
 }
 .flex-text {
   display: flex;

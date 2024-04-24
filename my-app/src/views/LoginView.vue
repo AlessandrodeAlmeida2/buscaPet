@@ -54,6 +54,7 @@ async function createAccount() {
         console.log(error)
     } else {
         console.log(user)
+        window.alert("Um email foi enviado para " + email.value + ". Por favor, verifique sua caixa de entrada.")
     }
 }
 
@@ -65,6 +66,7 @@ async function signIn() {
     })
     if (error) {
         console.log(error);
+        window.alert("Email ou senha incorretos")
     } else {
         console.log(data);
         router.push('/home');
