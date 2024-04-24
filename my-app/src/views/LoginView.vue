@@ -72,7 +72,7 @@ async function signIn() {
 }
 
 //seeCurrentUser
-async function seeCurrentUser() {
+/*async function seeCurrentUser() {
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
         console.log(session);
@@ -80,7 +80,7 @@ async function seeCurrentUser() {
     } else {
         console.log('No active session');
     }
-}
+}*/
 
 
 //logout

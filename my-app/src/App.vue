@@ -32,7 +32,8 @@
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
           <RouterLink class="separator1" to="/home">Home</RouterLink><span> | </span>
-          <RouterLink class="separator2" to="/login">Login</RouterLink><span> | </span>
+          <RouterLink v-if="!isLoggedIn" class="separator2" to="/login">login</RouterLink>
+          <a v-else class="separator2" @click="signOut">Logout</a><span> | </span>
           <RouterLink class="separator3" to="/read">Visualizar</RouterLink><span> | </span>
           <RouterLink class="separator4" to="/account">Account</RouterLink>
           <!-- Botão de fechar -->
@@ -59,7 +60,25 @@
 <script setup>
   import { RouterLink, RouterView, useRoute } from 'vue-router';
   import { ref, onMounted, watch } from 'vue';
+  import { supabase } from './supabase';
   import FooterView from '@/components/FooterView.vue';
+
+  const isLoggedIn = ref(false)
+
+  supabase.auth.onAuthStateChange((event, session) => {
+    isLoggedIn.value = event === 'SIGNED_IN' || event === 'USER_UPDATED';
+  });
+
+  //logout
+  async function signOut() {
+      const { error } = await supabase.auth.signOut();
+
+      if (error) {
+          console.log(error);
+      } else {
+          console.log("Logout has been successful")
+      }
+  }
 
   const showNav = ref(window.innerWidth > 768);
   let route = useRoute();
