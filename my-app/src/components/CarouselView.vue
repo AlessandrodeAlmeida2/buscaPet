@@ -1,6 +1,6 @@
 <template>
   <div class="tittle-carousel">
-    <h1>Animais desaparecidos</h1>
+    <h1>Pets perdidos</h1>
   </div>
   
   <v-carousel class="carousel" v-if="items.length > 0" height="300" show-arrows="hover">
@@ -41,13 +41,13 @@
 
 <style>
 .tittle-carousel h1 {
-  margin: 50px 0;
-  color: hsla(160, 100%, 37%, 1);
+  margin: 50px 0 50px 4%;
+  color: var(--primary-color);
   font-size: 60px;
   font-family: "Alfa Slab One", serif;
   font-weight: 600;
   font-style: normal;
-  text-align: center;
+  text-align: left;
   animation: slideLeft 4s ease forwards;
   animation-delay: 2s;
   visibility: hidden;

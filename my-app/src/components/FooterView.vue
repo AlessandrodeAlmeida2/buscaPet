@@ -1,11 +1,12 @@
 <template>
   <v-app>
-    <v-footer class="bg-grey-lighten-1 custom-footer">
-      <v-row class="row" justify="center" no-gutters>
-        <RouterLink class="custom-row fx1" to="/home">Home</RouterLink>
-        <RouterLink class="custom-row fx2" to="/About">Quem somos?</RouterLink>
-        <a class="custom-row fx3" href="https://alessandrodealmeida.dev.br/" target="_blank">Blog</a>
-        <v-col class="text-center mt-4" cols="12">
+    <v-footer class="custom-footer">
+      <v-row class="row" justify="center">
+        <h3 class="busca-pet">BuscaPet</h3>
+        <RouterLink class="custom-row" to="/home">Home</RouterLink>
+        <RouterLink class="custom-row" to="/About">Quem somos?</RouterLink>
+        <a class="custom-row" href="https://alessandrodealmeida.dev.br/" target="_blank">Blog</a>
+        <v-col class="text-center">
           {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
         </v-col>
       </v-row>     
@@ -20,47 +21,41 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <style scoped>
+
+footer {
+  height: 10%;
+}
+
 .custom-footer {
-  padding-top: 50px;
+  background-color: #BBE1A3;
+  color: var(--black);
+  font-size: 32px;
+  text-align: center;
+}
+
+.busca-pet {
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  margin-right: 10%;
 }
 
 .custom-row {
   margin: 0 2%;
-  color: aliceblue;
-  width: 120px;
-  height: 40px;
+  color: var(--black);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .custom-row:hover {
-  background-color: dimgray;
+  background-color: #BBE1A3;
   border-radius: 10px;
-}
-
-.fx1 {
-  animation: slideBottom 3s ease forwards;
-  animation-delay: 4s;
-  visibility: hidden;
-}
-
-.fx2 {
-  animation: slideBottom 5s ease forwards;
-  animation-delay: 4s;
-  visibility: hidden;
-}
-
-.fx3 {
-  animation: slideBottom 7s ease forwards;
-  animation-delay: 4s;
-  visibility: hidden;
 }
 
 .v-footer {
   display: flex;
   flex-direction: column;
-  padding: 200px 0 0 0;
 }
 
 </style>
