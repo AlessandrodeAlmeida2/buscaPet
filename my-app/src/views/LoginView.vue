@@ -1,27 +1,51 @@
 <template>
     <div class="container-login">
         <div class="input">
-            <h1>Cadastro ou Login</h1>
+            <h1>Cadastre-se</h1>
             <v-sheet class="mx-auto" width="300">
             <v-form>
-                
+
+                <v-text-field
+                    v-model="name"
+                    label="Nome"
+                    hide-details
+                    required
+                    variant="solo-filled"
+                ></v-text-field>
+
+                <v-text-field
+                    v-model="name"
+                    label="Sobrenome"
+                    hide-details
+                    required
+                    variant="solo-filled"
+                ></v-text-field>
+
                 <v-text-field
                     v-model="email"
                     label="E-mail"
                     hide-details
                     required
                     variant="solo-filled"
-                ></v-text-field><br>
+                ></v-text-field>
+
+                <v-text-field
+                    v-model="city"
+                    label="Cidade/Estado"
+                    hide-details
+                    required
+                    variant="solo-filled"
+                ></v-text-field>
 
                 <v-text-field
                     v-model="password"
                     :counter="10"
-                    label="password"
+                    label="Senha"
                     hide-details
                     required
                     variant="solo-filled"
-                ></v-text-field><br>
-                
+                ></v-text-field>
+
             </v-form>
             </v-sheet>
 
@@ -85,8 +109,8 @@ async function signOut() {
 
 <style>
 .container-login h1 {
-    color: hsla(160, 100%, 37%, 1);
-    margin: 15px;
+    color: var(--primary-color);
+    margin: 16px;
 }
 
 div.input {
@@ -99,12 +123,12 @@ div.input {
     flex-direction: column;
     align-items: center;
     margin: 60px 0;
-    animation: zoomIn 4s ease forwards;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
-div.container-login {
-    margin: 0 auto;
-}
+    div.container-login {
+        margin: 0 auto;
+    }
 }
 </style>

@@ -1,7 +1,7 @@
 @import './base.css';
 
 #app {
-  background-color: #FFFFFF;
+  background-color: var(--background-color);
   margin: 0;
   height: 100vh; /* Define a altura como 100% da altura da janela do navegador */
   color: black;
@@ -14,8 +14,13 @@
 
 a,
 .green {
+  height: 40%;
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+  align-items: center;
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: var(--text-color);
   transition: 0.4s;
   padding: 3px;
 }

@@ -1,14 +1,26 @@
 <template>
   <div class="tittle-carousel">
-    <h1>Animais desaparecidos</h1>
+    <h1>Pets perdidos</h1>
   </div>
   
   <v-carousel class="carousel" v-if="items.length > 0" height="300" show-arrows="hover">
-    <v-carousel-item
-      v-for="(item, index) in items"
-      :key="index"
-      :src="item.photo_url"
-    ></v-carousel-item>
+    <div class="pet">
+      <v-carousel-item
+        v-for="(item, index) in items"
+        :key="index"
+        :src="item.photo_url"
+      ></v-carousel-item>
+      <v-carousel-item
+        v-for="(item, index) in items"
+        :key="index"
+        :src="item.photo_url"
+      ></v-carousel-item>
+      <v-carousel-item
+        v-for="(item, index) in items"
+        :key="index"
+        :src="item.photo_url"
+      ></v-carousel-item>
+    </div>
   </v-carousel>
 </template>
 
@@ -41,13 +53,13 @@
 
 <style>
 .tittle-carousel h1 {
-  margin: 50px 0;
-  color: hsla(160, 100%, 37%, 1);
+  margin: 50px 0 50px 4%;
+  color: var(--primary-color);
   font-size: 60px;
   font-family: "Alfa Slab One", serif;
   font-weight: 600;
   font-style: normal;
-  text-align: center;
+  text-align: left;
   animation: slideLeft 4s ease forwards;
   animation-delay: 2s;
   visibility: hidden;
@@ -57,7 +69,19 @@
   animation: rotateX 2s ease forwards;
   animation-delay: 2s;
   visibility: hidden;
-  margin-bottom: 80px;
+  margin: 0 5% 80px 5%;
+  gap: 16px;
+}
+
+.pet {
+  width: 160px;
+  height: 200px;
+  overflow: hidden; 
+}
+
+.v-carousel-item {
+  border-radius: 16px;
+  width: 100%;
 }
 
 .v-carousel__controls {

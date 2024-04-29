@@ -3,39 +3,15 @@
     <div :class="{'wrapper': true, 'active-class': route.name === 'read' || route.name === 'description'}" >      
       <div class="logo" v-if="route.name === 'home'">
         <img src="@/assets/img/OIG2.png" alt="Logo">
-        <h1 class="tittle alfa-slab-one-regular">Encontre seu pet perdido</h1>
-      </div>
-      <div class="header" v-else-if="route.name === 'login'">
-        <img src="@/assets/img/header.jpeg" alt="Logo">
-      </div>
-      <div class="header" v-else-if="route.name === 'read'">
-        <img src="@/assets/img/header5.png" alt="Logo">
-      </div>
-      <div class="header" v-else-if="route.name === 'create'">
-        <img src="@/assets/img/header2.jpeg" alt="Logo">
-      </div>
-      <div class="header" v-else-if="route.name === 'description'">
-        <img src="@/assets/img/header6.png" alt="Logo">
-      </div>
-      <div class="header" v-else-if="route.name === 'update'">
-        <img src="@/assets/img/header3.png" alt="Logo">
-      </div>
-      <div class="header" v-else-if="route.name === 'contato'">
-        <img src="@/assets/img/header4.jpeg" alt="Logo">
-      </div>
-      <div class="header" v-else-if="route.name === 'account'">
-        <img src="@/assets/img/header7.jpeg" alt="Logo">
-      </div>
-      <div class="header" v-else-if="route.name === 'upload'">
-        <img src="@/assets/img/header8.jpeg" alt="Logo">
       </div>
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
-          <RouterLink class="separator1" to="/home">Home</RouterLink><span> | </span>
-          <RouterLink v-if="!isLoggedIn" class="separator2" to="/login">login</RouterLink>
-          <a v-else class="separator2" @click="signOut">Logout</a><span> | </span>
-          <RouterLink class="separator3" to="/read">Visualizar</RouterLink><span> | </span>
-          <RouterLink class="separator4" to="/account">Account</RouterLink>
+          <RouterLink class="separator1" to="/home">Início</RouterLink>
+          <RouterLink class="separator3" to="/read">Buscar um pet</RouterLink>
+          <RouterLink class="separator3" to="/read">Registrar um pet</RouterLink>
+          <RouterLink class="separator4" to="/account"><i class="fa-solid fa-user"></i></RouterLink>
+          <RouterLink v-if="!isLoggedIn" class="separator2" to="/login">Cadastre-se</RouterLink>
+          <a v-else class="separator2" @click="signOut">Sair</a>
           <!-- Botão de fechar -->
           <div class="close" @click="showNav = !showNav">X</div>
         </div>
@@ -119,15 +95,9 @@ div.wrapper {
 }
 
 nav {
-  margin: 20px 50px;
-}
-
-.nav-links a {
-  padding: 5px  13px;
-}
-
-.nav-links span {
-    color: hsla(160, 100%, 37%, 1);
+  display: flex;
+  justify-content: space-between; 
+  gap: 8px;
 }
 
 .separator1 {
@@ -177,7 +147,7 @@ div.header img {
 
   .nav-links {
     position: fixed;
-    background-color: #fff;
+    background-color: #BBE1A3;
     display: flex;
     flex-direction: column;
     align-items: center;

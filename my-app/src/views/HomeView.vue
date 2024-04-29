@@ -6,7 +6,7 @@
   
   <div class="container-home">
     <div class="botao">
-      <h3 class="subtittle">Utilize ferramentas de busca de pets. Crie seu anúncio gratuito agora mesmo para ter acesso ao<i> Painel de Busca</i>.</h3>
+      <h1 class="tittle alfa-slab-one-regular">Aqui você pode <strong>encontrar o seu pet perdido</strong> ou <strong>ajudar alguém nessa missão!</strong></h1>
       <div class="bottons">
       <RouterLink to="/create">
         <div id="search">
@@ -38,40 +38,43 @@
 
 <style>
 div.container-home {
+  margin: 4%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: center;
 }
 
-h1.tittle {
-  color: hsla(160, 100%, 37%, 1);
-  font-size: 60px;
+
+h1 {
+  color: var(--black);
+  font-size: 48px;
   font-family: "Alfa Slab One", serif;
   font-weight: 600;
-  font-style: normal;
 }
 
-.subtittle {
-  margin: auto;
-  animation: slideLeft 4s ease forwards;
+strong {
+  color: var(--primary-color);
+}
+
+.botao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  width: 50%;
 }
 
 .bottons {
   display: flex;
-  flex-direction: column;
-  margin-right: 50%;
-}
-
-div.botao {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 90px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 div.container-home img.dog {
   width: 50%;
-  margin: 0 30px 15px 30px;
   animation: zoomIn 3s ease forwards;
 }
 
