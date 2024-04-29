@@ -33,7 +33,7 @@
   <div class="container-update" v-if="item">
     <h1>Atualização</h1>
     <v-sheet class="mx-auto" width="300">
-        <v-form>
+        <v-form class="form">
 
             <v-select
               for="situation"
@@ -119,6 +119,11 @@
   color: hsla(160, 100%, 37%, 1);
   margin: 15px;
 }
+
+.container-update .form {
+  background-color: var(--background-color);
+}
+
 .btn-update {
   display: flex;
   justify-content: center;

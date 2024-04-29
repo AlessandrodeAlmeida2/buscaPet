@@ -3,7 +3,7 @@
         <div class="input">
             <h1>Login</h1>
             <v-sheet class="mx-auto" width="300">
-            <v-form v-model="valid">
+            <v-form class="form" v-model="valid">
 
                 <v-text-field
                     v-model="email"
@@ -87,6 +87,10 @@ async function signOut() {
 .container-login h1 {
     color: var(--primary-color);
     margin: 16px;
+}
+
+.container-login .form {
+    background-color: var(--background-color);
 }
 
 div.input {

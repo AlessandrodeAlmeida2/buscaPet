@@ -2,7 +2,7 @@
     <div id="container-contato">
       <h3>Celular para contato</h3>
       <v-sheet class="mx-auto" width="300">
-        <v-form v-model="valid">
+        <v-form class="form" v-model="valid">
             
             <v-text-field
                 v-model="nameUser"
@@ -69,6 +69,10 @@
   #container-contato h3 {
     color: hsla(160, 100%, 37%, 1);
     margin: 15px;
+  }
+
+  #container-contato .form {
+    background-color: var(--background-color);
   }
 
   </style>

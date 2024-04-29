@@ -3,7 +3,7 @@
         <div class="input">
             <h1>Faça seu cadastro</h1>
             <v-sheet class="mx-auto" width="300">
-            <v-form>
+            <v-form class="campos">
                 
                 <v-text-field
                     v-model="email"
@@ -73,6 +73,10 @@ div.input {
     align-items: center;
     margin: 60px 0;
     animation: zoomIn 4s ease forwards;
+}
+
+.container-login .campos {
+    background-color: var(--background-color);
 }
 
 @media (max-width: 768px) {

@@ -6,7 +6,7 @@
     
     <div v-if="uploaded">
       <v-sheet class="mx-auto" width="300">
-        <v-form v-model="valid">
+        <v-form class="form" v-model="valid">
 
             <v-select
               for="situation"
@@ -161,4 +161,9 @@ onMounted(() => {
   margin: 20px;
   border-radius: 15px;
 }
+
+.container-create .form {
+  background-color: var(--background-color);
+}
+
 </style>

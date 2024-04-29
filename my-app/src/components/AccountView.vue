@@ -158,6 +158,7 @@ export default {
 
 .container-account .form {
   animation: rotate 2s ease forwards;
+  background-color: var(--background-color);
 }
 
 .container-account ul {
