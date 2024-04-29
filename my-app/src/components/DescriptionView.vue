@@ -40,7 +40,7 @@
   async function seeNameUser() {
     const { data, error } = await supabase
       .from('usuario')
-      .select('nameUser').eq('id', userId.value)
+      .select('nameUser', 'city').eq('id', userId.value)
       
     if (!error) {
       nameUser.value = data[0].nameUser
@@ -72,6 +72,7 @@
             Espécie: {{ item.specie }}<br>
             Descrição:<br>
             {{ item.description }}<br>
+            Cidade: {{ item.city }}<br>
             Recompensa: {{ item.recompensa }}<br>
             <div class="text-center">
             <v-menu transition="fab-transition">

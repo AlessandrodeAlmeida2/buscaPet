@@ -8,9 +8,10 @@
         <div v-if="showNav" class="nav-links">
           <RouterLink class="separator1" to="/home">Início</RouterLink>
           <RouterLink class="separator3" to="/read">Buscar um pet</RouterLink>
-          <RouterLink class="separator3" to="/read">Registrar um pet</RouterLink>
+          <RouterLink class="separator3" to="/create">Registrar um pet</RouterLink>
           <RouterLink class="separator4" to="/account"><i class="fa-solid fa-user"></i></RouterLink>
-          <RouterLink v-if="!isLoggedIn" class="separator2" to="/login">Cadastre-se</RouterLink>
+          <RouterLink class="separator5" to="/signup">Cadastre-se</RouterLink>
+          <RouterLink v-if="!isLoggedIn" class="separator2" to="/login">login</RouterLink>
           <a v-else class="separator2" @click="signOut">Sair</a>
           <!-- Botão de fechar -->
           <div class="close" @click="showNav = !showNav">X</div>

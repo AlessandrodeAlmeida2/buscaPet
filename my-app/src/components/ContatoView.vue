@@ -20,6 +20,13 @@
                 variant="solo-filled"
                 required
             ></v-text-field>
+
+            <v-text-field
+                v-model="city"
+                label="Insira a cidade"
+                variant="solo-filled"
+                required
+            ></v-text-field>
             
         </v-form>
       </v-sheet>
@@ -34,12 +41,13 @@
   
   const userPhone = ref('');
   let nameUser = ref('');
+  let city = ref('');
   let router = useRouter();
   
   const updateUserPhone = async() => {   
     const { data, error } = await supabase
       .from('usuario')
-      .upsert({ nameUser: nameUser.value, cel: userPhone.value })
+      .upsert({ nameUser: nameUser.value, cel: userPhone.value, city: city.value })
       .select()
 
     if (error) {

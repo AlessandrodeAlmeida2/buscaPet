@@ -11,6 +11,7 @@
     <ul>
       <li v-for="item in items" :key="item.id">
           <a @click="getItem(item.id)">
+            <h3>{{ item.city }}</h3>
             <img :src="item.photo_url" alt="Image" />
             <h3>Situação: {{ item.situation }}</h3><br>
           </a>

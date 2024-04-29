@@ -1,37 +1,13 @@
 <template>
     <div class="container-login">
         <div class="input">
-            <h1>Cadastre-se</h1>
+            <h1>Login</h1>
             <v-sheet class="mx-auto" width="300">
-            <v-form>
-
-                <v-text-field
-                    v-model="name"
-                    label="Nome"
-                    hide-details
-                    required
-                    variant="solo-filled"
-                ></v-text-field>
-
-                <v-text-field
-                    v-model="name"
-                    label="Sobrenome"
-                    hide-details
-                    required
-                    variant="solo-filled"
-                ></v-text-field>
+            <v-form v-model="valid">
 
                 <v-text-field
                     v-model="email"
                     label="E-mail"
-                    hide-details
-                    required
-                    variant="solo-filled"
-                ></v-text-field>
-
-                <v-text-field
-                    v-model="city"
-                    label="Cidade/Estado"
                     hide-details
                     required
                     variant="solo-filled"

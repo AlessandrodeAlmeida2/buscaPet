@@ -38,6 +38,16 @@
                 variant="solo-filled"
             ></v-text-field><br>
 
+            <v-text-field
+                for="city"
+                id="city"
+                label="Cidade"
+                v-model="city"
+                hide-details
+                required
+                variant="solo-filled"
+            ></v-text-field><br>
+
             <v-select
               for="genero"
               id="genero"
@@ -88,6 +98,7 @@ let genero = ref('');
 let specie = ref('');
 let recompensa = ref('');
 let situation = ref('');
+let city = ref('');
 let uploaded = ref(false);
 let router = useRouter();
 
@@ -125,7 +136,7 @@ const getUrlPublic = async () => {
 
 async function create() {
   let reward = recompensa.value === "" ? null : recompensa.value;
-  const { error } = await supabase.from('tabela1').insert({ name: name.value, description: description.value, photo_url: publicUrl.value, genero: genero.value, recompensa: reward, situation: situation.value, specie: specie.value })
+  const { error } = await supabase.from('tabela1').insert({ name: name.value, description: description.value, photo_url: publicUrl.value, genero: genero.value, recompensa: reward, situation: situation.value, specie: specie.value, city: city.value })
   if (!error) {
     router.push('/contato');
   }

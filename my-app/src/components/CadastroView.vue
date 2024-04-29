@@ -1,7 +1,7 @@
 <template>
     <div class="container-login">
         <div class="input">
-            <h1>Cadastro ou Login</h1>
+            <h1>Faça seu cadastro</h1>
             <v-sheet class="mx-auto" width="300">
             <v-form>
                 
