@@ -26,8 +26,7 @@
             </v-sheet>
 
             <div class="buttonContainer">
-                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signIn">Login</v-btn>
-                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signOut">Logout</v-btn>
+                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="createAccount">Cadastrar</v-btn>
             </div>
         </div>
     </div>
@@ -36,48 +35,22 @@
 <script setup>
 import { ref } from 'vue';
 import { supabase } from '../supabase'
-import { useRouter } from 'vue-router';
 
 //connect inputs
 let email = ref('');
 let password = ref ('');
-const router = useRouter()
 
-//login
-async function signIn() {
-    const { data, error } = await supabase.auth.signInWithPassword({
+//create account
+async function createAccount() {
+    const { user, error } = await supabase.auth.signUp({
         email: email.value,
-        password: password.value
+        password: password.value,
     })
     if (error) {
-        console.log(error);
-        window.alert("Email ou senha incorretos")
+        console.log(error)
     } else {
-        console.log(data);
-        router.push('/home');
-    }
-}
-
-//seeCurrentUser
-/*async function seeCurrentUser() {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session) {
-        console.log(session);
-        console.log(session.user.phone);
-    } else {
-        console.log('No active session');
-    }
-}*/
-
-
-//logout
-async function signOut() {
-    const { error } = await supabase.auth.signOut();
-
-    if (error) {
-        console.log(error);
-    } else {
-        console.log("Logout has been successful")
+        console.log(user)
+        window.alert("Um email foi enviado para " + email.value + ". Por favor, verifique sua caixa de entrada.")
     }
 }
 

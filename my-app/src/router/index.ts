@@ -14,6 +14,7 @@ import FooterView from '@/components/FooterView.vue';
 import CarouselView from '@/components/CarouselView.vue';
 import AboutView from '@/components/AboutView.vue';
 import AccountView from '@/components/AccountView.vue'
+import CadastroView from '@/components/CadastroView.vue';
 
 let localUser;
 
@@ -30,6 +31,11 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: AboutView
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: CadastroView
     },
     {
       path: '/login',
