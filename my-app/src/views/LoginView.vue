@@ -21,7 +21,6 @@
                     hide-details
                     required
                     variant="solo-filled"
-                    type="password"
                 ></v-text-field>
 
             </v-form>
