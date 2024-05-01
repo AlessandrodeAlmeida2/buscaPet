@@ -16,6 +16,7 @@
                 <v-text-field
                     v-model="password"
                     :counter="10"
+                    type="password"
                     label="Senha"
                     hide-details
                     required
