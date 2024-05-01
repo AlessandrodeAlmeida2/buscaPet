@@ -1,7 +1,7 @@
 <template>
     <div class="container-login">
         <div class="input">
-            <h1>Login</h1>
+            <h1>Entrar</h1>
             <v-sheet class="mx-auto" width="300">
             <v-form class="form" v-model="valid">
 
@@ -20,14 +20,13 @@
                     hide-details
                     required
                     variant="solo-filled"
+                    type="password"
                 ></v-text-field>
 
             </v-form>
             </v-sheet>
-
             <div class="buttonContainer">
-                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signIn">Login</v-btn>
-                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signOut">Logout</v-btn>
+                <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="signIn">Entrar</v-btn>
             </div>
         </div>
     </div>
@@ -51,7 +50,7 @@ async function signIn() {
     })
     if (error) {
         console.log(error);
-        window.alert("Email ou senha incorretos")
+        window.alert("E-mail ou senha incorretos")
     } else {
         console.log(data);
         router.push('/home');

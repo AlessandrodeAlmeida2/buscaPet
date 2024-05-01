@@ -11,8 +11,8 @@
           <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
           <RouterLink class="separator3" to="/create">Registrar um pet</RouterLink>
           <RouterLink class="separator6" to="/account"><i class="fa-solid fa-user"></i></RouterLink>
-          <RouterLink class="separator4" to="/signup">Cadastre-se</RouterLink>
-          <RouterLink v-if="!isLoggedIn" class="separator5" to="/login">login</RouterLink>
+          <RouterLink v-if="!isLoggedIn" class="separator4" to="/signup">Cadastre-se</RouterLink>
+          <RouterLink v-if="!isLoggedIn" class="separator5" to="/login">Entrar</RouterLink>
           <a v-else class="separator6" @click="signOut">Sair</a>
           <!-- Botão de fechar -->
           

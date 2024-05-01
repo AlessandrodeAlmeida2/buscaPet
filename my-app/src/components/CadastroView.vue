@@ -16,10 +16,11 @@
                 <v-text-field
                     v-model="password"
                     :counter="10"
-                    label="password"
+                    label="Senha"
                     hide-details
                     required
                     variant="solo-filled"
+                    type="password"
                 ></v-text-field><br>
                 
             </v-form>
