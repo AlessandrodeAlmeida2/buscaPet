@@ -12,6 +12,7 @@ import DescriptionView from '@/components/DescriptionView.vue';
 import ContatoView from '@/components/ContatoView.vue';
 import FooterView from '@/components/FooterView.vue';
 import CarouselView from '@/components/CarouselView.vue';
+import Carousel2View from '@/components/Carousel2View.vue';
 import AboutView from '@/components/AboutView.vue';
 import AccountView from '@/components/AccountView.vue'
 import CadastroView from '@/components/CadastroView.vue';

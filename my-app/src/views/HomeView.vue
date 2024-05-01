@@ -32,6 +32,7 @@
   </div>
   <div>
     <CarouselView />
+    <Carousel2View />
   </div>
   
 </template>

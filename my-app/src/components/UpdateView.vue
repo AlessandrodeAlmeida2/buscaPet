@@ -18,7 +18,7 @@
   const updateItem = async () => {
     const { data, error } = await supabase
       .from('tabela1')
-      .update({ name: item.value.name, description: item.value.description, recompensa: item.value.recompensa, genero: item.value.genero, specie: item.value.specie, situation: item.value.situation, city: item.value.city })
+      .update({ name: item.value.name, description: item.value.description, recompensa: item.value.recompensa, sexo: item.value.sexo, specie: item.value.specie, situation: item.value.situation, city: item.value.city })
       .eq('id', itemId)
 
     if (error) {
@@ -40,7 +40,7 @@
               id="situation"
               label="Situação"
               v-model="item.situation"
-              :items="['perdido', 'encontrado']"
+              :items="['Perdido', 'Encontrado']"
               variant="solo-filled"
             ></v-select>
 
@@ -52,6 +52,15 @@
                 hide-details
                 variant="solo-filled"
             ></v-text-field><br>
+
+            <v-select
+              for="specie"
+              id="specie"
+              label="Espécie"
+              v-model="item.specie"
+              :items="['Cachorro', 'Gato', 'Pássaro', 'Outra']"
+              variant="solo-filled"
+            ></v-select>
 
             <v-text-field
                 for="description"
@@ -66,27 +75,18 @@
             <v-text-field
                 for="city"
                 id="city"
-                label="Cidade"
+                label="Cidade/Estado"
                 v-model="item.city"
                 hide-details
                 variant="solo-filled"
             ></v-text-field><br>
 
             <v-select
-              for="genero"
-              id="genero"
-              label="Gênero"
-              v-model="item.genero"
-              :items="['macho', 'femea']"
-              variant="solo-filled"
-            ></v-select>
-
-            <v-select
-              for="specie"
-              id="specie"
-              label="Espécie"
-              v-model="item.specie"
-              :items="['cachorro', 'gato', 'outro']"
+              for="sexo"
+              id="sexo"
+              label="Sexo"
+              v-model="item.sexo"
+              :items="['Macho', 'Fêmea']"
               variant="solo-filled"
             ></v-select>
 

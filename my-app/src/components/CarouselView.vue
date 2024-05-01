@@ -3,25 +3,17 @@
     <h1>Pets perdidos</h1>
   </div>
   
-  <v-carousel class="carousel" v-if="items.length > 0" height="300" show-arrows="hover">
-    <div class="pet">
-      <v-carousel-item
-        v-for="(item, index) in items"
-        :key="index"
-        :src="item.photo_url"
-      ></v-carousel-item>
-      <v-carousel-item
-        v-for="(item, index) in items"
-        :key="index"
-        :src="item.photo_url"
-      ></v-carousel-item>
-      <v-carousel-item
-        v-for="(item, index) in items"
-        :key="index"
-        :src="item.photo_url"
-      ></v-carousel-item>
+  <div class="carousel-container">
+    <v-carousel class="carousel" v-if="items.length > 0" height="800">
+      <div class="pet">
+        <v-carousel-item
+          v-for="(item, index) in items"
+          :key="index"
+          :src="item.photo_url"
+        ></v-carousel-item>
+      </div>
+    </v-carousel>
     </div>
-  </v-carousel>
 </template>
 
 <script setup>
@@ -60,28 +52,21 @@
   font-weight: 600;
   font-style: normal;
   text-align: left;
-  animation: slideLeft 4s ease forwards;
-  animation-delay: 2s;
-  visibility: hidden;
 }
 
 .carousel {
-  animation: rotateX 2s ease forwards;
-  animation-delay: 2s;
-  visibility: hidden;
   margin: 0 5% 80px 5%;
   gap: 16px;
-}
-
-.pet {
-  width: 160px;
-  height: 200px;
-  overflow: hidden; 
-}
-
-.v-carousel-item {
-  border-radius: 16px;
   width: 100%;
+  overflow: hidden;
+}
+
+.v-carousel-item img {
+  width: 400px; 
+  height: 600px;
+  border-radius: 16px;
+  object-fit: cover; 
+  object-position: center;
 }
 
 .v-carousel__controls {
