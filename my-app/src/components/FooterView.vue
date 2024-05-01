@@ -4,7 +4,7 @@
       <v-row class="row" justify="center">
         <div class="footer-items">
           <h3 class="busca-pet">BuscaPet</h3>
-          <RouterLink class="custom-row" to="#">Início</RouterLink>
+          <RouterLink class="custom-row" to="/" @click.native="scrollToTop">Início</RouterLink>
           <RouterLink class="custom-row" to="/About">Quem somos?</RouterLink>
           <a class="custom-row" href="https://alessandrodealmeida.dev.br/" target="_blank">Blog</a>
         </div>
@@ -16,6 +16,18 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
+
+</script>
+
+<script>
+
+export default {
+  methods: {
+    scrollToTop(){
+      window.location.reload();
+    }
+  }
+}
 
 </script>
 

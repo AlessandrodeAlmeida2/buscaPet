@@ -6,21 +6,17 @@
       </div>
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
-          <div class="close" @click="showNav = !showNav">X</div>
+          <div class="close" @click="showNav = !showNav"><i class="fa-solid fa-chevron-down"></i></div>
           <RouterLink class="separator1" to="/home">Início</RouterLink>
           <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
           <RouterLink class="separator3" to="/create">Registrar um pet</RouterLink>
-          <RouterLink class="separator6" to="/account"><i class="fa-solid fa-user"></i></RouterLink>
+          <RouterLink v-if="!isLoggedIn" class="separator6" to="/login"><i class="fa-solid fa-user"></i>Entrar</RouterLink>
+          <a v-else class="separator6" to="/account"><i class="fa-solid fa-user"></i>Minha conta</a>                   
           <RouterLink v-if="!isLoggedIn" class="separator4" to="/signup">Cadastre-se</RouterLink>
-          <RouterLink v-if="!isLoggedIn" class="separator5" to="/login">Entrar</RouterLink>
-          <a v-else class="separator6" @click="signOut">Sair</a>
-          <!-- Botão de fechar -->
-          
+          <a v-else class="separator4" @click="signOut">Sair</a>
         </div>
         <div class="hamburger" @click="showNav = !showNav">
-          <span></span>
-          <span></span>
-          <span></span>
+          <i class="fa-solid fa-chevron-up"></i>
         </div>
       </nav>
     </div>
@@ -75,6 +71,7 @@
 </script>
 
 <style>
+
 header {
   background-color: var(--primary-color);
   height: 16%;
@@ -84,7 +81,6 @@ header {
 .header img {
     width: 600px;
     margin-left: 60px;
-    animation: slideRight 3s ease forwards;
 }
 
 div.logo {
@@ -92,7 +88,6 @@ div.logo {
   flex-direction: column;
   align-items: flex-start;
   margin: 20px 50px;
-  animation: slideRight 2s ease forwards;
 }
 
 div.wrapper {
@@ -121,23 +116,7 @@ nav {
   font-size: 20px;
 }
 
-.separator1 {
-  animation: zoomIn 2s ease forwards;
-}
-
-.separator2 {
-  animation: zoomIn 3s ease forwards;
-}
-
-.separator3 {
-  animation: zoomIn 4s ease forwards;
-}
-
 .separator4 {
-  animation: zoomIn 5s ease forwards;
-}
-
-.separator5 {
   text-align: center;
   font-size: 20px;
   gap: 8px;
@@ -146,7 +125,6 @@ nav {
   margin-left: 6em;
   padding: 16px;
   border-radius: 24px;
-  animation: zoomIn 6s ease forwards;
 }
 
 .separator6 {
@@ -159,20 +137,11 @@ nav {
   background-color: var(--secondary-color);
   padding: 16px;
   border-radius: 32px;
-  animation: zoomIn 7s ease forwards;
 }
 
 .hamburger, .close {
   display: none;
   cursor: pointer;
-}
-
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  background-color: #333;
 }
 
 .v-application__wrap {
@@ -183,13 +152,7 @@ nav {
 @media (max-width: 768px) {
   div.logo {
     display: flex;
-    flex-direction: column;
     align-items: center;
-  }
-
-  div.header img {
-      width: 90%;
-      margin-left: 0;
   }
 
   nav {
@@ -199,15 +162,19 @@ nav {
 
   .nav-links {
     position: fixed;
-    background-color: #BBE1A3;
+    bottom: 80px; 
+    right: 80px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
+    z-index: 9999; 
+    background-color: var(--primary-color);
+    opacity: 0.8;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
+    padding: 24px 40px;
     gap: 10px;
     margin-left: 0;
-    width: 55%;
-    transform: translateX(-45%);
-    transition: transform 0.3s ease-in-out;
-    font-size: 1em;
+    font-size: 2em;
   }
 
   .nav-links.show-nav {
@@ -220,39 +187,50 @@ nav {
 
   .separator1,
   .separator2,
-  .separator3,
-  .separator4 {
-    color: var(--vt-c-black-soft);
+  .separator3, {
+    color: var(--text-color);
   }
 
-  .separator5 {
+  .separator4 {
+    margin: 0 auto;
     font-size: 1em;
-    padding: 0 20px;
-    margin: 0;
-    color: var(--vt-c-black-soft);
+    color: var(--secondary-color);
+    background-color: transparent;
+    padding: 0;
+    order: 2;
   }
 
   .separator6 {
-    font-size: 1.5em;
-    padding: 8px;
-    color: var(--vt-c-black-soft);
-    margin-bottom: 20px;
+    margin: 0 auto;
+    font-size: 1em;
+    color: var(--secondary-color);
+    background-color: transparent;
+    border: none;
+    padding: 0;
   }
 
   .hamburger {
-    display: block;
-  }
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 40px; 
+    right: 40px;
+    background-color: var(--primary-color);
+    padding: 16px;
+    border-radius: 50%; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
+    z-index: 9999; 
+}
 
   .close {
     font-size: 20px;
-    display: block;
-    position: relative;
-    top: 10px;
-    right: 65px;
-    color: black;
+    color: white; 
     font-weight: 600;
   }
-
 }
 
 </style>
