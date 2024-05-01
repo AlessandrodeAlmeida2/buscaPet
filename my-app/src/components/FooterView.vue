@@ -51,4 +51,15 @@ import { RouterLink } from 'vue-router';
   border-radius: 10px;
 }
 
+@media (max-width: 768px) {
+  .footer-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.8em;
+}
+}
+
 </style>

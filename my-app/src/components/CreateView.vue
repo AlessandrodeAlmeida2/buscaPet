@@ -1,7 +1,10 @@
 <template>
   <div class="container-create">
     <input type="file" @change="selectFile" v-if="!uploaded"/>
-    <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="uploadFile(file, PI_Bucket)" v-if="!uploaded">Enviar</v-btn><br>
+    <div class="buttonContainer">
+      <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="uploadFile(file, PI_Bucket)" v-if="!uploaded">Enviar</v-btn><br>
+      <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="goBack" v-if="!uploaded">Voltar</v-btn>
+    </div>
     <img v-if="publicUrl" :src="publicUrl" alt="Uploaded file" />
     
     <div v-if="uploaded">
@@ -80,6 +83,7 @@
 
       <div class="buttonContainer">
         <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="create">Enviar</v-btn>
+        <v-btn rounded="lg" color="hsla(160, 100%, 37%, 1)" @click="goBack">Voltar</v-btn>
       </div>
     </div>
   </div>
@@ -106,6 +110,10 @@ const PI_Bucket = 'PI_Bucket';
 
 const selectFile = (event) => {
   file.value = event.target.files[0]
+}
+
+function goBack() {
+  router.go(-1)
 }
 
 const uploadFile = async (file, storage) => {
@@ -164,6 +172,11 @@ onMounted(() => {
 
 .container-create .form {
   background-color: var(--background-color);
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 </style>

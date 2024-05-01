@@ -6,6 +6,7 @@
       </div>
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
+          <div class="close" @click="showNav = !showNav">X</div>
           <RouterLink class="separator1" to="/home">Início</RouterLink>
           <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
           <RouterLink class="separator3" to="/create">Registrar um pet</RouterLink>
@@ -14,7 +15,7 @@
           <RouterLink v-if="!isLoggedIn" class="separator5" to="/login">login</RouterLink>
           <a v-else class="separator6" @click="signOut">Sair</a>
           <!-- Botão de fechar -->
-          <div class="close" @click="showNav = !showNav">X</div>
+          
         </div>
         <div class="hamburger" @click="showNav = !showNav">
           <span></span>
@@ -174,6 +175,11 @@ nav {
   background-color: #333;
 }
 
+.v-application__wrap {
+    min-height: 10dvh;
+    height: 300px;
+}
+
 @media (max-width: 768px) {
   div.logo {
     display: flex;
@@ -187,7 +193,8 @@ nav {
   }
 
   nav {
-    margin: 20px 30px 0 0;
+    margin: 12% 10% 0 15%;
+
   }
 
   .nav-links {
@@ -195,9 +202,10 @@ nav {
     background-color: #BBE1A3;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 50%;
-    transform: translateX(-70%);
+    gap: 10px;
+    margin-left: 0;
+    width: 55%;
+    transform: translateX(-45%);
     transition: transform 0.3s ease-in-out;
     font-size: 1em;
   }
@@ -228,7 +236,7 @@ nav {
     font-size: 1.5em;
     padding: 8px;
     color: var(--vt-c-black-soft);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .hamburger {
@@ -238,9 +246,9 @@ nav {
   .close {
     font-size: 20px;
     display: block;
-    position: absolute;
+    position: relative;
     top: 10px;
-    left: 10px;
+    right: 65px;
     color: black;
     font-weight: 600;
   }
