@@ -23,13 +23,17 @@
       const items = ref([])
       const itemId = ref(null)
       const getId = ref(null)
-      const categoria = ref('todas')
+      const categoria = ref('encontrado')
     
       provide('itemId', itemId)
       provide('getId ', getId)
     
       async function getItems() {
       let query = supabase.from('tabela1').select();
+
+        if (categoria.value !== 'todas') {
+            query = query.eq('situation', categoria.value);
+        }
     
         const { data } = await query;
         items.value = data;
