@@ -11,7 +11,7 @@
                     hide-details
                     required
                     variant="solo-filled"
-                ></v-text-field>
+                ></v-text-field><br>
 
                 <v-text-field
                     v-model="password"

@@ -59,13 +59,10 @@
   </script>
 
 <style>
-.container-read {
-  background-color: rgba(218, 218, 218, 0.322);
-}
-
 .option {
   width: 300px;
   margin-left: 20%;
+  margin-top: 80px;
   animation: slideLeft 2s ease forwards;
 }
 
@@ -73,7 +70,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 70px;
 }
 
 .container-read li {
@@ -87,29 +84,22 @@
 
 .container-read li img {
   border-radius: 5px;
-  width: 99%;
+  width: 100%;
 }
 
 .container-read li a {
+  display: flex;
+  flex-direction: column;
   background: hsla(160, 100%, 37%, 1);
   border: 5px solid hsla(160, 100%, 37%, 1);
   border-radius: 10px;
   color: #fff;
+  height: 100%;
 }
 
 .container-read h3 {
   text-align: center;
   margin-top: 10px;
-}
-
-.container-read li .bottons {
-  display: flex;
-  flex-direction: row;
-  align-items: space-around;
-}
-
-.container-read .v-btn {
-  margin: 2px;
 }
 
 @media (max-width: 768px) {

@@ -1,18 +1,18 @@
 <template>
   <header>
-    <div :class="{'wrapper': true, 'active-class': route.name === 'read' || route.name === 'description'}" >      
-      <div class="logo" v-if="route.name === 'home'">
+    <div class="wrapper">      
+      <div class="logo">
         <img src="@/assets/img/OIG2.png" alt="Logo">
       </div>
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
           <RouterLink class="separator1" to="/home">Início</RouterLink>
-          <RouterLink class="separator3" to="/read">Buscar um pet</RouterLink>
+          <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
           <RouterLink class="separator3" to="/create">Registrar um pet</RouterLink>
-          <RouterLink class="separator4" to="/account"><i class="fa-solid fa-user"></i></RouterLink>
-          <RouterLink class="separator5" to="/signup">Cadastre-se</RouterLink>
-          <RouterLink v-if="!isLoggedIn" class="separator2" to="/login">login</RouterLink>
-          <a v-else class="separator2" @click="signOut">Sair</a>
+          <RouterLink class="separator6" to="/account"><i class="fa-solid fa-user"></i></RouterLink>
+          <RouterLink class="separator4" to="/signup">Cadastre-se</RouterLink>
+          <RouterLink v-if="!isLoggedIn" class="separator5" to="/login">login</RouterLink>
+          <a v-else class="separator6" @click="signOut">Sair</a>
           <!-- Botão de fechar -->
           <div class="close" @click="showNav = !showNav">X</div>
         </div>
@@ -28,10 +28,12 @@
     <div class="content">
       <RouterView/>
     </div>
+  </main>  
+  
     <footer>
       <FooterView/>
     </footer>  
-  </main>
+  
 </template>
 
 <script setup>
@@ -72,6 +74,12 @@
 </script>
 
 <style>
+header {
+  background-color: var(--primary-color);
+  height: 16%;
+  display: flex;
+}
+
 .header img {
     width: 600px;
     margin-left: 60px;
@@ -92,13 +100,24 @@ div.wrapper {
 }
 
 .active-class {
-  background-color: rgba(218, 218, 218, 0.322);
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav {
   display: flex;
   justify-content: space-between; 
   gap: 8px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-left: 80px;
+  font-size: 20px;
 }
 
 .separator1 {
@@ -115,6 +134,31 @@ nav {
 
 .separator4 {
   animation: zoomIn 5s ease forwards;
+}
+
+.separator5 {
+  text-align: center;
+  font-size: 20px;
+  gap: 8px;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  margin-left: 6em;
+  padding: 16px;
+  border-radius: 24px;
+  animation: zoomIn 6s ease forwards;
+}
+
+.separator6 {
+  order: 2;
+  text-align: center;
+  font-size: 16px;
+  gap: 8px;
+  border: 2px solid var(--secondary-color);
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  padding: 16px;
+  border-radius: 32px;
+  animation: zoomIn 7s ease forwards;
 }
 
 .hamburger, .close {
@@ -137,10 +181,10 @@ nav {
     align-items: center;
   }
 
-div.header img {
-    width: 90%;
-    margin-left: 0;
-}
+  div.header img {
+      width: 90%;
+      margin-left: 0;
+  }
 
   nav {
     margin: 20px 30px 0 0;
@@ -153,8 +197,9 @@ div.header img {
     flex-direction: column;
     align-items: center;
     width: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-70%);
     transition: transform 0.3s ease-in-out;
+    font-size: 1em;
   }
 
   .nav-links.show-nav {
@@ -163,6 +208,27 @@ div.header img {
 
   .nav-links span {
     display: none;
+  }
+
+  .separator1,
+  .separator2,
+  .separator3,
+  .separator4 {
+    color: var(--vt-c-black-soft);
+  }
+
+  .separator5 {
+    font-size: 1em;
+    padding: 0 20px;
+    margin: 0;
+    color: var(--vt-c-black-soft);
+  }
+
+  .separator6 {
+    font-size: 1.5em;
+    padding: 8px;
+    color: var(--vt-c-black-soft);
+    margin-bottom: 10px;
   }
 
   .hamburger {

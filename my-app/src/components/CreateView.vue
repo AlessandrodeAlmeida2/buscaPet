@@ -152,7 +152,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 100px;
+  margin: 200px 0;
   animation: zoomIn 3s forwards;
 }
 

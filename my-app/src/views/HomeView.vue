@@ -46,11 +46,12 @@ div.container-home {
 }
 
 
-h1 {
+.container-home h1 {
   color: var(--black);
   font-size: 48px;
   font-family: "Alfa Slab One", serif;
   font-weight: 600;
+  animation: slideLeft 3s forwards;
 }
 
 strong {
@@ -84,7 +85,7 @@ div.container-home img.dog {
   margin-top: 5px;
 }
 
-div#search {
+#search {
   display: flex;
   align-items: center;
   background: hsla(160, 100%, 37%, 1);
@@ -141,12 +142,14 @@ div.flex p {
     margin-right: 0;
   }
 
-  div.botao {
-    margin: 10%;
+  .botao {
+    margin-top: 90px;
+    width: 80%;
   }
 
   div#search, div#find {
-    margin-right: 30%;
+    margin: 0;
+    width: 230px;
   }
 
   #find img, #search img {

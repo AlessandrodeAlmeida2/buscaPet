@@ -171,6 +171,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 250px;
+  height: 100%;
   animation: zoomIn 3s ease forwards;
   
 }
@@ -181,6 +182,8 @@ export default {
 }
 
 .container-account li a {
+  display: flex;
+  flex-direction: column;
   background: hsla(160, 100%, 37%, 1);
   border: 5px solid hsla(160, 100%, 37%, 1);
   border-radius: 20px;
