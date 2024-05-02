@@ -94,7 +94,6 @@ div.container-home img.dog {
   padding: 5px;
   border-radius: 10px;
   color: #fff;
-  animation: slideTop 2s ease forwards;
 }
 
 #find {
@@ -106,7 +105,6 @@ div.container-home img.dog {
   padding: 5px;
   border-radius: 10px;
   color: hsla(160, 100%, 37%, 1);
-  animation: slideTop 4s ease forwards;
 }
 
 #search a {
@@ -127,25 +125,25 @@ div.flex p {
   }
 
   div.container-home img.dog {
-  width: 80%;
-  padding-top: 8px;
-  margin: 0 auto;
+    display: none;
   }
 
   h1.tittle {
+    text-align: center;
+    width: 80%;
     font-size: 2em;
     font-family: sans-serif;
   }
 
   .bottons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-right: 0;
   }
 
   .botao {
     margin-top: 90px;
-    width: 80%;
+    width: 100%;
   }
 
   div#search, div#find {
@@ -154,7 +152,8 @@ div.flex p {
   }
 
   #find img, #search img {
-    width: 40%;
+    width: 30%;
+    height: auto;
     margin-top: 5px;
   }
 }
@@ -171,6 +170,7 @@ div.flex p {
     display: flex;
     flex-direction: column;
   }
+
   #find img, #search img {
     width: 40%;
     margin-top: 5px;

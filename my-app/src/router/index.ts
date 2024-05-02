@@ -88,6 +88,11 @@ const router = createRouter({
       component: CarouselView
     },
     {
+      path: '/carousel2',
+      name: 'carousel2',
+      component: Carousel2View
+    },
+    {
       path: '/account',
       name: 'account',
       component: AccountView,
