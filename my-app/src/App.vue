@@ -11,7 +11,7 @@
           <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
           <RouterLink class="separator3" to="/create">Registrar um pet</RouterLink>
           <RouterLink v-if="!isLoggedIn" class="separator6" to="/login"><i class="fa-solid fa-user"></i>Entrar</RouterLink>
-          <a v-else class="separator6" to="/account"><i class="fa-solid fa-user"></i>Minha conta</a>                   
+          <RouterLink v-else class="separator6" to="/account"><i class="fa-solid fa-user"></i>Minha conta</RouterLink>                   
           <RouterLink v-if="!isLoggedIn" class="separator4" to="/signup">Cadastre-se</RouterLink>
           <a v-else class="separator4" @click="signOut">Sair</a>
         </div>
@@ -63,7 +63,10 @@
     route = newRoute;
   });
 
-  onMounted(() => {
+  onMounted(async () => {
+    const { user } = await supabase.auth.getSession();
+    isLoggedIn.value = user ? true : false;
+    
     window.addEventListener('resize', () => {
       showNav.value = window.innerWidth > 768;
     });
@@ -187,7 +190,7 @@ nav {
 
   .separator1,
   .separator2,
-  .separator3, {
+  .separator3 {
     color: var(--text-color);
   }
 
