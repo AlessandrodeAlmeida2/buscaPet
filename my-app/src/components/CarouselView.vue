@@ -81,6 +81,11 @@
   .tittle-carousel h1 {
     font-size: 2rem;
   }
+
+  .carousel .pet img {
+    width: 90%;
+    height: 100%;
+  }
 }
 </style>
 

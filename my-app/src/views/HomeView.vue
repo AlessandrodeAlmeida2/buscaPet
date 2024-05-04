@@ -94,6 +94,7 @@ div.container-home img.dog {
   padding: 5px;
   border-radius: 10px;
   color: #fff;
+  animation: slideTop 2s forwards;
 }
 
 #find {
@@ -105,6 +106,7 @@ div.container-home img.dog {
   padding: 5px;
   border-radius: 10px;
   color: hsla(160, 100%, 37%, 1);
+  animation: slideTop 4s forwards;
 }
 
 #search a {
@@ -148,13 +150,15 @@ div.flex p {
 
   div#search, div#find {
     margin: 0;
-    width: 230px;
+    width: 150px;
+  }
+
+  #search .flex, #find .flex {
+    margin: 2px auto;
   }
 
   #find img, #search img {
-    width: 30%;
-    height: auto;
-    margin-top: 5px;
+    display: none;
   }
 }
 

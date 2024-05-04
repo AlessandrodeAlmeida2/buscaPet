@@ -91,6 +91,7 @@ div.logo {
   flex-direction: column;
   align-items: flex-start;
   margin: 20px 50px;
+  animation: slideRight 3s forwards;
 }
 
 div.wrapper {
@@ -119,6 +120,18 @@ nav {
   font-size: 20px;
 }
 
+.separator1 {
+  animation: zoomIn 1s forwards;
+}
+
+.separator2 {
+  animation: zoomIn 2s forwards;
+}
+
+.separator3 {
+  animation: zoomIn 3s forwards;
+}
+
 .separator4 {
   text-align: center;
   font-size: 20px;
@@ -128,6 +141,7 @@ nav {
   margin-left: 6em;
   padding: 16px;
   border-radius: 24px;
+  animation: zoomIn 4s forwards;
 }
 
 .separator6 {
@@ -140,6 +154,7 @@ nav {
   background-color: var(--secondary-color);
   padding: 16px;
   border-radius: 32px;
+  animation: zoomIn 5s forwards;
 }
 
 .hamburger, .close {
