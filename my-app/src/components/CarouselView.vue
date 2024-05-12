@@ -82,6 +82,9 @@
     font-size: 2rem;
   }
 
+  .carousel {
+    height: 350px !important;
+  }
   .carousel .pet img {
     width: 90%;
     height: 100%;

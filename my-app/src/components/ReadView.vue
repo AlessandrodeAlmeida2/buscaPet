@@ -66,6 +66,10 @@
   animation: slideLeft 2s ease forwards;
 }
 
+.container-read {
+  margin-bottom: 50px;
+}
+
 .container-read ul {
   display: flex;
   flex-wrap: wrap;

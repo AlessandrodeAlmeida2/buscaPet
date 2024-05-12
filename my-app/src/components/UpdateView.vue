@@ -18,7 +18,7 @@
   const updateItem = async () => {
     const { data, error } = await supabase
       .from('tabela1')
-      .update({ name: item.value.name, description: item.value.description, recompensa: item.value.recompensa, sexo: item.value.sexo, specie: item.value.specie, situation: item.value.situation, city: item.value.city })
+      .update({ name: item.value.name, description: item.value.description, recompensa: item.value.recompensa, genero: item.value.genero, specie: item.value.specie, situation: item.value.situation, city: item.value.city })
       .eq('id', itemId)
 
     if (error) {
@@ -85,7 +85,7 @@
               for="sexo"
               id="sexo"
               label="Sexo"
-              v-model="item.sexo"
+              v-model="item.genero"
               :items="['Macho', 'Fêmea']"
               variant="solo-filled"
             ></v-select>
