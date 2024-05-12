@@ -129,7 +129,7 @@ div.flex p {
   h1.tittle {
     text-align: center;
     width: 80%;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: sans-serif;
   }
 
