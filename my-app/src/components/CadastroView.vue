@@ -16,7 +16,7 @@
                 <v-text-field
                     v-model="password"
                     :counter="10"
-                    label="Senha"
+                    label="Senha com no mínimo 6 caracteres"
                     hide-details
                     required
                     variant="solo-filled"
