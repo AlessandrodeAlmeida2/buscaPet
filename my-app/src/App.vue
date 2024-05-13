@@ -185,7 +185,7 @@ nav {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
     z-index: 9999; 
     background-color: var(--primary-color);
-    opacity: 0.8;
+    opacity: 1;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
