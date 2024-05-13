@@ -6,7 +6,7 @@
       </div>
       <nav v-if="route.name != 'about'">        
         <div v-if="showNav" class="nav-links">
-          <div class="close" @click="showNav = !showNav"><i class="fa-solid fa-chevron-down"></i></div>
+          <div class="close" @click="showNav = !showNav"><i>Menu</i></div>
           <RouterLink class="separator1" to="/home">Início</RouterLink>
           <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
           <RouterLink class="separator3" to="/create">Registrar um pet</RouterLink>
@@ -16,7 +16,7 @@
           <a v-else class="separator4" @click="signOut">Sair</a>
         </div>
         <div class="hamburger" @click="showNav = !showNav">
-          <i class="fa-solid fa-chevron-up"></i>
+          <i>Menu</i>
         </div>
       </nav>
     </div>
@@ -207,11 +207,12 @@ nav {
   .separator2,
   .separator3 {
     color: var(--text-color);
+    font-size: 0.5em;
   }
 
   .separator4 {
     margin: 0 auto;
-    font-size: 1em;
+    font-size: 0.5em;
     color: var(--secondary-color);
     background-color: transparent;
     padding: 0;
@@ -220,7 +221,7 @@ nav {
 
   .separator6 {
     margin: 0 auto;
-    font-size: 1em;
+    font-size: 0.5em;
     color: var(--secondary-color);
     background-color: transparent;
     border: none;
@@ -228,6 +229,8 @@ nav {
   }
 
   .hamburger {
+    font-size: 1em;
+    color: #fff;
     height: 80px;
     width: 80px;
     text-align: center;
@@ -245,7 +248,7 @@ nav {
 }
 
   .close {
-    font-size: 20px;
+    font-size: 1.5em;
     color: white; 
     font-weight: 600;
   }

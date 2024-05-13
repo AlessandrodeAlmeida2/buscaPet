@@ -121,25 +121,21 @@ div.flex p {
 @media (max-width: 768px) {
   div.container-home {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0 auto;
   align-items: center;
-  }
-
-  div.container-home img.dog {
-    display: none;
   }
 
   h1.tittle {
     text-align: center;
     width: 80%;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: sans-serif;
   }
 
   .bottons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-right: 0;
   }
 
