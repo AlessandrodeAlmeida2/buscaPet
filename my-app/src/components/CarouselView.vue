@@ -194,12 +194,16 @@ body {
           transform-style: preserve-3d;
 }
 
+#drag-container {
+  padding-bottom: 50px;
+}
+
 #drag-container, #spin-container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 500px;
+  height: 400px;
   margin: auto;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
