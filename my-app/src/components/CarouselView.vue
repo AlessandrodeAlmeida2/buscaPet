@@ -59,6 +59,12 @@ var autoRotate = true; // auto rotate or not
 var rotateSpeed = -60; // unit: seconds/360 degrees
 var imgWidth = 150; // width of images (unit: px)
 var imgHeight = 190; // height of images (unit: px)
+// Verifica se a tela é um dispositivo móvel
+if(window.innerWidth <= 800) {
+  radius = 170; // Define um radius menor para telas de dispositivos móveis
+  imgWidth = 120;
+  imgHeight = 170;
+}
 
 
 /*
