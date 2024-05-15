@@ -16,7 +16,7 @@
               id="situation"
               label="Situação"
               v-model="situation"
-              :items="['perdido', 'encontrado']"
+              :items="['Perdido', 'Encontrado']"
               variant="solo-filled"
               required
             ></v-select>

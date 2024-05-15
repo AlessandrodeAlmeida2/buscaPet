@@ -18,29 +18,11 @@
 </template>
 
 <script setup>
-    import { ref, onMounted, provide, watch } from 'vue'
+    import { onMounted } from 'vue'
     import { supabase } from '../supabase'
+    import useItems from '@/Composable/useItems'
 
-    const items = ref([])
-    const itemId = ref(null)
-    const getId = ref(null)
-    const categoria = ref('perdido')
-  
-    provide('itemId', itemId)
-    provide('getId ', getId)
-  
-    async function getItems() {
-    let query = supabase.from('tabela1').select();
-
-      if (categoria.value !== 'todas') {
-          query = query.eq('situation', categoria.value);
-      }
-  
-      const { data } = await query;
-      items.value = data;
-    }
-
-    watch(categoria, getItems);
+    const { items, getItems } = useItems('Perdido')
   
     onMounted(async () => {
       await getItems()
@@ -126,51 +108,51 @@ if (autoRotate) {
   ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
 }
 
-// setup events
-document.onpointerdown = function (e) {
-  clearInterval(odrag.timer);
-  e = e || window.event;
-  var sX = e.clientX,
+   // Adicionando eventos diretamente no elemento do carrossel
+   odrag.onpointerdown = function (e) {
+      clearInterval(odrag.timer);
+      e = e || window.event;
+      sX = e.clientX;
       sY = e.clientY;
 
-  this.onpointermove = function (e) {
-    e = e || window.event;
-    var nX = e.clientX,
+      this.onpointermove = function (e) {
+        e = e || window.event;
+        nX = e.clientX;
         nY = e.clientY;
-    desX = nX - sX;
-    desY = nY - sY;
-    tX += desX * 0.1;
-    tY += desY * 0.1;
-    applyTranform(odrag);
-    sX = nX;
-    sY = nY;
-  };
+        desX = nX - sX;
+        desY = nY - sY;
+        tX += desX * 0.1;
+        tY += desY * 0.1;
+        applyTranform(odrag);
+        sX = nX;
+        sY = nY;
+      };
 
-  this.onpointerup = function (e) {
-    odrag.timer = setInterval(function () {
-      desX *= 0.95;
-      desY *= 0.95;
-      tX += desX * 0.1;
-      tY += desY * 0.1;
-      applyTranform(odrag);
-      playSpin(false);
-      if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
-        clearInterval(odrag.timer);
-        playSpin(true);
-      }
-    }, 17);
-    this.onpointermove = this.onpointerup = null;
-  };
+      this.onpointerup = function (e) {
+        odrag.timer = setInterval(function () {
+          desX *= 0.95;
+          desY *= 0.95;
+          tX += desX * 0.1;
+          tY += desY * 0.1;
+          applyTranform(odrag);
+          playSpin(false);
+          if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+            clearInterval(odrag.timer);
+            playSpin(true);
+          }
+        }, 17);
+        this.onpointermove = this.onpointerup = null;
+      };
 
-  return false;
-};
+      return false;
+    };
 
-document.onmousewheel = function(e) {
-  e = e || window.event;
-  var d = e.wheelDelta / 20 || -e.detail;
-  radius += d;
-  init(1);
-};
+    odrag.onmousewheel = function(e) {
+      e = e || window.event;
+      var d = e.wheelDelta / 20 || -e.detail;
+      radius += d;
+      init(1);
+    };
     })
     
   </script>

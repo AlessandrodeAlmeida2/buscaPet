@@ -4,7 +4,7 @@
       <v-select
         v-model="categoria"
         label="Categorias"
-        :items="['todas', 'perdido', 'encontrado']"
+        :items="[' ', 'Perdido', 'Encontrado']"
         variant="solo-filled"
       ></v-select>
     </div>
@@ -21,31 +21,14 @@
 </template>
   
   <script setup>
-    import { ref, onMounted, provide, watch } from 'vue'
+    import { ref, onMounted } from 'vue'
     import { supabase } from '../supabase'
     import { useRouter } from 'vue-router'
+    import useItems from '@/Composable/useItems'
 
-    const items = ref([])
-    const itemId = ref(null)
+    const { items, categoria, getItems } = useItems(' ')
     const getId = ref(null)
     const router = useRouter()
-    const categoria = ref('todas')
-  
-    provide('itemId', itemId)
-    provide('getId ', getId)
-  
-    async function getItems() {
-    let query = supabase.from('tabela1').select();
-  
-      if (categoria.value !== 'todas') {
-        query = query.eq('situation', categoria.value);
-      }
-      
-      const { data } = await query;
-      items.value = data;
-    }
-
-    watch(categoria, getItems);
 
     function getItem(id) {
       getId.value = id
@@ -53,8 +36,8 @@
     }
 
 
-    onMounted(() => {
-      getItems()
+    onMounted(async () => {
+      await getItems()
     })
   </script>
 
