@@ -213,11 +213,11 @@ if (autoRotate) {
   width: 900px;
   height: 900px;
   position: absolute;
-  top: 100%;
+  top: 69%;
   left: 50%;
   -webkit-transform: translate(-50%,-50%) rotateX(90deg);
           transform: translate(-50%,-50%) rotateX(90deg);
-  background: -webkit-radial-gradient(center center, farthest-side , rgba(31, 34, 31, 0.158), transparent);
+  background: -webkit-radial-gradient(center center, farthest-side , rgba(31, 34, 31, 0.589), transparent);
 }
 
 @-webkit-keyframes spin {
