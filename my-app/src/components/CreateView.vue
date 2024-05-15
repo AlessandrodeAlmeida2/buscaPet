@@ -54,9 +54,9 @@
             <v-select
               for="genero"
               id="genero"
-              label="Gênero"
+              label="Sexo"
               v-model="genero"
-              :items="['macho', 'femea']"
+              :items="['Macho', 'Fêmea']"
               variant="solo-filled"
             ></v-select>
 
@@ -65,7 +65,7 @@
               id="specie"
               label="Espécie"
               v-model="specie"
-              :items="['cachorro', 'gato', 'outro']"
+              :items="['Cachorro', 'Gato', 'Outro']"
               variant="solo-filled"
             ></v-select>
 

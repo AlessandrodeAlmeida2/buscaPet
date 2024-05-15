@@ -13,7 +13,7 @@
           <a @click="getItem(item.id)">
             <h3>{{ item.city }}</h3>
             <img :src="item.photo_url" alt="Image" />
-            <h3>Situação: {{ item.situation }}</h3><br>
+            <h3 class="bottom">Situação: {{ item.situation }}</h3><br>
           </a>
       </li>
     </ul>

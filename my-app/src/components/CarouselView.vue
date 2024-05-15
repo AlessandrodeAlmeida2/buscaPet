@@ -114,6 +114,7 @@ function playSpin(yes) {
   ospin.style.animationPlayState = (yes?'running':'paused');
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 var sX, sY, nX, nY, desX = 0,
     desY = 0,
     tX = 0,

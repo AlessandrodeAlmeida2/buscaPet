@@ -58,7 +58,7 @@
               id="specie"
               label="Espécie"
               v-model="item.specie"
-              :items="['Cachorro', 'Gato', 'Pássaro', 'Outra']"
+              :items="['Cachorro', 'Gato', 'Outro']"
               variant="solo-filled"
             ></v-select>
 
@@ -82,8 +82,8 @@
             ></v-text-field><br>
 
             <v-select
-              for="sexo"
-              id="sexo"
+              for="genero"
+              id="genero"
               label="Sexo"
               v-model="item.genero"
               :items="['Macho', 'Fêmea']"
