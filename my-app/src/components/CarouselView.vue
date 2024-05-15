@@ -44,7 +44,6 @@
   
     onMounted(async () => {
       await getItems()
-      console.log(items.value);
 
           // Author: Hoang Tran (https://fb.com/99.hoangtran)
 
@@ -61,7 +60,7 @@ var imgWidth = 150; // width of images (unit: px)
 var imgHeight = 190; // height of images (unit: px)
 // Verifica se a tela é um dispositivo móvel
 if(window.innerWidth <= 800) {
-  radius = 170; // Define um radius menor para telas de dispositivos móveis
+  radius = 230; // Define um radius menor para telas de dispositivos móveis
   imgWidth = 120;
   imgHeight = 170;
 }
@@ -176,29 +175,6 @@ document.onmousewheel = function(e) {
   </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  height: 100%;
-  /* for touch screen */
-  touch-action: none; 
-}
-
-body {
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: #111;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-}
 
 #drag-container {
   padding-bottom: 50px;
@@ -228,26 +204,26 @@ body {
   line-height: 00px;
   font-size: 50px;
   text-align: center;
-  -webkit-box-shadow: 0 0 8px #fff;
-          box-shadow: 0 0 8px #fff;
+  -webkit-box-shadow: 0 0 8px #000;
+          box-shadow: 0 0 8px #000;
   -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
 }
 
 #drag-container img:hover, #drag-container video:hover {
-  -webkit-box-shadow: 0 0 15px #fffd;
-          box-shadow: 0 0 15px #fffd;
+  -webkit-box-shadow: 0 0 15px #000;
+          box-shadow: 0 0 15px #000;
   -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
 }
 
 #drag-container p {
   font-family: Serif;
   position: absolute;
-  font-size: 5em;
+  font-size: 3em;
   top: 100%;
   left: 50%;
   -webkit-transform: translate(-50%,-50%) rotateX(90deg);
           transform: translate(-50%,-50%) rotateX(90deg);
-  color: #fff;
+  color: hsla(160, 100%, 37%, 1);
 }
 
 #ground {
@@ -258,7 +234,7 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%,-50%) rotateX(90deg);
           transform: translate(-50%,-50%) rotateX(90deg);
-  background: -webkit-radial-gradient(center center, farthest-side , #9993, transparent);
+  background: -webkit-radial-gradient(center center, farthest-side , rgba(31, 34, 31, 0.158), transparent);
 }
 
 @-webkit-keyframes spin {
