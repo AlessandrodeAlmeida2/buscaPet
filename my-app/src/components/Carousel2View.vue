@@ -11,7 +11,7 @@
               :key="index"
               :src="item.photo_url">
       <!-- Text at center of ground -->
-      <p></p>
+      <p>Pets Encontrados</p>
     </div>
     <div id="ground2"></div>
   </div>
@@ -252,6 +252,7 @@ body {
 #drag-container2 p {
   font-family: Serif;
   position: absolute;
+  font-size: 5em;
   top: 100%;
   left: 50%;
   -webkit-transform: translate(-50%,-50%) rotateX(90deg);
