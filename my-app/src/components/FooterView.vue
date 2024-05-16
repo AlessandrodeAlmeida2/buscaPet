@@ -35,6 +35,7 @@ export default {
 
 .custom-footer {
   background-color: #BBE1A3;
+  width: 100%;
   color: var(--black);
   font-size: 24px;
 }
@@ -54,12 +55,13 @@ export default {
 .custom-row {
   color: var(--black);
   display: flex;
+  padding: 25px;
   cursor: pointer;
 }
 
 .custom-row:hover {
   background-color: var(--secondary-color);
-  padding: 16px;
+  
   border-radius: 10px;
 }
 

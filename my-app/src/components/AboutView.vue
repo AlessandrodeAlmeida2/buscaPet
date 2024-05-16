@@ -63,19 +63,19 @@ export default {
           </div>
           <!-- Item -->
           <div class="user-2">
-            <div>
+            <div class="image">
               <!-- Image -->
               <img
                 alt="..."
-                src="https://randomuser.me/api/portraits/women/64.jpg"
+                src="@/assets/img/ImagemWhatsApp.jpg"
                 class=""
                 style="max-width: 120px;"
               />
               <div class="text-center">
-                <h5>Romina Hadid</h5>
-                <p>
-                  Marketing Specialist
-                </p>
+                <h5>Fernando Mayer</h5>
+                <p>Tecnologia da informação</p>
+                <p>Instrutor da Networking Academy programmer CPS</p>
+                <p>Professor de Gestão e consultor nas áreas de administração  e recursos humanos.</p>
                 <!-- Social Media Buttons -->
                 <div class="d-flex justify-space-evenly">
                   <button>
@@ -274,7 +274,7 @@ export default {
   width: 30%;
   margin: auto;
   margin-bottom: 80px;
-  margin-top: 50px;
+  margin-top: 90px;
 }
 
 .flex-text h2 {
@@ -289,11 +289,14 @@ export default {
 .flex-img {
   display: flex;
   justify-content: space-around;
+  width: 94%;
+  margin: 0 3%;
 }
 
 .flex-img2 {
   display: flex;
   justify-content: space-evenly;
+  width: 90%;
   margin-top: 50px;
 }
 
@@ -309,39 +312,10 @@ export default {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
-.user-1 {
-  animation: zoomIn 2s ease forwards, floatImageY 4s ease-in-out infinite;
-  animation-delay: 0s, 3s;
-}
-
-.user-2 {
-  animation: zoomIn 4s ease forwards, floatImageY 4s ease-in-out infinite;
-  animation-delay: 0s, 5s;
-}
-
-.user-3 {
-  animation: zoomIn 6s ease forwards, floatImageY 4s ease-in-out infinite;
-  animation-delay: 0s, 3s;
-}
-
-.user-4 {
-  animation: zoomIn 8s ease forwards, floatImageY 4s ease-in-out infinite;
-  animation-delay: 0s, 5s;
-}
-
-.user-5 {
-  animation: zoomIn 10s ease forwards, floatImageY 4s ease-in-out infinite;
-  animation-delay: 0s, 6s;
-}
-
-.user-6 {
-  animation: zoomIn 12s ease forwards, floatImageY 4s ease-in-out infinite;
-  animation-delay: 0s, 4s;
-}
-
-.user-7 {
-  animation: zoomIn 14s ease forwards, floatImageY 4s ease-in-out infinite;
-  animation-delay: 0s, 6s;
+.user-2 .image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .flex-img img, .flex-img2 img {
@@ -364,44 +338,30 @@ export default {
   }
 
   .user-1 {
-    animation: zoomIn 2s ease forwards, floatImageX 4s ease-in-out infinite;
-    animation-delay: 0s, 3s;
     margin: 5px;
   }
 
   .user-2 {
-    animation: zoomIn 4s ease forwards, floatImageX 4s ease-in-out infinite;
-    animation-delay: 0s, 5s;
     margin: 5px;
   }
 
   .user-3 {
-    animation: zoomIn 6s ease forwards, floatImageX 4s ease-in-out infinite;
-    animation-delay: 0s, 3s;
     margin: 5px;
   }
 
   .user-4 {
-    animation: zoomIn 8s ease forwards, floatImageX 4s ease-in-out infinite;
-    animation-delay: 0s, 5s;
     margin: 5px;
   }
 
   .user-5 {
-    animation: zoomIn 10s ease forwards, floatImageX 4s ease-in-out infinite;
-    animation-delay: 0s, 3s;
     margin: 5px;
   }
 
   .user-6 {
-    animation: zoomIn 12s ease forwards, floatImageX 4s ease-in-out infinite;
-    animation-delay: 0s, 5s;
     margin: 5px;
   }
 
   .user-7 {
-    animation: zoomIn 14s ease forwards, floatImageX 4s ease-in-out infinite;
-    animation-delay: 0s, 3s;
     margin: 5px;
   }
 }

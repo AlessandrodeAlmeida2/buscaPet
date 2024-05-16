@@ -226,7 +226,7 @@ odrag.onpointerdown = function (e) {
   left: 50%;
   -webkit-transform: translate(-50%,-50%) rotateX(90deg);
           transform: translate(-50%,-50%) rotateX(90deg);
-  background: -webkit-radial-gradient(center center, farthest-side , rgba(31, 34, 31, 0.589), transparent);
+  background: -webkit-radial-gradient(center center, farthest-side , rgba(31, 34, 31, 0.356), transparent);
 }
 
 @-webkit-keyframes spin {
