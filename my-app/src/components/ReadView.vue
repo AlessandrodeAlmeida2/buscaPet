@@ -71,7 +71,8 @@
 
 .container-read li img {
   border-radius: 5px;
-  width: 100%;
+  width: 250px;
+  height: 250px;
 }
 
 .container-read li a {
