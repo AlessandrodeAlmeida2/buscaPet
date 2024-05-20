@@ -90,7 +90,7 @@
   margin-top: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
 .option {
   width: 200px;
   margin-left: 30px;
@@ -104,6 +104,9 @@
 
   .container-read li {
     width: 80%;
+  }
+  .container-read li img {
+    width: 105%;
   }
 }
 </style>
