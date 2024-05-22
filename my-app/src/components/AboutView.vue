@@ -14,7 +14,7 @@ export default {
         <!-- Text Box -->
         <div class="flex-text">
           <div>
-            <h2>Aqui estão nosssos heróis</h2>
+            <h2>Aqui estão nossos heróis</h2>
             <p>
               Somos alunos da Univesp, de vários cursos diferentes...
             </p>
@@ -96,29 +96,13 @@ export default {
               <!-- Image -->
               <img
                 alt="..."
-                src="https://randomuser.me/api/portraits/women/84.jpg"
-                class="shadow-lg rounded-full max-w-full mx-auto"
+                src="@/assets/img/matheusduarte.jpg"
+                class=""
                 style="max-width: 120px;"
               />
               <div class="text-center">
-                <h5>Alexa Smith</h5>
-                <p>
-                  UI/UX Designer
-                </p>
-                <!-- Social Media Buttons -->
-                <div class="d-flex justify-space-evenly">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-google"></i>
-                  </button>
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-instagram"></i>
-                  </button>
+                <h5>Matheus Duarte</h5>
+                <p>Tecnologia da informação</p>
                 </div>
               </div>
             </div>
