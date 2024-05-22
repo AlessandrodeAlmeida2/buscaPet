@@ -14,7 +14,7 @@ export default {
         <!-- Text Box -->
         <div class="flex-text">
           <div>
-            <h2>Aqui estão nosssos heróis</h2>
+            <h2>Aqui estão nossos heróis</h2>
             <p>
               Somos alunos da Univesp, de vários cursos diferentes...
             </p>
@@ -98,6 +98,8 @@ export default {
                 alt="..."
                 src="@/assets/img/matheusduarte.jpg"
                 class="shadow-lg rounded-full max-w-full mx-auto"
+                src="@/assets/img/matheusduarte.jpg"
+                class=""
                 style="max-width: 120px;"
               />
               <div class="text-center">
