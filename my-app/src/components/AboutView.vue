@@ -92,7 +92,7 @@ export default {
           </div>
           <!-- Item -->
           <div class="user-3">
-            <div>
+            <div class="image">
               <!-- Image -->
               <img
                 alt="..."
@@ -312,7 +312,7 @@ export default {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
-.user-2 .image {
+.image {
   display: flex;
   flex-direction: column;
   align-items: center;
