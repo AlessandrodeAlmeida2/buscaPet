@@ -96,14 +96,14 @@ export default {
               <!-- Image -->
               <img
                 alt="..."
-                src="https://randomuser.me/api/portraits/women/84.jpg"
+                src="@/assets/img/matheusduarte.jpg"
                 class="shadow-lg rounded-full max-w-full mx-auto"
                 style="max-width: 120px;"
               />
               <div class="text-center">
-                <h5>Alexa Smith</h5>
+                <h5>Matheus Duarte</h5>
                 <p>
-                  UI/UX Designer
+                  Tecnologia da informação
                 </p>
                 <!-- Social Media Buttons -->
                 <div class="d-flex justify-space-evenly">
