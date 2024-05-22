@@ -97,7 +97,7 @@ export default {
               <img
                 alt="..."
                 src="@/assets/img/matheusduarte.jpg"
-                class="shadow-lg rounded-full max-w-full mx-auto"
+                class=""
                 style="max-width: 120px;"
               />
               <div class="text-center">
