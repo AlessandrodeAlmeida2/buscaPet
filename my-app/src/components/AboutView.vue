@@ -98,8 +98,6 @@ export default {
                 alt="..."
                 src="@/assets/img/matheusduarte.jpg"
                 class="shadow-lg rounded-full max-w-full mx-auto"
-                src="@/assets/img/matheusduarte.jpg"
-                class="shadow-lg rounded-full max-w-full mx-auto"
                 style="max-width: 120px;"
               />
               <div class="text-center">
