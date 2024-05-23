@@ -307,9 +307,9 @@ export default {
 
 .flex-img a:hover, .flex-img2 a:hover {
   color: white;
-  background-color: rgba(0, 0, 0, 0.205);
+  background-color: rgba(227, 255, 208, 0.205);
   border-radius: 50%;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 30px rgba(227, 255, 208, 0.205);
 }
 
 .image-about {
