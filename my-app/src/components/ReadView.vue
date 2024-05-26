@@ -65,6 +65,8 @@
   flex-direction: column;
   margin: 10px;
   width: 250px;
+  height: 350px;
+  overflow: hidden;
   animation: zoomIn 2s ease forwards;
   
 }
@@ -72,7 +74,8 @@
 .container-read li img {
   border-radius: 5px;
   width: 250px;
-  height: 250px;
+  height: 220px;
+  object-fit: cover;
 }
 
 .container-read li a {
