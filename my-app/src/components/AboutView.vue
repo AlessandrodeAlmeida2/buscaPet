@@ -123,141 +123,15 @@ export default {
               </div>
             </div>
           </div>
-          <!-- Item -->
-          <div class="user-4">
-            <div>
-              <!-- Image -->
-              <img
-                alt="..."
-                src="https://randomuser.me/api/portraits/women/27.jpg"
-                class="shadow-lg rounded-full max-w-full mx-auto"
-                style="max-width: 120px;"
-              />
-              <div class="text-center">
-                <h5>Jenna Kardi</h5>
-                <p>
-                  Founder and CEO
-                </p>
-                <!-- Social Media Buttons -->
-                <div class="d-flex justify-space-evenly">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-google"></i>
-                  </button>
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-instagram"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <!-- Flex Row Container 2 -->
         <div class="flex-img2">
           <!-- Item -->
-          <div class="user-5">
-            <div>
-              <!-- Image -->
-              <img
-                alt="..."
-                src=""               
-                class=""
-                style="max-width: 120px;"
-              />
-              <div class="text-center">
-                <h5>....</h5>
-                <p>
-                  Ciência de Dados
-                </p>
-                <!-- Social Media Buttons -->
-                <div class="d-flex justify-space-evenly">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-google"></i>
-                  </button>
-                  <a href="" target="_blank">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-github"></i>
-                  </button>
-                  </a>
-                  <a href="" target="_blank">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-linkedin"></i>
-                  </button>
-                </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          
           <!-- Item -->
-          <div class="user-6">
-            <div>
-              <!-- Image -->
-              <img
-                alt="..."
-                src="https://randomuser.me/api/portraits/women/64.jpg"
-                class=""
-                style="max-width: 120px;"
-              />
-              <div class="text-center">
-                <h5>Romina Hadid</h5>
-                <p>
-                  Marketing Specialist
-                </p>
-                <!-- Social Media Buttons -->
-                <div class="d-flex justify-space-evenly">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fa fa-home fa-fw" aria-hidden="true"></i>
-                  </button>
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-facebook-f"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+         
           <!-- Item -->
-          <div class="user-7">
-            <div>
-              <!-- Image -->
-              <img
-                alt="..."
-                src="https://randomuser.me/api/portraits/women/84.jpg"
-                class="shadow-lg rounded-full max-w-full mx-auto"
-                style="max-width: 120px;"
-              />
-              <div class="text-center">
-                <h5>Alexa Smith</h5>
-                <p>
-                  UI/UX Designer
-                </p>
-                <!-- Social Media Buttons -->
-                <div class="d-flex justify-space-evenly">
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-google"></i>
-                  </button>
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                  <button>
-                    <!-- Icon -->
-                    <i class="fab fa-instagram"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
