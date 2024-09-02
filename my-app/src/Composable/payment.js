@@ -18,8 +18,8 @@ export default function setupPayment() {
 
   function redirect() {
     stripe.redirectToCheckout({
-      successUrl: "http://localhost:5173/success",
-      cancelUrl: "http://localhost:5173",
+      successUrl: "https://busca-pet-seven.vercel.app/success",
+      cancelUrl: "https://busca-pet-seven.vercel.app/",
       lineItems: [
         {
           price: "price_1PuBUaKaU1Vv323oO1K4iWIH",
