@@ -8,14 +8,10 @@ export default function setupPayment() {
   const loading = ref(true);
 
   onMounted(async () => {
-    const ELEMENT_TYPE = "card";
     try {
       const stripeKey = `${import.meta.env.VITE_STRIPE_KEY}`;
       stripe = await loadStripe(stripeKey);
       if (stripe) {
-        elements = stripe.elements();
-        const element = elements.create(ELEMENT_TYPE);
-        element.mount("#stripe-element-mount-point");
         loading.value = false;
         console.log("Stripe initialized successfully.");
       } else {
