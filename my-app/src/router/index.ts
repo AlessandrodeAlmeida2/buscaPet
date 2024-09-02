@@ -16,6 +16,8 @@ import Carousel2View from '@/components/Carousel2View.vue';
 import AboutView from '@/components/AboutView.vue';
 import AccountView from '@/components/AccountView.vue'
 import CadastroView from '@/components/CadastroView.vue';
+import PaymentView from '@/components/PaymentView.vue';
+import SuccessView from '@/components/SuccessView.vue';
 
 let localUser;
 
@@ -97,6 +99,16 @@ const router = createRouter({
       name: 'account',
       component: AccountView,
       meta: { requiresAuth: true }
+    },
+    {
+      path: '/payment',
+      name: 'payment',
+      component: PaymentView
+    },
+    {
+      path: '/success',
+      name: 'success',
+      component: SuccessView
     }
   ]
 })
