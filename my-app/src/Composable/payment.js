@@ -2,7 +2,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import { onMounted, ref } from "vue";
 
 let stripe = null;
-let elements = null;
 
 export default function setupPayment() {
   const loading = ref(true);
