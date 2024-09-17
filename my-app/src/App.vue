@@ -41,7 +41,7 @@
 
   const isLoggedIn = ref(false)
 
-  supabase.auth.onAuthStateChange((event, session) => {
+  supabase.auth.onAuthStateChange((event) => {
     isLoggedIn.value = event === 'SIGNED_IN' || event === 'USER_UPDATED';
   });
 
