@@ -18,6 +18,9 @@ import AccountView from '@/components/AccountView.vue'
 import CadastroView from '@/components/CadastroView.vue';
 import PaymentView from '@/components/PaymentView.vue';
 import SuccessView from '@/components/SuccessView.vue';
+import Campanhaview from '@/components/Campanhaview.vue';
+import ContatoCampanhaView from '@/components/ContatoCampanhaView.vue';
+import AnuncioView from '@/components/AnuncioView.vue';
 
 let localUser;
 
@@ -109,7 +112,23 @@ const router = createRouter({
       path: '/success',
       name: 'success',
       component: SuccessView
-    }
+    },
+    {
+      path: '/campanha',
+      name: 'campanha',
+      component: Campanhaview,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/contato_campanha',
+      name: 'contato_campanha',
+      component: ContatoCampanhaView
+    },
+    {
+      path: '/anuncio',
+      name: 'anuncio',
+      component: AnuncioView
+    },
   ]
 })
 

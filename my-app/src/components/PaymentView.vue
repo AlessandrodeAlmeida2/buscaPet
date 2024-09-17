@@ -7,24 +7,33 @@
       </div>
     </div>
   </section>
-  <h2>Or...</h2>
+
   <div class="nes-field mt">
-    <v-btn rounded="lg" dark color="hsla(160, 100%, 37%, 1)" @click="redirect">
-      Pagar R$ 20,00
-    </v-btn>
+    <stripe-pricing-table :pricing-table-id="pricingTableId"
+    :publishable-key="publishableKey">
+    </stripe-pricing-table>
   </div>
 </template>
 
 <script>
-import setupPayment from '@/Composable/payment';
+import { onMounted, ref } from 'vue';
 
 export default {
   name: 'PaymentView',
   setup() {
-    const { redirect, loading } = setupPayment();
+    const publishableKey = ref(import.meta.env.VITE_STRIPE_KEY);
+    const pricingTableId = ref('prctbl_1Q04xGKaU1Vv323oW6l0QpnG');
+
+    onMounted(() => {
+      const script = document.createElement('script');
+      script.src = 'https://js.stripe.com/v3/pricing-table.js';
+      script.async = true;
+      document.body.appendChild(script);
+    });
+
     return {
-      redirect,
-      loading
+      publishableKey,
+      pricingTableId
     };
   }
 };
