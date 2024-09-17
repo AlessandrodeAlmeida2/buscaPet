@@ -18,7 +18,7 @@ import AccountView from '@/components/AccountView.vue'
 import CadastroView from '@/components/CadastroView.vue';
 import PaymentView from '@/components/PaymentView.vue';
 import SuccessView from '@/components/SuccessView.vue';
-import Campanhaview from '@/components/Campanhaview.vue';
+import Campanhaview from '@/components/CampanhaView.vue';
 import ContatoCampanhaView from '@/components/ContatoCampanhaView.vue';
 import AnuncioView from '@/components/AnuncioView.vue';
 
