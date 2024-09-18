@@ -22,7 +22,7 @@ export default {
   name: 'PaymentView',
   setup() {
     const publishableKey = ref(import.meta.env.VITE_STRIPE_KEY);
-    const pricingTableId = ref('prctbl_1Q04xGKaU1Vv323oW6l0QpnG');
+    const pricingTableId = ref('prctbl_1Q0S4JKaU1Vv323oYYb3E03u');
 
     onMounted(() => {
       const script = document.createElement('script');
