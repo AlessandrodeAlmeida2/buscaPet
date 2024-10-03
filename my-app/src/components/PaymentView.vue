@@ -62,7 +62,7 @@ export default {
   display: block; 
   margin: 16px auto; 
   padding: 12px 24px; 
-  background-color: #2eb921; 
+  background-color: var(--primary-color);
   color: white; 
   border: none; 
   border-radius: 5px; 
