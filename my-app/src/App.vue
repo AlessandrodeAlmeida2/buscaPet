@@ -193,7 +193,6 @@ nav {
     position: fixed;
     bottom: 40px; 
     right: 40px;
-    padding: 1px;
     background-color: #fff;
     border-radius: 50%; 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
