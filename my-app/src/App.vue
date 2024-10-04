@@ -25,14 +25,29 @@
     <div class="content">
       <RouterView/>
     </div>
-  </main>  
-  
+  </main>
+ 
     <footer>
       <FooterView/>
     </footer>  
   
 </template>
+<script>
+export default {
+  name: 'Chatbot',
+  mounted() {
+    window.embeddedChatbotConfig = {
+      chatbotId: "RgKTpTpsazL5VTWqh-Bov",
+      domain: "www.chatbase.co"
+    };
 
+    const script = document.createElement('script');
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+}
+</script>
 <script setup>
   import { RouterLink, RouterView, useRoute } from 'vue-router';
   import { ref, onMounted, watch } from 'vue';
@@ -70,6 +85,7 @@
     window.addEventListener('resize', () => {
       showNav.value = window.innerWidth > 768;
     });
+    
   });
 </script>
 
