@@ -217,7 +217,7 @@ nav {
 
   .nav-links {
     position: fixed;
-    bottom: 80px; 
+    top: 80px; 
     right: 80px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
     z-index: 9999; 
@@ -275,9 +275,9 @@ nav {
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 40px; 
+    top: 40px;
     right: 40px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     padding: 16px;
     border-radius: 50%; 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
