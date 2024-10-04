@@ -26,15 +26,18 @@
       <RouterView/>
     </div>
   </main>
- 
+  <div class="chat" @click="openChat">
+    <img src="@/assets/img/OIG2.png" alt="Chat" height="80px">
+  </div>
+
     <footer>
       <FooterView/>
     </footer>  
   
 </template>
-<script>
+<!--<script>
 export default {
-  name: 'Chatbot',
+  name: 'ChatBot',
   mounted() {
     window.embeddedChatbotConfig = {
       chatbotId: "RgKTpTpsazL5VTWqh-Bov",
@@ -47,7 +50,8 @@ export default {
     document.body.appendChild(script);
   }
 }
-</script>
+</script> -->
+
 <script setup>
   import { RouterLink, RouterView, useRoute } from 'vue-router';
   import { ref, onMounted, watch } from 'vue';
@@ -71,6 +75,10 @@ export default {
       }
   }
 
+  const openChat = () => {
+     window.open('https://dogbot-d7fb9f.zapier.app/', '_blank', 'width=400,height=600');
+  };
+
   const showNav = ref(window.innerWidth > 768);
   let route = useRoute();
 
@@ -85,7 +93,7 @@ export default {
     window.addEventListener('resize', () => {
       showNav.value = window.innerWidth > 768;
     });
-    
+
   });
 </script>
 
@@ -173,9 +181,22 @@ nav {
   animation: zoomIn 5s forwards;
 }
 
-.hamburger, .close {
+.hamburger, .chat, .close {
   display: none;
   cursor: pointer;
+}
+
+.chat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 40px; 
+    right: 40px;
+    background-color: #fff;
+    border-radius: 50%; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
+    z-index: 9999; 
 }
 
 .v-application__wrap {
