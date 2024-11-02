@@ -245,6 +245,7 @@ nav {
   .separator3 {
     color: white;
     font-size: 0.5em;
+    font-weight: bold;
   }
 
   .separator4 {
@@ -254,6 +255,7 @@ nav {
     background-color: transparent;
     padding: 0;
     order: 2;
+    font-weight: bold;
   }
 
   .separator6 {
@@ -263,6 +265,7 @@ nav {
     background-color: transparent;
     border: none;
     padding: 0;
+    font-weight: bold;
   }
 
   .hamburger {
