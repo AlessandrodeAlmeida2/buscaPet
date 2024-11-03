@@ -27,7 +27,7 @@
     </div>
   </main>
   <div class="chat" @click="openChat">
-    <img src="@/assets/img/OIG2.png" alt="Chat" height="80px">
+    <img src="@/assets/img/chat.png" alt="Chat" height="70px">
   </div>
 
     <footer>
@@ -194,7 +194,7 @@ nav {
     bottom: 40px; 
     right: 40px;
     background-color: #fff;
-    border-radius: 50%; 
+    border-radius: 50%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
     z-index: 9999; 
 }
