@@ -2,6 +2,10 @@
   <section class="showcase">
     <div class="showcase with-title">
       <h2 class="title">Impulsionar publicação</h2>
+      <p>O meio de pagamento está em modo de teste e para simular um pagamento siga as instruções abaixo:</p>
+      <p>Use esse número de cartão: 4242424242424242</p>
+      <p>Em código de segurança use quaisquer 3 dígitos</p>
+      <p>E em validade um data futura.</p>
       <div class="img">
         <img src="" alt="" srcset="" />
       </div>
@@ -52,10 +56,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .title {
   text-align: center;
   font-size: 2.0em;
+}
+
+.showcase p {
+  margin: 0 auto;
 }
 
 .prosseguir__botao {

@@ -243,26 +243,29 @@ nav {
   .separator1,
   .separator2,
   .separator3 {
-    color: var(--text-color);
+    color: white;
     font-size: 0.5em;
+    font-weight: bold;
   }
 
   .separator4 {
     margin: 0 auto;
-    font-size: 0.5em;
-    color: var(--secondary-color);
+    font-size: 0.6em;
+    color: white;
     background-color: transparent;
     padding: 0;
     order: 2;
+    font-weight: bold;
   }
 
   .separator6 {
     margin: 0 auto;
-    font-size: 0.5em;
-    color: var(--secondary-color);
+    font-size: 0.6em;
+    color: white;
     background-color: transparent;
     border: none;
     padding: 0;
+    font-weight: bold;
   }
 
   .hamburger {
