@@ -1,90 +1,109 @@
 <template>
-  <header>
-    <div class="wrapper">      
-      <div class="logo">
-        <img src="@/assets/img/OIG2.png" alt="Logo">
+  <div id="app">
+    <header>
+      <div class="wrapper">      
+        <div class="logo">
+          <img src="@/assets/img/OIG2.png" alt="Logo">
+        </div>
+        <nav v-if="route.name != 'about'">        
+          <div v-if="showNav" class="nav-links">
+            <div class="close" @click="showNav = !showNav"><i>Menu</i></div>
+            <RouterLink class="separator1" to="/home">Início</RouterLink>
+            <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
+            <RouterLink class="separator3" to="/anuncio">Iniciar uma campanha</RouterLink>
+            <RouterLink v-if="!isLoggedIn" class="separator6" to="/login"><i class="fa-solid fa-user"></i>Entrar</RouterLink>
+            <RouterLink v-else class="separator6" to="/account"><i class="fa-solid fa-user"></i>Minha conta</RouterLink>                   
+            <RouterLink v-if="!isLoggedIn" class="separator4" to="/signup">Cadastre-se</RouterLink>
+            <a v-else class="separator4" @click="signOut">Sair</a>
+          </div>
+          <div class="hamburger" @click="showNav = !showNav">
+            <i>Menu</i>
+          </div>
+        </nav>
       </div>
-      <nav v-if="route.name != 'about'">        
-        <div v-if="showNav" class="nav-links">
-          <div class="close" @click="showNav = !showNav"><i>Menu</i></div>
-          <RouterLink class="separator1" to="/home">Início</RouterLink>
-          <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
-          <RouterLink class="separator3" to="/anuncio">Iniciar uma campanha</RouterLink>
-          <RouterLink v-if="!isLoggedIn" class="separator6" to="/login"><i class="fa-solid fa-user"></i>Entrar</RouterLink>
-          <RouterLink v-else class="separator6" to="/account"><i class="fa-solid fa-user"></i>Minha conta</RouterLink>                   
-          <RouterLink v-if="!isLoggedIn" class="separator4" to="/signup">Cadastre-se</RouterLink>
-          <a v-else class="separator4" @click="signOut">Sair</a>
-        </div>
-        <div class="hamburger" @click="showNav = !showNav">
-          <i>Menu</i>
-        </div>
-      </nav>
+    </header>
+    <main>
+      <div class="content">
+        <RouterView/>
+      </div>
+    </main>
+    <div class="chat" @click="openChat">
+      <img src="@/assets/img/chat.png" alt="Chat" height="70px">
     </div>
-  </header>
-  <main>
-    <div class="content">
-      <RouterView/>
-    </div>
-  </main>
-  <div class="chat" @click="openChat">
-    <img src="@/assets/img/chat.png" alt="Chat" height="70px">
-  </div>
-
     <footer>
       <FooterView/>
     </footer>  
-  
+  </div>
 </template>
-<!--<script>
+
+<script>
+import '@fortawesome/fontawesome-free/css/all.css'
+import { RouterLink, RouterView, useRoute } from 'vue-router';
+import { ref, onMounted, watch } from 'vue';
+import { supabase } from './supabase';
+import FooterView from '@/components/FooterView.vue';
+
 export default {
-  name: 'ChatBot',
-  mounted() {
-    window.embeddedChatbotConfig = {
-      chatbotId: "RgKTpTpsazL5VTWqh-Bov",
-      domain: "www.chatbase.co"
+  name: 'App',
+  setup() {
+    const isLoggedIn = ref(false);
+
+    supabase.auth.onAuthStateChange((event) => {
+      isLoggedIn.value = event === 'SIGNED_IN' || event === 'USER_UPDATED';
+    });
+
+    //logout
+    async function signOut() {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Logout has been successful");
+      }
+    }
+
+    const openChat = () => {
+      window.open('https://dogbot-d7fb9f.zapier.app/', '_blank', 'width=400,height=600');
     };
 
-    const script = document.createElement('script');
-    script.src = "https://www.chatbase.co/embed.min.js";
-    script.defer = true;
-    document.body.appendChild(script);
+    const showNav = ref(window.innerWidth > 768);
+    let route = useRoute();
+
+    watch(route, (newRoute) => {
+      route = newRoute;
+    });
+
+    onMounted(async () => {
+      const { user } = await supabase.auth.getSession();
+      isLoggedIn.value = user ? true : false;
+      
+      window.addEventListener('resize', () => {
+        showNav.value = window.innerWidth > 768;
+      });
+
+      // Google Analytics
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MXGQ6BE5CG');
+
+      // Adiciona o script do Google Analytics
+      const script = document.createElement('script');
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-MXGQ6BE5CG";
+      script.async = true;
+      document.head.appendChild(script);
+    });
+
+    return {
+      isLoggedIn,
+      signOut,
+      openChat,
+      showNav,
+      route
+    };
   }
 }
-</script> -->
-
-<script> 
-import '@fortawesome/fontawesome-free/css/all.css' 
-import { RouterLink, RouterView, useRoute } from 'vue-router'; 
-import { ref, onMounted, watch } from 'vue'; import { supabase } from './supabase'; 
-import FooterView from '@/components/FooterView.vue'; 
-
-export default { 
-  name: 'App', setup() { 
-    const isLoggedIn = ref(false); supabase.auth.onAuthStateChange((event) => { 
-      isLoggedIn.value = event === 'SIGNED_IN' || event === 'USER_UPDATED'; 
-    }); //logout 
-    async function signOut() { const { error } = await supabase.auth.signOut(); 
-    if (error) { console.log(error); } 
-    else { console.log("Logout has been successful"); } } 
-    
-    const openChat = () => { 
-      window.open('https://dogbot-d7fb9f.zapier.app/', '_blank', 'width=400,height=600'); 
-    }; const showNav = ref(window.innerWidth > 768); 
-    
-    let route = useRoute(); watch(route, (newRoute) => { route = newRoute; }); 
-    onMounted(async () => { 
-      const { user } = await supabase.auth.getSession(); isLoggedIn.value = user ? true : false; 
-      window.addEventListener('resize', () => { showNav.value = window.innerWidth > 768; 
-
-      }); // Google Analytics 
-      window.dataLayer = window.dataLayer || []; 
-      function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); 
-      gtag('config', 'G-MXGQ6BE5CG'); }); return { 
-        isLoggedIn, signOut, openChat, showNav, route 
-      }; 
-    } 
-  } 
-  </script>
+</script>
 
 <style>
 
