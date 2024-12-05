@@ -52,50 +52,39 @@ export default {
 }
 </script> -->
 
-<script setup>
-  import { RouterLink, RouterView, useRoute } from 'vue-router';
-  import { ref, onMounted, watch } from 'vue';
-  import { supabase } from './supabase';
-  import FooterView from '@/components/FooterView.vue';
+<script> 
+import '@fortawesome/fontawesome-free/css/all.css' 
+import { RouterLink, RouterView, useRoute } from 'vue-router'; 
+import { ref, onMounted, watch } from 'vue'; import { supabase } from './supabase'; 
+import FooterView from '@/components/FooterView.vue'; 
 
-  const isLoggedIn = ref(false)
-
-  supabase.auth.onAuthStateChange((event) => {
-    isLoggedIn.value = event === 'SIGNED_IN' || event === 'USER_UPDATED';
-  });
-
-  //logout
-  async function signOut() {
-      const { error } = await supabase.auth.signOut();
-
-      if (error) {
-          console.log(error);
-      } else {
-          console.log("Logout has been successful")
-      }
-  }
-
-  const openChat = () => {
-     window.open('https://dogbot-d7fb9f.zapier.app/', '_blank', 'width=400,height=600');
-  };
-
-  const showNav = ref(window.innerWidth > 768);
-  let route = useRoute();
-
-  watch(route, (newRoute) => {
-    route = newRoute;
-  });
-
-  onMounted(async () => {
-    const { user } = await supabase.auth.getSession();
-    isLoggedIn.value = user ? true : false;
+export default { 
+  name: 'App', setup() { 
+    const isLoggedIn = ref(false); supabase.auth.onAuthStateChange((event) => { 
+      isLoggedIn.value = event === 'SIGNED_IN' || event === 'USER_UPDATED'; 
+    }); //logout 
+    async function signOut() { const { error } = await supabase.auth.signOut(); 
+    if (error) { console.log(error); } 
+    else { console.log("Logout has been successful"); } } 
     
-    window.addEventListener('resize', () => {
-      showNav.value = window.innerWidth > 768;
-    });
+    const openChat = () => { 
+      window.open('https://dogbot-d7fb9f.zapier.app/', '_blank', 'width=400,height=600'); 
+    }; const showNav = ref(window.innerWidth > 768); 
+    
+    let route = useRoute(); watch(route, (newRoute) => { route = newRoute; }); 
+    onMounted(async () => { 
+      const { user } = await supabase.auth.getSession(); isLoggedIn.value = user ? true : false; 
+      window.addEventListener('resize', () => { showNav.value = window.innerWidth > 768; 
 
-  });
-</script>
+      }); // Google Analytics 
+      window.dataLayer = window.dataLayer || []; 
+      function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); 
+      gtag('config', 'G-MXGQ6BE5CG'); }); return { 
+        isLoggedIn, signOut, openChat, showNav, route 
+      }; 
+    } 
+  } 
+  </script>
 
 <style>
 
