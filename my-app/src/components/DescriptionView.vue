@@ -1,110 +1,139 @@
 <script setup>
-  import { ref, onMounted } from 'vue'
-  import { supabase } from '../supabase'
-  import { useRoute } from 'vue-router';
+import { ref, onMounted } from 'vue'
+import { supabase } from '../supabase'
+import { useRoute } from 'vue-router'
+import L from 'leaflet'
 
-  const route = useRoute() // use useRoute to access the current route
-  const getId = route.params.getId // use getId instead of itemId
+const route = useRoute()
+const getId = route.params.getId
 
-  const item = ref(null)
-  const userPhone = ref('');
-  const nameUser = ref('');
-  const userId = ref(null);
+const item = ref(null)
+const userPhone = ref('')
+const nameUser = ref('')
+const userId = ref(null)
+const latitude = ref(null)
+const longitude = ref(null)
 
-  //seeCurrentUser
-  async function seeUser() { 
-    const { data, error } = await supabase.from('tabela1').select('user_id').eq('id', getId)
-
-        if (!error) {
-            userId.value = data[0].user_id
-            console.log(userId.value);
-        } else {
-            console.log('No active session');
-        }
+async function seeUser() { 
+  const { data, error } = await supabase.from('tabela1').select('user_id').eq('id', getId)
+  if (!error && data.length > 0) {
+    userId.value = data[0].user_id
+  } else {
+    console.log('Erro ao obter user_id:', error)
+  }
 }
 
-  async function seePhoneUser() {
-    const { data, error } = await supabase
-      .from('usuario')
-      .select('cel').eq('id', userId.value)
-      
-    if (!error) {
-      userPhone.value = data[0].cel;
-      
-      console.log(userPhone.value);
-    } else {
-        console.log( error);
-    }
+async function seePhoneUser() {
+  const { data, error } = await supabase
+    .from('usuario')
+    .select('cel')
+    .eq('id', userId.value)
+    
+  if (!error && data.length > 0) {
+    userPhone.value = data[0].cel
+  } else {
+    console.log('Erro ao obter celular:', error)
   }
+}
 
-  async function seeNameUser() {
-    const { data, error } = await supabase
-      .from('usuario')
-      .select('nameUser', 'city').eq('id', userId.value)
-      
-    if (!error) {
-      nameUser.value = data[0].nameUser
-      console.log(nameUser.value);
-    } else {
-        console.log( error);
-    }
+async function seeNameUser() {
+  const { data, error } = await supabase
+    .from('usuario')
+    .select('nameUser')
+    .eq('id', userId.value)
+    
+  if (!error && data.length > 0) {
+    nameUser.value = data[0].nameUser
+  } else {
+    console.log('Erro ao obter nome:', error)
   }
+}
 
-
-  onMounted(async () => {
-    const { data } = await supabase.from('tabela1').select().eq('id', getId)
+onMounted(async () => {
+  const { data } = await supabase.from('tabela1').select().eq('id', getId)
+  if (data && data.length > 0) {
     item.value = data[0]
-    console.log(getId)
+    latitude.value = item.value.latitude
+    longitude.value = item.value.longitude
     await seeUser()
     await seePhoneUser()
     await seeNameUser()
-  })
+
+    // Espera o DOM renderizar o mapa
+    setTimeout(() => {
+      if (latitude.value && longitude.value) {
+        const map = L.map('map-view').setView([latitude.value, longitude.value], 14)
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map)
+
+        L.marker([latitude.value, longitude.value]).addTo(map)
+          .bindPopup('Local onde foi encontrado/visto')
+          .openPopup()
+      }
+    }, 200) // atraso para garantir que #map-view foi renderizado
+  }
+})
 </script>
 
 <template>
-    <div class="container-description" v-if="item">
-      <h1>{{ item.situation }}</h1>
-        <img :src="item.photo_url" alt="Image" />
-        <div class="text-description">
-            Situação: {{ item.situation }}<br>
-            Nome: {{ item.name }}<br>
-            Gênero: {{ item.genero }}<br>
-            Espécie: {{ item.specie }}<br>
-            Descrição:<br>
-            {{ item.description }}<br>
-            Cidade: {{ item.city }}<br>
-            Recompensa: {{ item.recompensa }}<br>
-            <div class="text-center">
-            <v-menu transition="fab-transition">
-              <template v-slot:activator="{ props }">
-                <v-btn
-                  color="hsla(160, 100%, 37%, 1)"
-                  dark
-                  v-bind="props"
-                >
-                  contato
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item>
-                  <v-list-item-title>
-                    Nome: {{ nameUser }}
-                  </v-list-item-title>
-                  <v-list-item-title>
-                    celular: {{ userPhone }}
-                  </v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </div>
-        </div>
+  <div class="container-description" v-if="item">
+    <h1>{{ item.situation }}</h1>
+    <img :src="item.photo_url" alt="Imagem" />
+    
+    <div class="text-description">
+      Situação: {{ item.situation }}<br>
+      Nome: {{ item.name }}<br>
+      Gênero: {{ item.genero }}<br>
+      Espécie: {{ item.specie }}<br>
+      Descrição:<br>
+      {{ item.description }}<br>
+      Cidade: {{ item.city }}<br>
+      Recompensa: {{ item.recompensa }}<br>
+
+      <div v-if="latitude && longitude" class="mt-4">
+        Localização aproximada:<br>
+      </div>
+
+      <div id="map-view" style="height: 300px; margin-top: 16px; border-radius: 8px;"></div>
+
+      <div class="text-center mt-4">
+        <v-menu transition="fab-transition">
+          <template v-slot:activator="{ props }">
+            <v-btn
+              color="hsla(160, 100%, 37%, 1)"
+              dark
+              v-bind="props"
+            >
+              contato
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>
+                Nome: {{ nameUser }}
+              </v-list-item-title>
+              <v-list-item-title>
+                celular: {{ userPhone }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
     </div>
-    <div v-else>
+  </div>
+  <div v-else>
     Carregando...
   </div>
 </template>
 
-<style>
+<style scoped>
+#map-view {
+  width: 100%;
+  height: 300px;
+}
+
 .container-description {
     display: flex;
     align-items: center;
