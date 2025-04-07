@@ -1,24 +1,88 @@
 <script setup>
-  import { ref, onMounted } from 'vue'
+  import { ref, onMounted, watch } from 'vue'
   import { supabase } from '../supabase'
   import { useRouter } from 'vue-router';
+  import L from 'leaflet'
 
   const route = useRouter()
   const itemId = route.currentRoute.value.params.itemId
+  const map = ref(null)
+  const marker = ref(null)
 
 
   const item = ref(null)
 
-  onMounted(async () => {
-    const { data } = await supabase.from('tabela1').select().eq('id', itemId)
-    item.value = data[0]
-    console.log(itemId)
+  watch(async () => {
+  const { data } = await supabase.from('tabela1').select().eq('id', itemId)
+  item.value = data[0]
+
+  // Tenta obter localização do usuário
+  navigator.geolocation.getCurrentPosition((position) => {
+    const userLat = position.coords.latitude
+    const userLng = position.coords.longitude
+
+    const lat = item.value.latitude ? parseFloat(item.value.latitude) : userLat
+    const lng = item.value.longitude ? parseFloat(item.value.longitude) : userLng
+
+    setTimeout(() => {
+      map.value = L.map('update-map').setView([lat, lng], 14)
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+      }).addTo(map.value)
+
+      if (item.value.latitude && item.value.longitude) {
+        marker.value = L.marker([lat, lng], { draggable: true }).addTo(map.value)
+      }
+
+      map.value.on('click', (e) => {
+        const { lat, lng } = e.latlng
+
+        if (marker.value) {
+          marker.value.setLatLng([lat, lng])
+        } else {
+          marker.value = L.marker([lat, lng], { draggable: true }).addTo(map.value)
+        }
+
+        item.value.latitude = lat
+        item.value.longitude = lng
+      })
+    }, 300)
+
+  }, (error) => {
+    console.error('Erro ao obter localização do usuário:', error)
+
+    // Fallback caso o usuário não permita ou ocorra erro
+    const fallbackLat = -22.19
+    const fallbackLng = -46.74
+
+    setTimeout(() => {
+      map.value = L.map('update-map').setView([fallbackLat, fallbackLng], 14)
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+      }).addTo(map.value)
+
+      map.value.on('click', (e) => {
+        const { lat, lng } = e.latlng
+
+        if (marker.value) {
+          marker.value.setLatLng([lat, lng])
+        } else {
+          marker.value = L.marker([lat, lng], { draggable: true }).addTo(map.value)
+        }
+
+        item.value.latitude = lat
+        item.value.longitude = lng
+      })
+    }, 300)
   })
+})
 
   const updateItem = async () => {
     const { data, error } = await supabase
       .from('tabela1')
-      .update({ name: item.value.name, description: item.value.description, recompensa: item.value.recompensa, genero: item.value.genero, specie: item.value.specie, situation: item.value.situation, city: item.value.city })
+      .update({ name: item.value.name, description: item.value.description, recompensa: item.value.recompensa, genero: item.value.genero, specie: item.value.specie, situation: item.value.situation, city: item.value.city, latitude: item.value.latitude, longitude: item.value.longitude })
       .eq('id', itemId)
 
     if (error) {
@@ -97,8 +161,11 @@
                 v-model="item.recompensa"
                 hide-details
                 variant="solo-filled"
-            ></v-text-field>
-            
+            ></v-text-field><br>
+
+            <p>Localização aproximada:</p>
+            <div id="update-map" style="height: 300px; margin-top: 20px;"></div>
+
         </v-form>
       </v-sheet>
       
