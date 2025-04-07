@@ -3,6 +3,18 @@ import { ref, onMounted } from 'vue'
 import { supabase } from '../supabase'
 import { useRoute } from 'vue-router'
 import L from 'leaflet'
+import 'leaflet-routing-machine'
+
+import markerIcon from 'leaflet/dist/images/marker-icon.png'
+import markerShadow from 'leaflet/dist/images/marker-shadow.png'
+
+// Corrige o caminho das imagens
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
 const route = useRoute()
 const getId = route.params.getId
@@ -59,7 +71,6 @@ onMounted(async () => {
     await seePhoneUser()
     await seeNameUser()
 
-    // Espera o DOM renderizar o mapa
     setTimeout(() => {
       if (latitude.value && longitude.value) {
         const map = L.map('map-view').setView([latitude.value, longitude.value], 14)
@@ -71,10 +82,37 @@ onMounted(async () => {
         L.marker([latitude.value, longitude.value]).addTo(map)
           .bindPopup('Local onde foi encontrado/visto')
           .openPopup()
+
+        // Pega a localização do usuário e traça a rota
+        navigator.geolocation.getCurrentPosition(position => {
+          const userLatLng = L.latLng(position.coords.latitude, position.coords.longitude);
+          const animalLatLng = L.latLng(latitude.value, longitude.value);
+
+          const routingControl = L.Routing.control({
+            waypoints: [
+              userLatLng,
+              animalLatLng
+            ],
+            routeWhileDragging: false,
+            addWaypoints: false,
+            draggableWaypoints: false,
+            show: false, // <-- oculta o painel de texto
+            createMarker: () => null
+          }).addTo(map);
+
+          // Remove o container HTML com instruções
+          const routingContainer = document.querySelector('.leaflet-routing-container');
+          if (routingContainer) {
+            routingContainer.remove();
+          }
+        }, error => {
+          console.error('Erro ao acessar localização do usuário:', error);
+        });
       }
-    }, 200) // atraso para garantir que #map-view foi renderizado
+    }, 300); // Dá tempo pro DOM renderizar o mapa
   }
-})
+});
+
 </script>
 
 <template>
@@ -132,6 +170,10 @@ onMounted(async () => {
 #map-view {
   width: 100%;
   height: 300px;
+}
+
+.leaflet-routing-container {
+  display: none !important;
 }
 
 .container-description {

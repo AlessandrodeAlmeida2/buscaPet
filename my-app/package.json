@@ -21,6 +21,7 @@
     "@supabase/supabase-js": "^2.39.8",
     "aos": "^2.3.4",
     "leaflet": "^1.9.4",
+    "leaflet-routing-machine": "^3.2.12",
     "my-app": "file:",
     "pinia": "^2.1.7",
     "stripe": "^16.9.0",
