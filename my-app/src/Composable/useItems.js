@@ -16,7 +16,14 @@ export default function useItems(initialCategoria) {
     items.value = data;
   }
 
-  watch(categoria, getItems);
+  async function getItems2() {
+    let query = supabase.from('tabela2').select();
 
-  return { items, categoria, getItems }
+    const { data } = await query;
+    items.value = data;
+  }
+
+  watch(categoria, getItems, getItems2);
+
+  return { items, categoria, getItems, getItems2 }
 }

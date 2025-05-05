@@ -7,20 +7,7 @@
         Conheça nossos parceiros, dedicados a resgatar, cuidar e encontrar lares para animais em situação de vulnerabilidade.
       </p>
       <div class="ongs-list">
-        <div class="ong-card">
-          <a
-            href="https://www.instagram.com/amoremquatropatas1?igsh=eWZjNXRkYmRvZWt0"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Cachorro e Gato"/>
-            <div class="ong-info">
-              <span class="ong-name">Amor em Quatro Patas</span>
-              <span class="ong-instagram">@amoremquatropatas1</span>
-            </div>
-            <span class="instagram-icon"> <i class="fa-brands fa-instagram"></i> </span>
-          </a>
-        </div>
+        
         <div class="ong-card">
           <a
             href="https://www.instagram.com/uparc_animalrc?igsh=MWRicHMybW0zNnJ3Zw%3D%3D"

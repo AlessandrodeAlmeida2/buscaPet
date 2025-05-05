@@ -130,9 +130,25 @@ const router = createRouter({
       component: AnuncioView
     },
     {
-      path: '/ongs_parceiras',
-      name: 'ongs_parceiras',
+      path: '/ongs',
+      name: 'ongs',
       component: () => import('@/components/OngsParceiras.vue')
+    },
+    {
+      path: '/cadastro_adocao',
+      name: 'cadastro_adocao',
+      component: () => import('@/components/CadastroAdocao.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/adocao',
+      name: 'adocao',
+      component: () => import('@/components/Adocao.vue')
+    },
+    {
+      path: '/description2/:getId',
+      name: 'description2',
+      component: () => import('@/components/Description2.vue')
     },
   ]
 })

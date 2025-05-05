@@ -6,7 +6,7 @@
           <h3 class="busca-pet">BuscaPet</h3>
           <RouterLink class="custom-row" to="/home">Início</RouterLink>
           <RouterLink class="custom-row" to="/About">Quem somos?</RouterLink>
-          <a class="custom-row" href="https://alessandrodealmeida.dev.br/" target="_blank">Blog</a>
+          <RouterLink class="custom-row" to="/ongs">Ongs</RouterLink>
         </div>
       </v-row>     
     </v-footer>
@@ -66,6 +66,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .custom-footer {
+    padding-top: 50px;
+  }
   .footer-items {
   display: flex;
   flex-direction: column;
