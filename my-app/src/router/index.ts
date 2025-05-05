@@ -129,6 +129,11 @@ const router = createRouter({
       name: 'anuncio',
       component: AnuncioView
     },
+    {
+      path: '/ongs_parceiras',
+      name: 'ongs_parceiras',
+      component: () => import('@/components/OngsParceiras.vue')
+    },
   ]
 })
 

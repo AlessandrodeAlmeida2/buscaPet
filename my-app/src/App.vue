@@ -11,6 +11,7 @@
             <RouterLink class="separator1" to="/home">Início</RouterLink>
             <RouterLink class="separator2" to="/read">Buscar um pet</RouterLink>
             <RouterLink class="separator3" to="/anuncio">Iniciar uma campanha</RouterLink>
+            <RouterLink class="separator3" to="/ongs_parceiras">Ongs</RouterLink>
             <RouterLink v-if="!isLoggedIn" class="separator6" to="/login"><i class="fa-solid fa-user"></i>Entrar</RouterLink>
             <RouterLink v-else class="separator6" to="/account"><i class="fa-solid fa-user"></i>Minha conta</RouterLink>                   
             <RouterLink v-if="!isLoggedIn" class="separator4" to="/signup">Cadastre-se</RouterLink>
