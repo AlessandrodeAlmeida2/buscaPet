@@ -4,6 +4,7 @@ import { supabase } from '../supabase'
 export default function useItems(initialCategoria) {
   const items = ref([])
   const categoria = ref(initialCategoria)
+  const specie = ref('')
 
   async function getItems() {
     let query = supabase.from('tabela1').select();
@@ -18,12 +19,17 @@ export default function useItems(initialCategoria) {
 
   async function getItems2() {
     let query = supabase.from('tabela2').select();
-
+    
+    if (specie.value !== '') {
+      query = query.eq('specie', specie.value);
+    }
+    
     const { data } = await query;
     items.value = data;
   }
 
-  watch(categoria, getItems, getItems2);
+  watch(categoria, getItems);
+  watch(specie, getItems2);
 
-  return { items, categoria, getItems, getItems2 }
+  return { items, categoria, specie, getItems, getItems2 }
 }
